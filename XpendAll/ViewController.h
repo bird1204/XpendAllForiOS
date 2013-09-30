@@ -10,8 +10,5 @@
 
 @interface ViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray *photoImages;
-
-@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
-
+@property (strong,nonatomic)NSArray *funtionsList;
 @end

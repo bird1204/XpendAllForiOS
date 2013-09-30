@@ -23,6 +23,14 @@
 		49138B5117F9C43000446C97 /* XpendAllTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B5017F9C43000446C97 /* XpendAllTests.m */; };
 		49138B6117F9C64900446C97 /* collectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B6017F9C64900446C97 /* collectionCell.m */; };
 		49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 49138B6317F9D4DE00446C97 /* gamebaby.png */; };
+		49138B6D17F9DA1800446C97 /* suspendShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B6B17F9DA1800446C97 /* suspendShopViewController.m */; };
+		49138B6E17F9DA1800446C97 /* suspendShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */; };
+		49138B7317F9E1B400446C97 /* productViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7117F9E1B400446C97 /* productViewController.m */; };
+		49138B7417F9E1B400446C97 /* productViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7217F9E1B400446C97 /* productViewController.xib */; };
+		49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7617F9E22E00446C97 /* suspendViewController.m */; };
+		49138B7917F9E22E00446C97 /* suspendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7717F9E22E00446C97 /* suspendViewController.xib */; };
+		49138B7E17F9E24C00446C97 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7C17F9E24C00446C97 /* aboutUsViewController.m */; };
+		49138B7F17F9E24C00446C97 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7D17F9E24C00446C97 /* aboutUsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +66,18 @@
 		49138B5F17F9C64900446C97 /* collectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionCell.h; sourceTree = "<group>"; };
 		49138B6017F9C64900446C97 /* collectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionCell.m; sourceTree = "<group>"; };
 		49138B6317F9D4DE00446C97 /* gamebaby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebaby.png; sourceTree = "<group>"; };
+		49138B6A17F9DA1800446C97 /* suspendShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendShopViewController.h; sourceTree = "<group>"; };
+		49138B6B17F9DA1800446C97 /* suspendShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendShopViewController.m; sourceTree = "<group>"; };
+		49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendShopViewController.xib; sourceTree = "<group>"; };
+		49138B7017F9E1B400446C97 /* productViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productViewController.h; sourceTree = "<group>"; };
+		49138B7117F9E1B400446C97 /* productViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productViewController.m; sourceTree = "<group>"; };
+		49138B7217F9E1B400446C97 /* productViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productViewController.xib; sourceTree = "<group>"; };
+		49138B7517F9E22E00446C97 /* suspendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendViewController.h; sourceTree = "<group>"; };
+		49138B7617F9E22E00446C97 /* suspendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendViewController.m; sourceTree = "<group>"; };
+		49138B7717F9E22E00446C97 /* suspendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendViewController.xib; sourceTree = "<group>"; };
+		49138B7B17F9E24C00446C97 /* aboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutUsViewController.h; sourceTree = "<group>"; };
+		49138B7C17F9E24C00446C97 /* aboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutUsViewController.m; sourceTree = "<group>"; };
+		49138B7D17F9E24C00446C97 /* aboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutUsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +137,10 @@
 		49138B2B17F9C43000446C97 /* XpendAll */ = {
 			isa = PBXGroup;
 			children = (
+				49138B8017F9E25200446C97 /* aboutUs */,
+				49138B7A17F9E23300446C97 /* suspend */,
+				49138B6F17F9E17500446C97 /* product */,
+				49138B6917F9D9F800446C97 /* suspendShop */,
 				49138B6517F9D4EF00446C97 /* image */,
 				49138B6217F9D4AC00446C97 /* collectionCell */,
 				49138B3417F9C43000446C97 /* AppDelegate.h */,
@@ -174,6 +198,46 @@
 				49138B6317F9D4DE00446C97 /* gamebaby.png */,
 			);
 			name = image;
+			sourceTree = "<group>";
+		};
+		49138B6917F9D9F800446C97 /* suspendShop */ = {
+			isa = PBXGroup;
+			children = (
+				49138B6A17F9DA1800446C97 /* suspendShopViewController.h */,
+				49138B6B17F9DA1800446C97 /* suspendShopViewController.m */,
+				49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */,
+			);
+			name = suspendShop;
+			sourceTree = "<group>";
+		};
+		49138B6F17F9E17500446C97 /* product */ = {
+			isa = PBXGroup;
+			children = (
+				49138B7017F9E1B400446C97 /* productViewController.h */,
+				49138B7117F9E1B400446C97 /* productViewController.m */,
+				49138B7217F9E1B400446C97 /* productViewController.xib */,
+			);
+			name = product;
+			sourceTree = "<group>";
+		};
+		49138B7A17F9E23300446C97 /* suspend */ = {
+			isa = PBXGroup;
+			children = (
+				49138B7517F9E22E00446C97 /* suspendViewController.h */,
+				49138B7617F9E22E00446C97 /* suspendViewController.m */,
+				49138B7717F9E22E00446C97 /* suspendViewController.xib */,
+			);
+			name = suspend;
+			sourceTree = "<group>";
+		};
+		49138B8017F9E25200446C97 /* aboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				49138B7B17F9E24C00446C97 /* aboutUsViewController.h */,
+				49138B7C17F9E24C00446C97 /* aboutUsViewController.m */,
+				49138B7D17F9E24C00446C97 /* aboutUsViewController.xib */,
+			);
+			name = aboutUs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +316,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49138B7417F9E1B400446C97 /* productViewController.xib in Resources */,
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
 				49138B3017F9C43000446C97 /* InfoPlist.strings in Resources */,
 				49138B3917F9C43000446C97 /* Main.storyboard in Resources */,
+				49138B7F17F9E24C00446C97 /* aboutUsViewController.xib in Resources */,
+				49138B7917F9E22E00446C97 /* suspendViewController.xib in Resources */,
+				49138B6E17F9DA1800446C97 /* suspendShopViewController.xib in Resources */,
 				49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +343,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49138B3C17F9C43000446C97 /* ViewController.m in Sources */,
+				49138B6D17F9DA1800446C97 /* suspendShopViewController.m in Sources */,
+				49138B7317F9E1B400446C97 /* productViewController.m in Sources */,
 				49138B3617F9C43000446C97 /* AppDelegate.m in Sources */,
+				49138B7E17F9E24C00446C97 /* aboutUsViewController.m in Sources */,
 				49138B3217F9C43000446C97 /* main.m in Sources */,
 				49138B6117F9C64900446C97 /* collectionCell.m in Sources */,
+				49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +558,7 @@
 				49138B5617F9C43000446C97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49138B5717F9C43000446C97 /* Build configuration list for PBXNativeTarget "XpendAllTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +567,7 @@
 				49138B5917F9C43000446C97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
