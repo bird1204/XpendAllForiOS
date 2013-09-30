@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  XpendAllForiOS
+//  XpendAll
 //
-//  Created by BirdChiu on 13/9/28.
+//  Created by BirdChiu on 13/9/30.
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
