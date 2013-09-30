@@ -8,18 +8,23 @@
 
 #import "ViewController.h"
 #import "collectionCell.h"
+#import "suspendShopViewController.h"
+#import "productViewController.h"
+#import "suspendViewController.h"
+#import "aboutUsViewController.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+@synthesize funtionsList = _funtionsList;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self.collectionView registerClass:[collectionCell class] forCellWithReuseIdentifier:@"CVcell"];
-
+    self.title = @"Title";
+    _funtionsList=[[NSArray alloc]initWithObjects:@"find shop",@"find product",@"help someone",@"about us", nil];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -48,7 +53,7 @@
     collectionCell *cell = (collectionCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor blueColor];
     
-    cell.titleLabel.text=[NSString stringWithFormat:@"%d",indexPath.row];
+    cell.titleLabel.text=[NSString stringWithFormat:@"%@",[_funtionsList objectAtIndex:indexPath.row]];
     cell.imageView.image=[UIImage imageNamed:@"gamebaby"];
     //cell.titleLabel.text=[NSString stringWithFormat:@"%d",indexPath.row];
     return cell;
@@ -56,9 +61,28 @@
 
 #pragma mark -
 #pragma mark - select collectionView
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
-    
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"select");
+    UIViewController *view=nil;
+    switch (indexPath.row) {
+        case 0:
+            view = (UIViewController*)[[suspendShopViewController alloc]initWithNibName:@"suspendShopViewController" bundle:nil];
+            break;
+        case 1:
+            view = (UIViewController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
+            break;
+        case 2:
+            view = (UIViewController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
+            break;
+        case 3:
+            view = (UIViewController*)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];
+            break;
+        default:
+            break;
+    }
+    view.title=[NSString stringWithFormat:@"%@",[_funtionsList objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:view animated:TRUE];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
