@@ -1,18 +1,18 @@
 //
-//  XpendAllForiOSTests.m
-//  XpendAllForiOSTests
+//  XpendAllTests.m
+//  XpendAllTests
 //
-//  Created by BirdChiu on 13/9/28.
+//  Created by BirdChiu on 13/9/30.
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface XpendAllForiOSTests : XCTestCase
+@interface XpendAllTests : XCTestCase
 
 @end
 
-@implementation XpendAllForiOSTests
+@implementation XpendAllTests
 
 - (void)setUp
 {
