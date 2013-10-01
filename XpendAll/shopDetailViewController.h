@@ -15,11 +15,11 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail;
 -(void)zoomToFitMapAnnotations:(MKMapView*)mapView;
+- (IBAction)toFullScreen:(id)sender;
 
 @property (strong, nonatomic) NSDictionary *shopDetail;
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
-
 @property (strong, nonatomic) IBOutlet UILabel *shopName;
 @property (strong, nonatomic) IBOutlet UILabel *shopTel;
 @property (strong, nonatomic) IBOutlet UILabel *shopAddress;
