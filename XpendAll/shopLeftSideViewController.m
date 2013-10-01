@@ -1,36 +1,25 @@
 //
-//  suspendShopViewController.m
+//  shopLeftSideViewController.m
 //  XpendAll
 //
 //  Created by BirdChiu on 13/10/1.
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
-#import "suspendShopViewController.h"
+#import "shopLeftSideViewController.h"
 #import "GetJsonURLString.h"
-#import "shopDetailViewController.h"
-@interface suspendShopViewController ()
+
+@interface shopLeftSideViewController ()
 
 @end
 
-@implementation suspendShopViewController
-
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
-        [webGetter setDelegate:self];
-        // Custom initialization
-    }
-    return self;
-}
+@implementation shopLeftSideViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-
     }
     return self;
 }
@@ -38,7 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSArray *urlList=[[NSArray alloc]initWithObjects:GetGovermentHQ,GetGovermentTogether,GetGovermentDelivery, nil];
+    self.categoriesList=[[NSArray alloc]initWithObjects:@"",@"",@"愛心補給站",@"老人共餐",@"溫馨送餐", nil];
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +52,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [webGetter.webData count];
+    return [self.categoriesList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,13 +60,11 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
-    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
-    cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
-    cell.imageView.image=[UIImage  imageNamed:@"gamebaby"];
+    cell.textLabel.text=[self.categoriesList objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -121,27 +113,11 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row]];
-    [self.navigationController pushViewController:detailView animated:TRUE];
+    NSArray *urlList=[[NSArray alloc]initWithObjects:@"",@"",GetGovermentHQ,GetGovermentTogether,GetGovermentDelivery, nil];
+    suspendMainView=[[suspendShopViewController alloc]initWithNibName:@"suspendShopViewController" bundle:nil url:[urlList  objectAtIndex:indexPath.row]];
+    suspendMainView.title=[self.categoriesList objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:suspendMainView animated:YES];
 }
-
-#pragma mark - doThingAfterWebJsonIsOKFromDelegate
-
-
--(void)doThingAfterWebJsonIsOKFromDelegate{
-    [self.tableView reloadData];
-}
-
  
 
 

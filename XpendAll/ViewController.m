@@ -6,12 +6,15 @@
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
+#import "MFSideMenu.h"
 #import "ViewController.h"
 #import "collectionCell.h"
 #import "suspendShopViewController.h"
+#import "shopLeftSideViewController.h"
 #import "productViewController.h"
 #import "suspendViewController.h"
 #import "aboutUsViewController.h"
+#import "GetJsonURLString.h"
 
 @interface ViewController ()
 
@@ -63,11 +66,10 @@
 #pragma mark - select collectionView
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"select");
     UIViewController *view=nil;
     switch (indexPath.row) {
         case 0:
-            view = (UIViewController*)[[suspendShopViewController alloc]initWithNibName:@"suspendShopViewController" bundle:nil];
+            view = (UIViewController*)[[suspendShopViewController alloc]initWithNibName:@"suspendShopViewController" bundle:nil url:GetGovermentHQ];
             break;
         case 1:
             view = (UIViewController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
@@ -81,8 +83,18 @@
         default:
             break;
     }
-    view.title=[NSString stringWithFormat:@"%@",[_funtionsList objectAtIndex:indexPath.row]];
-    [self.navigationController pushViewController:view animated:TRUE];
+    view.title=[_funtionsList objectAtIndex:indexPath.row];
+    
+    if (indexPath.row==0) {
+        shopLeftSideViewController *leftSideView=[[shopLeftSideViewController alloc]initWithNibName:@"shopLeftSideViewController" bundle:nil];
+        MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:view leftMenuViewController:leftSideView rightMenuViewController:nil];
+        self.navigationController.title=@"愛心補給站";
+        [self.navigationController pushViewController:container animated:TRUE];
+    }else{
+        [self.navigationController pushViewController:view animated:TRUE];
+    }
+   
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
