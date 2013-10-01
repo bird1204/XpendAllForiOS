@@ -69,6 +69,8 @@
 		497DA9D517FAB09C0029F0AC /* shopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9D317FAB09C0029F0AC /* shopDetailViewController.m */; };
 		497DA9D617FAB09C0029F0AC /* shopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9D417FAB09C0029F0AC /* shopDetailViewController.xib */; };
 		497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9D817FAB9F80029F0AC /* Annotation.m */; };
+		497DA9E217FABFFE0029F0AC /* fullScreenMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9E017FABFFE0029F0AC /* fullScreenMapViewController.m */; };
+		497DA9E317FABFFE0029F0AC /* fullScreenMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9E117FABFFE0029F0AC /* fullScreenMapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +193,9 @@
 		497DA9D417FAB09C0029F0AC /* shopDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopDetailViewController.xib; sourceTree = "<group>"; };
 		497DA9D817FAB9F80029F0AC /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		497DA9D917FAB9F80029F0AC /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		497DA9DF17FABFFE0029F0AC /* fullScreenMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fullScreenMapViewController.h; sourceTree = "<group>"; };
+		497DA9E017FABFFE0029F0AC /* fullScreenMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fullScreenMapViewController.m; sourceTree = "<group>"; };
+		497DA9E117FABFFE0029F0AC /* fullScreenMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fullScreenMapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +261,7 @@
 		49138B2B17F9C43000446C97 /* XpendAll */ = {
 			isa = PBXGroup;
 			children = (
+				497DA9DB17FABF890029F0AC /* fullScreenMap */,
 				497DA9D717FAB9D70029F0AC /* Annotation */,
 				497DA9D117FAB0490029F0AC /* shopDetail */,
 				497DA9C917FAA1850029F0AC /* shopLeftSide */,
@@ -520,6 +526,16 @@
 			name = Annotation;
 			sourceTree = "<group>";
 		};
+		497DA9DB17FABF890029F0AC /* fullScreenMap */ = {
+			isa = PBXGroup;
+			children = (
+				497DA9DF17FABFFE0029F0AC /* fullScreenMapViewController.h */,
+				497DA9E017FABFFE0029F0AC /* fullScreenMapViewController.m */,
+				497DA9E117FABFFE0029F0AC /* fullScreenMapViewController.xib */,
+			);
+			name = fullScreenMap;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -600,6 +616,7 @@
 				49138B7417F9E1B400446C97 /* productViewController.xib in Resources */,
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
 				49138B3017F9C43000446C97 /* InfoPlist.strings in Resources */,
+				497DA9E317FABFFE0029F0AC /* fullScreenMapViewController.xib in Resources */,
 				49138B3917F9C43000446C97 /* Main.storyboard in Resources */,
 				497DA9CE17FAA1BD0029F0AC /* shopLeftSideViewController.xib in Resources */,
 				49138B7F17F9E24C00446C97 /* aboutUsViewController.xib in Resources */,
@@ -662,6 +679,7 @@
 				497DA9B417FA93A60029F0AC /* Reachability.m in Sources */,
 				497DA99F17FA92750029F0AC /* ASINetworkQueue.m in Sources */,
 				497DA9A517FA92750029F0AC /* ASICloudFilesObject.m in Sources */,
+				497DA9E217FABFFE0029F0AC /* fullScreenMapViewController.m in Sources */,
 				497DA9A717FA92750029F0AC /* ASICloudFilesRequest.m in Sources */,
 				497DA9A917FA92750029F0AC /* ASIS3BucketObject.m in Sources */,
 				49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */,
