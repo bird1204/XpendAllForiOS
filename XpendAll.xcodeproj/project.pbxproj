@@ -33,8 +33,6 @@
 		49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 49138B6317F9D4DE00446C97 /* gamebaby.png */; };
 		49138B6D17F9DA1800446C97 /* suspendShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B6B17F9DA1800446C97 /* suspendShopViewController.m */; };
 		49138B6E17F9DA1800446C97 /* suspendShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */; };
-		49138B7317F9E1B400446C97 /* productViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7117F9E1B400446C97 /* productViewController.m */; };
-		49138B7417F9E1B400446C97 /* productViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7217F9E1B400446C97 /* productViewController.xib */; };
 		49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7617F9E22E00446C97 /* suspendViewController.m */; };
 		49138B7917F9E22E00446C97 /* suspendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7717F9E22E00446C97 /* suspendViewController.xib */; };
 		49138B7E17F9E24C00446C97 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7C17F9E24C00446C97 /* aboutUsViewController.m */; };
@@ -78,6 +76,11 @@
 		497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9D817FAB9F80029F0AC /* Annotation.m */; };
 		497DA9E217FABFFE0029F0AC /* fullScreenMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9E017FABFFE0029F0AC /* fullScreenMapViewController.m */; };
 		497DA9E317FABFFE0029F0AC /* fullScreenMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9E117FABFFE0029F0AC /* fullScreenMapViewController.xib */; };
+		49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE117FBF0C000104E94 /* shopViewController.m */; };
+		49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE217FBF0C000104E94 /* shopViewController.xib */; };
+		49CF6BE817FBF46000104E94 /* productViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE617FBF46000104E94 /* productViewController.m */; };
+		49CF6BE917FBF46000104E94 /* productViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE717FBF46000104E94 /* productViewController.xib */; };
+		49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,9 +127,6 @@
 		49138B6A17F9DA1800446C97 /* suspendShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendShopViewController.h; sourceTree = "<group>"; };
 		49138B6B17F9DA1800446C97 /* suspendShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendShopViewController.m; sourceTree = "<group>"; };
 		49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendShopViewController.xib; sourceTree = "<group>"; };
-		49138B7017F9E1B400446C97 /* productViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productViewController.h; sourceTree = "<group>"; };
-		49138B7117F9E1B400446C97 /* productViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productViewController.m; sourceTree = "<group>"; };
-		49138B7217F9E1B400446C97 /* productViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productViewController.xib; sourceTree = "<group>"; };
 		49138B7517F9E22E00446C97 /* suspendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendViewController.h; sourceTree = "<group>"; };
 		49138B7617F9E22E00446C97 /* suspendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendViewController.m; sourceTree = "<group>"; };
 		49138B7717F9E22E00446C97 /* suspendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendViewController.xib; sourceTree = "<group>"; };
@@ -210,6 +210,14 @@
 		497DA9DF17FABFFE0029F0AC /* fullScreenMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fullScreenMapViewController.h; sourceTree = "<group>"; };
 		497DA9E017FABFFE0029F0AC /* fullScreenMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fullScreenMapViewController.m; sourceTree = "<group>"; };
 		497DA9E117FABFFE0029F0AC /* fullScreenMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fullScreenMapViewController.xib; sourceTree = "<group>"; };
+		49CF6BE017FBF0C000104E94 /* shopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopViewController.h; sourceTree = "<group>"; };
+		49CF6BE117FBF0C000104E94 /* shopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopViewController.m; sourceTree = "<group>"; };
+		49CF6BE217FBF0C000104E94 /* shopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopViewController.xib; sourceTree = "<group>"; };
+		49CF6BE517FBF46000104E94 /* productViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productViewController.h; sourceTree = "<group>"; };
+		49CF6BE617FBF46000104E94 /* productViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productViewController.m; sourceTree = "<group>"; };
+		49CF6BE717FBF46000104E94 /* productViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productViewController.xib; sourceTree = "<group>"; };
+		49CF6BEA17FBF56500104E94 /* MKMapView+ZoomMapRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomMapRegion.h"; sourceTree = "<group>"; };
+		49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomMapRegion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,26 +283,12 @@
 		49138B2B17F9C43000446C97 /* XpendAll */ = {
 			isa = PBXGroup;
 			children = (
-				497DA9DB17FABF890029F0AC /* fullScreenMap */,
-				497DA9D717FAB9D70029F0AC /* Annotation */,
-				497DA9D117FAB0490029F0AC /* shopDetail */,
-				497DA9C917FAA1850029F0AC /* shopLeftSide */,
-				497DA9BE17FAA10C0029F0AC /* MFSideMenu */,
-				497DA9B017FA93A60029F0AC /* Reachability */,
-				497DA96017FA92750029F0AC /* ASIHTTPRequest */,
-				497DA95F17FA8E5A0029F0AC /* GetJsonURLString.h */,
-				497DA95E17FA8D260029F0AC /* WebJsonDataGetter */,
-				49138B8017F9E25200446C97 /* aboutUs */,
-				49138B7A17F9E23300446C97 /* suspend */,
-				49138B6F17F9E17500446C97 /* product */,
-				49138B6917F9D9F800446C97 /* suspendShop */,
+				49CF6BDD17FBF05000104E94 /* logical */,
+				49CF6BDC17FBF03000104E94 /* view */,
 				49138B6517F9D4EF00446C97 /* image */,
-				49138B6217F9D4AC00446C97 /* collectionCell */,
 				49138B3417F9C43000446C97 /* AppDelegate.h */,
 				49138B3517F9C43000446C97 /* AppDelegate.m */,
 				49138B3717F9C43000446C97 /* Main.storyboard */,
-				49138B3A17F9C43000446C97 /* ViewController.h */,
-				49138B3B17F9C43000446C97 /* ViewController.m */,
 				49138B3D17F9C43000446C97 /* Images.xcassets */,
 				49138B2C17F9C43000446C97 /* Supporting Files */,
 			);
@@ -367,9 +361,9 @@
 		49138B6F17F9E17500446C97 /* product */ = {
 			isa = PBXGroup;
 			children = (
-				49138B7017F9E1B400446C97 /* productViewController.h */,
-				49138B7117F9E1B400446C97 /* productViewController.m */,
-				49138B7217F9E1B400446C97 /* productViewController.xib */,
+				49CF6BE517FBF46000104E94 /* productViewController.h */,
+				49CF6BE617FBF46000104E94 /* productViewController.m */,
+				49CF6BE717FBF46000104E94 /* productViewController.xib */,
 			);
 			name = product;
 			sourceTree = "<group>";
@@ -557,6 +551,65 @@
 			name = fullScreenMap;
 			sourceTree = "<group>";
 		};
+		49CF6BDC17FBF03000104E94 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				49138B8017F9E25200446C97 /* aboutUs */,
+				49CF6BDE17FBF08000104E94 /* cell */,
+				497DA9DB17FABF890029F0AC /* fullScreenMap */,
+				49138B6F17F9E17500446C97 /* product */,
+				49CF6BDF17FBF0AA00104E94 /* shop */,
+				497DA9D117FAB0490029F0AC /* shopDetail */,
+				497DA9C917FAA1850029F0AC /* shopLeftSide */,
+				49138B7A17F9E23300446C97 /* suspend */,
+				49138B6917F9D9F800446C97 /* suspendShop */,
+				49138B3A17F9C43000446C97 /* ViewController.h */,
+				49138B3B17F9C43000446C97 /* ViewController.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		49CF6BDD17FBF05000104E94 /* logical */ = {
+			isa = PBXGroup;
+			children = (
+				49CF6BED17FBF57100104E94 /* zoomToFitMapAnnotations */,
+				497DA9BE17FAA10C0029F0AC /* MFSideMenu */,
+				497DA9B017FA93A60029F0AC /* Reachability */,
+				497DA96017FA92750029F0AC /* ASIHTTPRequest */,
+				497DA95F17FA8E5A0029F0AC /* GetJsonURLString.h */,
+				497DA95E17FA8D260029F0AC /* WebJsonDataGetter */,
+			);
+			name = logical;
+			sourceTree = "<group>";
+		};
+		49CF6BDE17FBF08000104E94 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				497DA9D717FAB9D70029F0AC /* Annotation */,
+				49138B6217F9D4AC00446C97 /* collectionCell */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		49CF6BDF17FBF0AA00104E94 /* shop */ = {
+			isa = PBXGroup;
+			children = (
+				49CF6BE017FBF0C000104E94 /* shopViewController.h */,
+				49CF6BE117FBF0C000104E94 /* shopViewController.m */,
+				49CF6BE217FBF0C000104E94 /* shopViewController.xib */,
+			);
+			name = shop;
+			sourceTree = "<group>";
+		};
+		49CF6BED17FBF57100104E94 /* zoomToFitMapAnnotations */ = {
+			isa = PBXGroup;
+			children = (
+				49CF6BEA17FBF56500104E94 /* MKMapView+ZoomMapRegion.h */,
+				49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */,
+			);
+			name = zoomToFitMapAnnotations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -635,7 +688,7 @@
 			files = (
 				497DA9D617FAB09C0029F0AC /* shopDetailViewController.xib in Resources */,
 				48E9ADA617FB530F00C3B11F /* main.jpg in Resources */,
-				49138B7417F9E1B400446C97 /* productViewController.xib in Resources */,
+				49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */,
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
 				48E9ADA017FB4A1F00C3B11F /* otherpage.jpg in Resources */,
 				49138B3017F9C43000446C97 /* InfoPlist.strings in Resources */,
@@ -653,6 +706,7 @@
 				49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */,
 				48E9AD9717FB39C400C3B11F /* btn_map.png in Resources */,
 				48E9AD9817FB39C400C3B11F /* btn_help.png in Resources */,
+				49CF6BE917FBF46000104E94 /* productViewController.xib in Resources */,
 				48E9ADA417FB4C2300C3B11F /* name.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,11 +734,12 @@
 				49138B6D17F9DA1800446C97 /* suspendShopViewController.m in Sources */,
 				497DA99E17FA92750029F0AC /* ASIInputStream.m in Sources */,
 				497DA9A217FA92750029F0AC /* ASICloudFilesContainer.m in Sources */,
+				49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */,
 				497DA9A617FA92750029F0AC /* ASICloudFilesObjectRequest.m in Sources */,
+				49CF6BE817FBF46000104E94 /* productViewController.m in Sources */,
 				497DA9A117FA92750029F0AC /* ASICloudFilesCDNRequest.m in Sources */,
 				497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */,
 				497DA9A317FA92750029F0AC /* ASICloudFilesContainerRequest.m in Sources */,
-				49138B7317F9E1B400446C97 /* productViewController.m in Sources */,
 				497DA9CD17FAA1BD0029F0AC /* shopLeftSideViewController.m in Sources */,
 				497DA9AD17FA92750029F0AC /* ASIS3ServiceRequest.m in Sources */,
 				497DA9AC17FA92750029F0AC /* ASIS3Request.m in Sources */,
@@ -706,6 +761,7 @@
 				497DA99B17FA92750029F0AC /* ASIDownloadCache.m in Sources */,
 				497DA9B417FA93A60029F0AC /* Reachability.m in Sources */,
 				497DA99F17FA92750029F0AC /* ASINetworkQueue.m in Sources */,
+				49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */,
 				497DA9A517FA92750029F0AC /* ASICloudFilesObject.m in Sources */,
 				497DA9E217FABFFE0029F0AC /* fullScreenMapViewController.m in Sources */,
 				497DA9A717FA92750029F0AC /* ASICloudFilesRequest.m in Sources */,

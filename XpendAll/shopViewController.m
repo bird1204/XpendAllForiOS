@@ -1,29 +1,28 @@
 //
-//  productViewController.m
+//  shopViewController.m
 //  XpendAll
 //
 //  Created by BirdChiu on 13/10/2.
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
-#import "productViewController.h"
+#import "shopViewController.h"
 #import "GetJsonURLString.h"
+#import "shopDetailViewController.h"
 
-@interface productViewController ()
+@interface shopViewController ()
 
 @end
 
-@implementation productViewController
+@implementation shopViewController
 @synthesize tableView = _tableView;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetGovermentHQ];
+        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
         [webGetter setDelegate:self];
-
+        // Custom initialization
     }
     return self;
 }
@@ -114,7 +113,9 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
+    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:detailView animated:TRUE];
 }
 
 #pragma mark - doThingAfterWebJsonIsOKFromDelegate
@@ -123,6 +124,7 @@
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     [_tableView reloadData];
 }
+
 
 
 

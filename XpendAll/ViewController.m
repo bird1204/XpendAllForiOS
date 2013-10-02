@@ -9,12 +9,12 @@
 #import "MFSideMenu.h"
 #import "ViewController.h"
 #import "collectionCell.h"
-#import "suspendShopViewController.h"
 #import "shopLeftSideViewController.h"
 #import "productViewController.h"
 #import "suspendViewController.h"
 #import "aboutUsViewController.h"
 #import "GetJsonURLString.h"
+#import "shopViewController.h"
 
 @interface ViewController ()
 
@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     self.title = @"Title";
-     [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"Find Product",@"Help Someone",@"About Us", nil];
    _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_food",@"btn_help",@"btn_about", nil];
     // Do any additional setup after loading the view, typically from a nib.
@@ -72,7 +72,7 @@
     UIViewController *view=nil;
     switch (indexPath.row) {
         case 0:
-            view = (UIViewController*)[[suspendShopViewController alloc]initWithNibName:@"suspendShopViewController" bundle:nil url:GetGovermentHQ];
+            view = (UIViewController*)[[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:GetGovermentHQ];
             break;
         case 1:
             view = (UIViewController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];

@@ -14,7 +14,6 @@
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail;
--(void)zoomToFitMapAnnotations:(MKMapView*)mapView;
 - (IBAction)toFullScreen:(id)sender;
 
 @property (strong, nonatomic) NSDictionary *shopDetail;
