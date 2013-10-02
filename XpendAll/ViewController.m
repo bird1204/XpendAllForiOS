@@ -27,12 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Title";
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"Find Product",@"Help Someone",@"About Us", nil];
-   _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_food",@"btn_help",@"btn_about", nil];
+    _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_food",@"btn_help",@"btn_about", nil];
     // Do any additional setup after loading the view, typically from a nib.
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -87,12 +87,20 @@
             break;
     }
     view.title=[_funtionsList objectAtIndex:indexPath.row];
+//    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
+
     
     if (indexPath.row==0) {
-        shopLeftSideViewController *leftSideView=[[shopLeftSideViewController alloc]initWithNibName:@"shopLeftSideViewController" bundle:nil];
-        MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:view leftMenuViewController:leftSideView rightMenuViewController:nil];
-        self.navigationController.title=@"愛心補給站";
-        [self.navigationController pushViewController:container animated:TRUE];
+//        UIBarButtonItem *item=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"gamebaby"] style:UIBarButtonItemStylePlain target:self.navigationItem action:nil];
+//        //設定navigationBar背景
+//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"name"]  forBarMetrics:UIBarMetricsDefault];
+//        [self.navigationController.navigationBar setFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)]
+//        [self.navigationItem setBackBarButtonItem:item];
+
+//        shopLeftSideViewController *leftSideView=[[shopLeftSideViewController alloc]initWithNibName:@"shopLeftSideViewController" bundle:nil];
+//        MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:view leftMenuViewController:leftSideView rightMenuViewController:nil];
+        //[self.navigationController pushViewController:container animated:TRUE];
+        [self.navigationController pushViewController:view animated:TRUE];
     }else{
         [self.navigationController pushViewController:view animated:TRUE];
     }
@@ -117,6 +125,5 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
 }
-
 
 @end

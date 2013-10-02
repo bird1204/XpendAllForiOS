@@ -9,6 +9,7 @@
 #import "shopViewController.h"
 #import "GetJsonURLString.h"
 #import "shopDetailViewController.h"
+#import "MFSideMenu.h"
 
 @interface shopViewController ()
 
@@ -22,6 +23,7 @@
     if (self) {
         webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
         [webGetter setDelegate:self];
+
         // Custom initialization
     }
     return self;
@@ -30,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
 }
 
