@@ -10,6 +10,7 @@
 #import "fullScreenMapViewController.h"
 #import "shopDetailViewController.h"
 #import "Annotation.h"
+#import "fullScreenMapViewController.h"
 @interface shopDetailViewController ()
 
 @end
@@ -66,10 +67,12 @@
 - (IBAction)toFullScreen:(id)sender {
     fullScreenMapViewController *fullScreen=[[fullScreenMapViewController alloc]initWithNibName:@"fullScreenMapViewController" bundle:nil shopDetail:self.shopDetail];
     [self presentViewController:fullScreen animated:YES completion:nil];
+    fullScreen.shoptitle.text=self.shopName.text;
+    fullScreen.address.text=self.shopAddress.text;
     
 }
 
 - (IBAction)btnback:(id)sender {
-     [self.navigationController popViewControllerAnimated: YES];
+    [self.navigationController popViewControllerAnimated: YES];
 }
 @end

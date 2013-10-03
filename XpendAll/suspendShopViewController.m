@@ -69,10 +69,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
+    
     // Configure the cell...
     cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
     cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
-    cell.imageView.image=[UIImage  imageNamed:@"gamebaby"];
+    cell.imageView.image=[UIImage  imageNamed:@"plate"];
+    
     return cell;
 }
 

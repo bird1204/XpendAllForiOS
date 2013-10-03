@@ -61,11 +61,12 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
     // Configure the cell...
     cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
     cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
-    cell.imageView.image=[UIImage  imageNamed:@"gamebaby"];
+    cell.imageView.image=[UIImage  imageNamed:@"plate"];
+     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -126,4 +127,7 @@
 
 
 
+- (IBAction)backbtn:(id)sender {
+        [self.navigationController popViewControllerAnimated: YES];
+}
 @end

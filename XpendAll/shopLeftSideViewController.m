@@ -9,6 +9,7 @@
 #import "shopLeftSideViewController.h"
 #import "GetJsonURLString.h"
 #import "MFSideMenu.h"
+#import "ViewController.h"
 
 @interface shopLeftSideViewController ()
 
@@ -66,6 +67,7 @@
     
     // Configure the cell...
     cell.textLabel.text=[self.categoriesList objectAtIndex:indexPath.row];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -127,10 +129,12 @@
     suspendMainView = [[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:[urlList  objectAtIndex:indexPath.row]];
     suspendMainView.title=[self.categoriesList objectAtIndex:indexPath.row];
     
-    
+    UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *mainViewController =
+    (UINavigationController*)[main instantiateViewControllerWithIdentifier: @"ViewController"];
     
     UINavigationController *navigationController = (UINavigationController*)self.menuContainerViewController.centerViewController;
-    NSArray *controllers = [NSArray arrayWithObject:suspendMainView];
+    NSArray *controllers = [NSArray arrayWithObjects:mainViewController,suspendMainView, nil];
     navigationController.viewControllers = controllers;
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 }

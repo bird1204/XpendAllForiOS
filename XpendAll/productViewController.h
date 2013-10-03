@@ -12,5 +12,6 @@
     WebJsonDataGetter *webGetter;
 }
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
+- (IBAction)backbtn:(id)sender;
 
 @end

@@ -15,6 +15,7 @@
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url;
+- (IBAction)backbtn:(id)sender;
 
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
 @end

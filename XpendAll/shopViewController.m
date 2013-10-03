@@ -63,11 +63,12 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
     // Configure the cell...
     cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
     cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
-    cell.imageView.image=[UIImage  imageNamed:@"gamebaby"];
+    cell.imageView.image=[UIImage  imageNamed:@"plate"];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -128,7 +129,11 @@
     [_tableView reloadData];
 }
 
-
-
+- (IBAction)backbtn:(id)sender {
+    NSLog(@"jij \n %@",self.navigationController.viewControllers);
+    
+    //[self.navigationController popViewControllerAnimated: YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

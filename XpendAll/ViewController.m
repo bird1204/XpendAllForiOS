@@ -69,19 +69,19 @@
 #pragma mark - select collectionView
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *view=nil;
+    UINavigationController *view=nil;
     switch (indexPath.row) {
         case 0:
-            view = (UIViewController*)[[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:GetGovermentHQ];
+            view = (UINavigationController*)[[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:GetGovermentHQ];
             break;
         case 1:
-            view = (UIViewController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
+            view = (UINavigationController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
             break;
         case 2:
-            view = (UIViewController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
+            view = (UINavigationController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
             break;
         case 3:
-            view = (UIViewController*)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];
+            view = (UINavigationController*)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];
             break;
         default:
             break;
