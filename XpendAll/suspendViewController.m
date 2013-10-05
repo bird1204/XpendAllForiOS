@@ -13,6 +13,14 @@
 @end
 
 @implementation suspendViewController
+@synthesize address=_address;
+@synthesize remark=_remark;
+@synthesize textTitle=_textTitle;
+@synthesize category=_category;
+@synthesize quantity=_quantity;
+@synthesize pickerView=_pickerView;
+
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -27,18 +35,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(self.remark.frame.origin.x+self.remark.frame.size.height+10, 0, self.view.frame.size.width, self.view.frame.size.height-self.remark.frame.origin.x-self.remark.frame.size.height)];
-    [self.pickerView setDelegate:self];
-    [self.pickerView setDataSource:self];
-    [self.pickerView setBackgroundColor:[UIColor clearColor]];
-    [self.pickerView setShowsSelectionIndicator:YES];
+    _pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(_remark.frame.origin.x+_remark.frame.size.height+10, 0, self.view.frame.size.width, self.view.frame.size.height-_remark.frame.origin.x-_remark.frame.size.height)];
+    [_pickerView setDelegate:self];
+    [_pickerView setDataSource:self];
+    [_pickerView setBackgroundColor:[UIColor clearColor]];
+    [_pickerView setShowsSelectionIndicator:YES];
     
-    self.category.inputView.backgroundColor=[UIColor blueColor];
-    self.category.inputView=self.pickerView;
-    self.quantity.inputView=self.pickerView;
+//    _title.keyboardType=UIKeyboardTypeAlphabet;
+//    _address.keyboardType=UIKeyboardTypeAlphabet;
+//    _remark.keyboardType=UIKeyboardTypeAlphabet;
+//    
+//    _title.returnKeyType=UIReturnKeyDone;
+//    _address.returnKeyType=UIReturnKeyDone;
+//    _remark.returnKeyType=UIReturnKeyDone;
+
+    _category.inputView.backgroundColor=[UIColor blueColor];
+    _category.inputView=_pickerView;
+    _quantity.inputView=_pickerView;
     
-    self.categories=[[NSArray alloc]initWithObjects:@"食品",@"飲品",@"物資",@"特殊狀況", nil];
-    self.quantities=[[NSArray alloc]initWithObjects:
+    _categories=[[NSArray alloc]initWithObjects:@"食品",@"飲品",@"物資",@"特殊狀況", nil];
+    _quantities=[[NSArray alloc]initWithObjects:
                      @"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",
                      @"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",
                      @"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30", nil];
@@ -61,15 +77,15 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    self.remark=nil;
-    self.title=nil;
-    self.address=nil;
-    self.category=nil;
-    self.quantity=nil;
-    self.pickerView=nil;
-    self.categories=nil;
-    self.quantities=nil;
-    self.workingField=nil;
+    _remark=nil;
+    _textTitle=nil;
+    _address=nil;
+    _category=nil;
+    _quantity=nil;
+    _pickerView=nil;
+    _categories=nil;
+    _quantities=nil;
+    _workingField=nil;
 }
 
 - (IBAction)backbtn:(id)sender {
@@ -77,12 +93,11 @@
 }
 
 - (IBAction)reportSuspend:(id)sender {
-//    NSString *title=[self.title text];
-    NSLog(@"title  ");
-//    NSLog(@"address  %@",self.address.text);
-//    NSLog(@"quantity  %@",self.quantity.text);
-//    NSLog(@"category  %@",self.category.text);
-//    NSLog(@"remark  %@",self.remark.text);
+    NSLog(@"title  %@",[_textTitle text]);
+    NSLog(@"address  %@",[_address text]);
+    NSLog(@"quantity  %@",[_quantity text]);
+    NSLog(@"category  %@",[_category text]);
+    NSLog(@"remark  %@",[_remark text]);
     
 }
 
@@ -92,11 +107,11 @@
 #pragma mark - pickerView datesource
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     NSInteger count=0;
-    if (self.workingField==self.category) {
-        count = [self.categories count];
+    if (_workingField==_category) {
+        count = [_categories count];
     }
-    if (self.workingField==self.quantity) {
-        count = [self.quantities count];
+    if (_workingField==_quantity) {
+        count = [_quantities count];
     }
     return count;
 }
@@ -107,11 +122,11 @@
 
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     NSString *titleString=@"";
-    if (self.workingField==self.category) {
-        titleString= [self.categories objectAtIndex:row];
+    if (_workingField==_category) {
+        titleString= [_categories objectAtIndex:row];
     }
-    if (self.workingField==self.quantity) {
-        titleString=  [self.quantities objectAtIndex:row];
+    if (_workingField==_quantity) {
+        titleString=  [_quantities objectAtIndex:row];
     }
     
     return titleString;
@@ -123,11 +138,11 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    if (self.workingField==self.category) {
-        [self.category setText:[self.categories objectAtIndex:row]];
+    if (_workingField==_category) {
+        [_category setText:[_categories objectAtIndex:row]];
     }
-    if (self.workingField==self.quantity) {
-        [self.quantity setText:[self.quantities objectAtIndex:row]];
+    if (_workingField==_quantity) {
+        [_quantity setText:[_quantities objectAtIndex:row]];
     }
 }
 
@@ -135,10 +150,17 @@
 #pragma mark -
 #pragma mark - textField delegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    self.workingField=textField;
-    [self.pickerView reloadAllComponents];
+    _workingField=textField;
+    [_pickerView reloadAllComponents];
     return YES;
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:TRUE];
+    return YES;
+}
+
+
 #pragma mark -
 #pragma mark - gestureRecognizer delegate
 - (void)tapRecognized:(UIGestureRecognizer *)gestureRecognizer {
@@ -152,7 +174,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocation *loc=(CLLocation*)[locations lastObject];
 
-    geoCoder=[[CLGeocoder alloc]init];
+    CLGeocoder *geoCoder=[[CLGeocoder alloc]init];
     [geoCoder reverseGeocodeLocation:loc completionHandler:^(NSArray *placemarks,NSError *error){
         
         CLPlacemark *place=[[CLPlacemark alloc]initWithPlacemark:[placemarks objectAtIndex:0]];
@@ -170,8 +192,8 @@
 //        NSLog(@"%@",[place subThoroughfare]);       //96號
 //        NSLog(@"%@",[place region]);                //
         
-        NSString *address=[NSString stringWithFormat:@"%@%@%@",[place subLocality],[place thoroughfare],[place subThoroughfare]];
-        [self.address setText:address];
+        NSString *addressDetail=[NSString stringWithFormat:@"%@%@%@",[place subLocality],[place thoroughfare],[place subThoroughfare]];
+        [_address setText:addressDetail];
         if (error) {
             NSLog(@"%@",error);
         }

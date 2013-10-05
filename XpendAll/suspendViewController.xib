@@ -10,7 +10,7 @@
                 <outlet property="category" destination="G0A-jH-dCJ" id="N11-dv-S1k"/>
                 <outlet property="quantity" destination="Rb5-6x-Er1" id="jqS-9Q-eBr"/>
                 <outlet property="remark" destination="Dcu-DF-R8u" id="HJR-DC-Wln"/>
-                <outlet property="title" destination="dW9-Pe-Cdy" id="aZy-P3-Rgz"/>
+                <outlet property="textTitle" destination="dW9-Pe-Cdy" id="j7W-Wl-AmF"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -83,25 +83,25 @@
                         <action selector="reportSuspend:" destination="-1" eventType="touchUpInside" id="1up-Cf-pYc"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dW9-Pe-Cdy">
+                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dW9-Pe-Cdy">
                     <rect key="frame" x="91" y="122" width="193" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="9s3-IC-3r3"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbp-YV-c5Q">
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbp-YV-c5Q">
                     <rect key="frame" x="91" y="170" width="193" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="yPr-GI-hRK"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rb5-6x-Er1">
+                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rb5-6x-Er1">
                     <rect key="frame" x="91" y="214" width="193" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -110,7 +110,7 @@
                         <outlet property="delegate" destination="-1" id="c07-8C-0GV"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-jH-dCJ">
+                <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-jH-dCJ">
                     <rect key="frame" x="91" y="263" width="193" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -125,11 +125,11 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dcu-DF-R8u">
+                <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dcu-DF-R8u">
                     <rect key="frame" x="91" y="315" width="193" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
