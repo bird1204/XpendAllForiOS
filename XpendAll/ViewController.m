@@ -6,15 +6,14 @@
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
-#import "MFSideMenu.h"
 #import "ViewController.h"
 #import "collectionCell.h"
-#import "shopLeftSideViewController.h"
 #import "productViewController.h"
 #import "suspendViewController.h"
 #import "aboutUsViewController.h"
 #import "GetJsonURLString.h"
 #import "shopViewController.h"
+#import "shopWithKmlViewController.h"
 
 @interface ViewController ()
 
@@ -88,19 +87,29 @@
     }
     view.title=[_funtionsList objectAtIndex:indexPath.row];
 //    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
-
     
     if (indexPath.row==0) {
-//        UIBarButtonItem *item=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"gamebaby"] style:UIBarButtonItemStylePlain target:self.navigationItem action:nil];
-//        //設定navigationBar背景
-//        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"name"]  forBarMetrics:UIBarMetricsDefault];
-//        [self.navigationController.navigationBar setFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)]
-//        [self.navigationItem setBackBarButtonItem:item];
-
-//        shopLeftSideViewController *leftSideView=[[shopLeftSideViewController alloc]initWithNibName:@"shopLeftSideViewController" bundle:nil];
-//        MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:view leftMenuViewController:leftSideView rightMenuViewController:nil];
-        //[self.navigationController pushViewController:container animated:TRUE];
-        [self.navigationController pushViewController:view animated:TRUE];
+        shopWithKmlViewController *kml=[[shopWithKmlViewController alloc]initWithNibName:@"shopWithKmlViewController" bundle:nil];
+        
+        kml.title=@"待用地圖";
+        kml.tabBarItem.image=[UIImage imageNamed:@"gamebaby"]; //tab bar item 的 小圖示(30*30 + 60*60)
+        view.title=@"政府認證";
+        view.tabBarItem.image=[UIImage imageNamed:@"gamebaby"];
+        
+        UITabBarController *tabBarController = [[UITabBarController alloc] init];
+        [tabBarController setViewControllers:[NSArray arrayWithObjects:view,kml,nil]];
+        
+        //backgroundImage 是設定tabBar的背景
+        //tabBarController.tabBar.backgroundImage=[UIImage imageNamed:@"icon-googleplus"];
+        
+        //UIBarStyleDefault 是透明
+        //tabBarController.tabBar.barStyle=UIBarStyleDefault;
+        
+        //取tabBar的高
+        //tabBarController.tabBar.frame.size.height
+        
+        
+        [self.navigationController pushViewController:tabBarController animated:TRUE];
     }else{
         [self.navigationController pushViewController:view animated:TRUE];
     }

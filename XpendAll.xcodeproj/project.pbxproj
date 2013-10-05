@@ -42,6 +42,11 @@
 		49138B7917F9E22E00446C97 /* suspendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7717F9E22E00446C97 /* suspendViewController.xib */; };
 		49138B7E17F9E24C00446C97 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7C17F9E24C00446C97 /* aboutUsViewController.m */; };
 		49138B7F17F9E24C00446C97 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7D17F9E24C00446C97 /* aboutUsViewController.xib */; };
+		49347A1D1800256B00722A8B /* shopWithKmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49347A1B1800256B00722A8B /* shopWithKmlViewController.m */; };
+		49347A1E1800256B00722A8B /* shopWithKmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */; };
+		49347A2018002CBC00722A8B /* icon-googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1F18002CBC00722A8B /* icon-googleplus.png */; };
+		49347A2318004B5B00722A8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49347A2218004B5A00722A8B /* CoreLocation.framework */; };
+		4945392B17FDCEAB001AC4DE /* KML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4945392A17FDCEAB001AC4DE /* KML.framework */; };
 		497DA95D17FA8D1F0029F0AC /* WebJsonDataGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA95B17FA8D1F0029F0AC /* WebJsonDataGetter.m */; };
 		497DA99817FA92750029F0AC /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA96317FA92750029F0AC /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		497DA99917FA92750029F0AC /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA96617FA92750029F0AC /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -143,6 +148,12 @@
 		49138B7B17F9E24C00446C97 /* aboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutUsViewController.h; sourceTree = "<group>"; };
 		49138B7C17F9E24C00446C97 /* aboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutUsViewController.m; sourceTree = "<group>"; };
 		49138B7D17F9E24C00446C97 /* aboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutUsViewController.xib; sourceTree = "<group>"; };
+		49347A1A1800256B00722A8B /* shopWithKmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopWithKmlViewController.h; sourceTree = "<group>"; };
+		49347A1B1800256B00722A8B /* shopWithKmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopWithKmlViewController.m; sourceTree = "<group>"; };
+		49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopWithKmlViewController.xib; sourceTree = "<group>"; };
+		49347A1F18002CBC00722A8B /* icon-googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-googleplus.png"; sourceTree = "<group>"; };
+		49347A2218004B5A00722A8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4945392A17FDCEAB001AC4DE /* KML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KML.framework; path = "../../Documents/ios_framework/iOS-KML-Framework-20121218/KML.framework"; sourceTree = "<group>"; };
 		497DA95B17FA8D1F0029F0AC /* WebJsonDataGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebJsonDataGetter.m; sourceTree = "<group>"; };
 		497DA95C17FA8D1F0029F0AC /* WebJsonDataGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebJsonDataGetter.h; sourceTree = "<group>"; };
 		497DA95F17FA8E5A0029F0AC /* GetJsonURLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetJsonURLString.h; sourceTree = "<group>"; };
@@ -235,6 +246,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49347A2318004B5B00722A8B /* CoreLocation.framework in Frameworks */,
+				4945392B17FDCEAB001AC4DE /* KML.framework in Frameworks */,
 				497DA9D017FAB0350029F0AC /* MapKit.framework in Frameworks */,
 				497DA9B917FA945B0029F0AC /* libz.dylib in Frameworks */,
 				497DA9B717FA943B0029F0AC /* libxml2.dylib in Frameworks */,
@@ -279,6 +292,8 @@
 		49138B2417F9C43000446C97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49347A2218004B5A00722A8B /* CoreLocation.framework */,
+				4945392A17FDCEAB001AC4DE /* KML.framework */,
 				497DA9CF17FAB0350029F0AC /* MapKit.framework */,
 				497DA9B817FA945B0029F0AC /* libz.dylib */,
 				497DA9B617FA943B0029F0AC /* libxml2.dylib */,
@@ -346,6 +361,7 @@
 		49138B6517F9D4EF00446C97 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				49347A1F18002CBC00722A8B /* icon-googleplus.png */,
 				48F21B8317FCA76900903669 /* icon.png */,
 				48AB5EA217FC9E40000F9664 /* otherpage3.jpg */,
 				48AB5EA017FC982D000F9664 /* otherpage2.jpg */,
@@ -401,6 +417,16 @@
 				49138B7D17F9E24C00446C97 /* aboutUsViewController.xib */,
 			);
 			name = aboutUs;
+			sourceTree = "<group>";
+		};
+		49347A191800253E00722A8B /* shopWithKml */ = {
+			isa = PBXGroup;
+			children = (
+				49347A1A1800256B00722A8B /* shopWithKmlViewController.h */,
+				49347A1B1800256B00722A8B /* shopWithKmlViewController.m */,
+				49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */,
+			);
+			name = shopWithKml;
 			sourceTree = "<group>";
 		};
 		497DA95E17FA8D260029F0AC /* WebJsonDataGetter */ = {
@@ -576,6 +602,7 @@
 				49CF6BDF17FBF0AA00104E94 /* shop */,
 				497DA9D117FAB0490029F0AC /* shopDetail */,
 				497DA9C917FAA1850029F0AC /* shopLeftSide */,
+				49347A191800253E00722A8B /* shopWithKml */,
 				49138B7A17F9E23300446C97 /* suspend */,
 				49138B6917F9D9F800446C97 /* suspendShop */,
 				49138B3A17F9C43000446C97 /* ViewController.h */,
@@ -708,6 +735,7 @@
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
 				48E9ADA017FB4A1F00C3B11F /* otherpage.jpg in Resources */,
 				49138B3017F9C43000446C97 /* InfoPlist.strings in Resources */,
+				49347A2018002CBC00722A8B /* icon-googleplus.png in Resources */,
 				497DA9E317FABFFE0029F0AC /* fullScreenMapViewController.xib in Resources */,
 				48AB5E9F17FC949B000F9664 /* maptitle.png in Resources */,
 				49138B3917F9C43000446C97 /* Main.storyboard in Resources */,
@@ -720,6 +748,7 @@
 				48E9AD9917FB39C400C3B11F /* btn_food.png in Resources */,
 				48AB5E9B17FC8B7E000F9664 /* plate.png in Resources */,
 				497DA9AF17FA92760029F0AC /* README.textile in Resources */,
+				49347A1E1800256B00722A8B /* shopWithKmlViewController.xib in Resources */,
 				49138B6E17F9DA1800446C97 /* suspendShopViewController.xib in Resources */,
 				497DA9B517FA93A60029F0AC /* README.md in Resources */,
 				49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */,
@@ -765,6 +794,7 @@
 				497DA9AC17FA92750029F0AC /* ASIS3Request.m in Sources */,
 				497DA9C617FAA10C0029F0AC /* MFSideMenuContainerViewController.m in Sources */,
 				49138B3617F9C43000446C97 /* AppDelegate.m in Sources */,
+				49347A1D1800256B00722A8B /* shopWithKmlViewController.m in Sources */,
 				497DA9A817FA92750029F0AC /* ASIS3Bucket.m in Sources */,
 				497DA99A17FA92750029F0AC /* ASIDataDecompressor.m in Sources */,
 				49138B7E17F9E24C00446C97 /* aboutUsViewController.m in Sources */,
@@ -923,6 +953,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/birdchiu/Documents/ios_framework/iOS-KML-Framework-20121218",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XpendAll/XpendAll-Prefix.pch";
 				INFOPLIST_FILE = "XpendAll/XpendAll-Info.plist";
@@ -936,6 +970,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/birdchiu/Documents/ios_framework/iOS-KML-Framework-20121218",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XpendAll/XpendAll-Prefix.pch";
 				INFOPLIST_FILE = "XpendAll/XpendAll-Info.plist";
