@@ -31,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%d",self.govermentData);
     if (self.govermentData) {
         [self setMapViewFromGovermentData];
     }else{

@@ -92,13 +92,15 @@
         shopWithKmlViewController *kml=[[shopWithKmlViewController alloc]initWithNibName:@"shopWithKmlViewController" bundle:nil];
         
         kml.title=@"待用地圖";
-        kml.tabBarItem.image=[UIImage imageNamed:@"gamebaby"]; //tab bar item 的 小圖示(30*30 + 60*60)
+        kml.tabBarItem.image=[UIImage imageNamed:@"earth"]; //tab bar item 的 小圖示(30*30 + 60*60)
         view.title=@"政府認證";
-        view.tabBarItem.image=[UIImage imageNamed:@"gamebaby"];
+        view.tabBarItem.image=[UIImage imageNamed:@"flag@2x.png"];
+        
         
         UITabBarController *tabBarController = [[UITabBarController alloc] init];
-        [tabBarController setViewControllers:[NSArray arrayWithObjects:kml,view,nil]];
-        
+        [tabBarController setViewControllers:[NSArray arrayWithObjects:view,kml,nil]];
+        [tabBarController.tabBar setTintColor:[UIColor darkTextColor]];
+
         //backgroundImage 是設定tabBar的背景
         //tabBarController.tabBar.backgroundImage=[UIImage imageNamed:@"icon-googleplus"];
         

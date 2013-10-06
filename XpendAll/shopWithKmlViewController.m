@@ -96,7 +96,7 @@
 
     NSInteger quantity=[[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"quantity"] integerValue];
     if (quantity > 0) {
-        cell.backgroundColor=[UIColor blueColor];
+        cell.backgroundColor=[UIColor lightTextColor];
     }
     
     return cell;
@@ -115,8 +115,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    tableView.backgroundColor = [UIColor clearColor];
+
     shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_shopLists objectAtIndex:indexPath.row] govermentData:nil];
     [self.navigationController pushViewController:detailView animated:TRUE];
+    
 }
 
 #pragma mark - webGetter delegate
@@ -200,7 +203,4 @@
 - (void)tapRecognized:(UIGestureRecognizer *)gestureRecognizer {
     [self.view endEditing:TRUE];
 }
-
-
-
 @end
