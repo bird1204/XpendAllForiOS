@@ -7,6 +7,7 @@
 //
 
 #import "WebJsonDataGetter.h"
+#import "SVProgressHUD.h"
 @implementation WebJsonDataGetter
 -(id)init{
     self=[super init];
@@ -16,6 +17,7 @@
     return self;
 }
 -(void)requestWithURLString:(NSString *)url{
+    [SVProgressHUD show];
     webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
     [webRequest setDelegate:self];
     [webRequest startAsynchronous];
@@ -32,11 +34,13 @@
 -(void)requestFinished:(ASIHTTPRequest *)request{
     self.webData=[NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
     [self.delegate  doThingAfterWebJsonIsOKFromDelegate];
+    [SVProgressHUD dismiss];
 
 }
 
 -(void)requestFailed:(ASIHTTPRequest *)request{
     NSLog(@"Failure");
+    [SVProgressHUD dismiss];
     //要教他們
     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Error" message:@"BeSure" delegate:nil cancelButtonTitle:@"canel" otherButtonTitles:@"one",@"two", nil];
     [alert setDelegate:self];

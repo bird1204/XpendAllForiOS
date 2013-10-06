@@ -46,7 +46,6 @@
 		49347A1E1800256B00722A8B /* shopWithKmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */; };
 		49347A2018002CBC00722A8B /* icon-googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1F18002CBC00722A8B /* icon-googleplus.png */; };
 		49347A2318004B5B00722A8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49347A2218004B5A00722A8B /* CoreLocation.framework */; };
-		4945392B17FDCEAB001AC4DE /* KML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4945392A17FDCEAB001AC4DE /* KML.framework */; };
 		497DA95D17FA8D1F0029F0AC /* WebJsonDataGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA95B17FA8D1F0029F0AC /* WebJsonDataGetter.m */; };
 		497DA99817FA92750029F0AC /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA96317FA92750029F0AC /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		497DA99917FA92750029F0AC /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA96617FA92750029F0AC /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -86,6 +85,8 @@
 		497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9D817FAB9F80029F0AC /* Annotation.m */; };
 		497DA9E217FABFFE0029F0AC /* fullScreenMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9E017FABFFE0029F0AC /* fullScreenMapViewController.m */; };
 		497DA9E317FABFFE0029F0AC /* fullScreenMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9E117FABFFE0029F0AC /* fullScreenMapViewController.xib */; };
+		498AE71418011EB700D665BC /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 498AE6FD18011EB700D665BC /* SVProgressHUD.bundle */; };
+		498AE71518011EB700D665BC /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 498AE6FF18011EB700D665BC /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE117FBF0C000104E94 /* shopViewController.m */; };
 		49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE217FBF0C000104E94 /* shopViewController.xib */; };
 		49CF6BE817FBF46000104E94 /* productViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE617FBF46000104E94 /* productViewController.m */; };
@@ -153,7 +154,6 @@
 		49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopWithKmlViewController.xib; sourceTree = "<group>"; };
 		49347A1F18002CBC00722A8B /* icon-googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-googleplus.png"; sourceTree = "<group>"; };
 		49347A2218004B5A00722A8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		4945392A17FDCEAB001AC4DE /* KML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KML.framework; path = "../../Documents/ios_framework/iOS-KML-Framework-20121218/KML.framework"; sourceTree = "<group>"; };
 		497DA95B17FA8D1F0029F0AC /* WebJsonDataGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebJsonDataGetter.m; sourceTree = "<group>"; };
 		497DA95C17FA8D1F0029F0AC /* WebJsonDataGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebJsonDataGetter.h; sourceTree = "<group>"; };
 		497DA95F17FA8E5A0029F0AC /* GetJsonURLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetJsonURLString.h; sourceTree = "<group>"; };
@@ -231,6 +231,9 @@
 		497DA9DF17FABFFE0029F0AC /* fullScreenMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fullScreenMapViewController.h; sourceTree = "<group>"; };
 		497DA9E017FABFFE0029F0AC /* fullScreenMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fullScreenMapViewController.m; sourceTree = "<group>"; };
 		497DA9E117FABFFE0029F0AC /* fullScreenMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fullScreenMapViewController.xib; sourceTree = "<group>"; };
+		498AE6FD18011EB700D665BC /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		498AE6FE18011EB700D665BC /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		498AE6FF18011EB700D665BC /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		49CF6BE017FBF0C000104E94 /* shopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopViewController.h; sourceTree = "<group>"; };
 		49CF6BE117FBF0C000104E94 /* shopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopViewController.m; sourceTree = "<group>"; };
 		49CF6BE217FBF0C000104E94 /* shopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopViewController.xib; sourceTree = "<group>"; };
@@ -247,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49347A2318004B5B00722A8B /* CoreLocation.framework in Frameworks */,
-				4945392B17FDCEAB001AC4DE /* KML.framework in Frameworks */,
 				497DA9D017FAB0350029F0AC /* MapKit.framework in Frameworks */,
 				497DA9B917FA945B0029F0AC /* libz.dylib in Frameworks */,
 				497DA9B717FA943B0029F0AC /* libxml2.dylib in Frameworks */,
@@ -293,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				49347A2218004B5A00722A8B /* CoreLocation.framework */,
-				4945392A17FDCEAB001AC4DE /* KML.framework */,
 				497DA9CF17FAB0350029F0AC /* MapKit.framework */,
 				497DA9B817FA945B0029F0AC /* libz.dylib */,
 				497DA9B617FA943B0029F0AC /* libxml2.dylib */,
@@ -592,6 +593,16 @@
 			name = fullScreenMap;
 			sourceTree = "<group>";
 		};
+		498AE6FC18011EB700D665BC /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				498AE6FD18011EB700D665BC /* SVProgressHUD.bundle */,
+				498AE6FE18011EB700D665BC /* SVProgressHUD.h */,
+				498AE6FF18011EB700D665BC /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		49CF6BDC17FBF03000104E94 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +625,7 @@
 		49CF6BDD17FBF05000104E94 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				498AE6FC18011EB700D665BC /* SVProgressHUD */,
 				49CF6BED17FBF57100104E94 /* zoomToFitMapAnnotations */,
 				497DA9BE17FAA10C0029F0AC /* MFSideMenu */,
 				497DA9B017FA93A60029F0AC /* Reachability */,
@@ -753,6 +765,7 @@
 				497DA9B517FA93A60029F0AC /* README.md in Resources */,
 				49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */,
 				48E9AD9717FB39C400C3B11F /* btn_map.png in Resources */,
+				498AE71418011EB700D665BC /* SVProgressHUD.bundle in Resources */,
 				48E9AD9817FB39C400C3B11F /* btn_help.png in Resources */,
 				49CF6BE917FBF46000104E94 /* productViewController.xib in Resources */,
 				48AB5EA117FC982D000F9664 /* otherpage2.jpg in Resources */,
@@ -817,6 +830,7 @@
 				497DA9A717FA92750029F0AC /* ASICloudFilesRequest.m in Sources */,
 				497DA9A917FA92750029F0AC /* ASIS3BucketObject.m in Sources */,
 				49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */,
+				498AE71518011EB700D665BC /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

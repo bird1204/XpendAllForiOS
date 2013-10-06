@@ -8,8 +8,6 @@
             <connections>
                 <outlet property="mapView" destination="agX-BH-7uf" id="3OM-1I-dMN"/>
                 <outlet property="shopAddress" destination="Dug-4Z-Qem" id="b3h-1v-1oV"/>
-                <outlet property="shopLatitude" destination="djr-sf-Gp0" id="8uM-jV-Ib0"/>
-                <outlet property="shopLongtitue" destination="gGR-ih-ddG" id="r4s-rd-Bdu"/>
                 <outlet property="shopName" destination="wPF-ZA-4v5" id="lI5-yR-Uqa"/>
                 <outlet property="shopTel" destination="fG8-kd-vZ5" id="nIK-Q4-ThV"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -28,20 +26,6 @@
                     <rect key="frame" x="12" y="97" width="293" height="229"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </mapView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djr-sf-Gp0">
-                    <rect key="frame" x="139" y="73" width="71" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGR-ih-ddG">
-                    <rect key="frame" x="218" y="73" width="87" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-gN-ZGG">
                     <rect key="frame" x="159" y="304" width="149" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
