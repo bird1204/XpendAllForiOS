@@ -17,6 +17,11 @@
 @implementation shopWithKmlViewController
 @synthesize tableView = _tableView;
 @synthesize shopLists = _shopLists;
+@synthesize TextFieldCategory =_TextFieldCategory;
+@synthesize TextFieldDistrict=_TextFieldDistrict;
+@synthesize workingField=_workingField;
+@synthesize districts=_districts;
+@synthesize categories=_categories;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,7 +39,23 @@
     webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
     [webGetter setDelegate:self];
     
-    // Do any additional setup after loading the view from its nib.
+    _pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(_tableView.frame.origin.x+_tableView.frame.size.height+10, 0, self.view.frame.size.width, self.view.frame.size.height-_tableView.frame.origin.x-_tableView.frame.size.height)];
+    [_pickerView setDelegate:self];
+    [_pickerView setDataSource:self];
+    [_pickerView setBackgroundColor:[UIColor clearColor]];
+    [_pickerView setShowsSelectionIndicator:YES];
+    
+    _TextFieldCategory.inputView=_pickerView;
+    _TextFieldDistrict.inputView=_pickerView;
+    
+    _categories=[[NSMutableArray alloc]init];
+    _districts=[[NSMutableArray alloc]init];
+    
+    //listen tap event
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognized:)];
+    tap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tap];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,7 +90,7 @@
     }
     
     cell.textLabel.text=[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"title"];
-    cell.detailTextLabel.text=[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"region"];
+    cell.detailTextLabel.text=[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"address"];
     cell.imageView.image=[UIImage  imageNamed:@"plate"];
     cell.backgroundColor = [UIColor clearColor];
 
@@ -94,18 +115,92 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"%@",[_shopLists objectAtIndex:indexPath.row]);
     shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_shopLists objectAtIndex:indexPath.row] govermentData:nil];
     [self.navigationController pushViewController:detailView animated:TRUE];
-
-    
 }
 
 #pragma mark - webGetter delegate
 -(void)doThingAfterWebJsonIsOKFromDelegate{
-    _shopLists=webGetter.webData;
+    //_shopLists=webGetter.webData;
+    //先只裝台北市
+    _shopLists=[[NSMutableArray alloc]init];
+    for (NSDictionary *list in webGetter.webData) {
+        id districtValue = [list objectForKey:@"district"];
+        if (districtValue != [NSNull null]){
+            NSString *district = (NSString *)districtValue;
+            if ([district isEqualToString:@"台北市"] || [district isEqualToString:@"臺北市"]  ) {
+                [_shopLists addObject:list];
+            }
+        }
+    }
     [_tableView reloadData];
 }
+
+
+#pragma mark -
+#pragma mark - pickerView datesource
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    NSInteger count=0;
+    if (_workingField==_TextFieldCategory) {
+        count = [_categories count];
+    }
+    if (_workingField==_TextFieldDistrict) {
+        count = [_districts count];
+    }
+    return count;
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    NSString *titleString=@"";
+    if (_workingField==_TextFieldCategory) {
+        _TextFieldCategory= [_categories objectAtIndex:row];
+    }
+    if (_workingField==_TextFieldDistrict) {
+        _TextFieldDistrict=  [_districts objectAtIndex:row];
+    }
+    
+    return titleString;
+}
+
+
+#pragma mark -
+#pragma mark - pickerView delegate
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    if (_workingField==_TextFieldCategory) {
+        [_TextFieldCategory setText:[_categories objectAtIndex:row]];
+    }
+    if (_workingField==_TextFieldDistrict) {
+        [_TextFieldDistrict setText:[_districts objectAtIndex:row]];
+    }
+}
+
+
+#pragma mark -
+#pragma mark - textField delegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    _workingField=textField;
+    [_pickerView reloadAllComponents];
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:TRUE];
+    return YES;
+}
+
+
+#pragma mark -
+#pragma mark - gestureRecognizer delegate
+- (void)tapRecognized:(UIGestureRecognizer *)gestureRecognizer {
+    [self.view endEditing:TRUE];
+}
+
+
 
 @end

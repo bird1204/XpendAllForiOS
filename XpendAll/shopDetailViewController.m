@@ -97,7 +97,7 @@
     if (coord.latitude!=0.0 || coord.longitude!=0.0) {
         Annotation *anno=[[Annotation alloc] initWithCoordinate:coord];
         [anno setTitle:[self.shopDetail objectForKey:@"title"]];
-        [anno setSubtitle:[self.shopDetail objectForKey:@"region"]];
+        [anno setSubtitle:[self.shopDetail objectForKey:@"address"]];
         
         [self.mapView addAnnotation:anno];
     }
@@ -106,7 +106,7 @@
     
     //init label text
     self.shopName.text=[self.shopDetail objectForKey:@"title"];
-    self.shopAddress.text=[self.shopDetail objectForKey:@"region"];
+    self.shopAddress.text=[self.shopDetail objectForKey:@"address"];
     self.shopTel.text=[NSString stringWithFormat:@"%@",[self.shopDetail objectForKey:@"phoneNumber"]];
     // Do any additional setup after loading the view from its nib.
     

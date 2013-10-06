@@ -10,12 +10,20 @@
 #import <KML/KML.h>
 #import "WebJsonDataGetter.h"
 
-@interface shopWithKmlViewController : UIViewController<WebJsonDataGetFinishDelegater,UITableViewDataSource,UITableViewDelegate>{
+@interface shopWithKmlViewController : UIViewController<WebJsonDataGetFinishDelegater,UITableViewDataSource,UITableViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate>{
     WebJsonDataGetter *webGetter;
 }
 
-@property (strong,nonatomic) NSArray *shopLists;
+@property (strong,nonatomic) NSMutableArray *shopLists;
+@property (strong,nonatomic) NSMutableArray *categories;
+@property (strong,nonatomic) NSMutableArray *districts;
+
+@property (retain, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITextField *TextFieldDistrict;
+@property (strong, nonatomic) IBOutlet UITextField *TextFieldCategory;
+@property (strong,nonatomic) UITextField *workingField;
+
 
 - (IBAction)backbtn:(id)sender;
 

@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="shopWithKmlViewController">
             <connections>
+                <outlet property="TextFieldCategory" destination="Q0e-IF-Kwr" id="csW-jY-34x"/>
+                <outlet property="TextFieldDistrict" destination="PAO-Ti-4dX" id="0Dj-nh-FkN"/>
                 <outlet property="tableView" destination="PhB-sQ-YAR" id="dkT-83-I5h"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -34,6 +36,24 @@
                         <action selector="backbtn:" destination="-1" eventType="touchUpInside" id="vY7-Yl-BT7"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="縣市" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PAO-Ti-4dX">
+                    <rect key="frame" x="40" y="66" width="97" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="k2P-xH-0bh"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="種類" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q0e-IF-Kwr">
+                    <rect key="frame" x="185" y="66" width="97" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="eD8-XS-g1F"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
