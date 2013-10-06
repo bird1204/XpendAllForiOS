@@ -12,6 +12,7 @@
 @end
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
+
 @interface WebJsonDataGetter : NSObject<ASIHTTPRequestDelegate,UIAlertViewDelegate>{
     ASIHTTPRequest  *webRequest;
 }

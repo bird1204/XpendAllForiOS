@@ -133,7 +133,7 @@
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row]];
+    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row] govermentData:TRUE];
     [self.navigationController pushViewController:detailView animated:TRUE];
 }
 

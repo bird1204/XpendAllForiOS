@@ -21,7 +21,10 @@
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
+        
+        NSString *str=@"http://esrijson.appspot.com/xml2json?url=http%3A%2F%2Flovemap.tba.tw%2Fkml&callback=&headers=false&f=json";
+        webGetter=[[WebJsonDataGetter alloc]initWithURLString:str];
+//        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
         [webGetter setDelegate:self];
 
         // Custom initialization
@@ -118,7 +121,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row]];
+    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row] govermentData:1];
     [self.navigationController pushViewController:detailView animated:TRUE];
 }
 
@@ -126,13 +129,11 @@
 
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
+    NSLog(@"%@",webGetter.webData);
     [_tableView reloadData];
 }
 
 - (IBAction)backbtn:(id)sender {
-    NSLog(@"jij \n %@",self.navigationController.viewControllers);
-    
-    //[self.navigationController popViewControllerAnimated: YES];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <KML/KML.h>
+#import "WebJsonDataGetter.h"
 
-@interface shopWithKmlViewController : UIViewController
+@interface shopWithKmlViewController : UIViewController<WebJsonDataGetFinishDelegater,UITableViewDataSource,UITableViewDelegate>{
+    WebJsonDataGetter *webGetter;
+}
+
+@property (strong,nonatomic) NSArray *shopLists;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+- (IBAction)backbtn:(id)sender;
 
 @end

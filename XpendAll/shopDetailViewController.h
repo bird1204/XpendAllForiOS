@@ -13,17 +13,17 @@
 
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail govermentData:(NSInteger*)govermentData;
 - (IBAction)toFullScreen:(id)sender;
 
 @property (strong, nonatomic) NSDictionary *shopDetail;
+@property (nonatomic) NSInteger *govermentData;
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *shopName;
 @property (strong, nonatomic) IBOutlet UILabel *shopTel;
 
-@property (strong, nonatomic) IBOutlet UILabel *shopLatitude;
-@property (strong, nonatomic) IBOutlet UILabel *shopLongtitue;
+
 - (IBAction)btnback:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *shopAddress;
 
