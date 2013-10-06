@@ -8,12 +8,24 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "shopLeftSideViewController.h"
 
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *mainViewController =
+            (ViewController*)[main instantiateViewControllerWithIdentifier: @"ViewController"];
+    
+    UINavigationController *mainView = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    
+
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:mainView];
+    [self.window makeKeyAndVisible];
 
     // Override point for customization after application launch.
     return YES;

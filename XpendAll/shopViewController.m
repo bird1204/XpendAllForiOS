@@ -1,29 +1,33 @@
 //
-//  productViewController.m
+//  shopViewController.m
 //  XpendAll
 //
 //  Created by BirdChiu on 13/10/2.
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
-#import "productViewController.h"
+#import "shopViewController.h"
 #import "GetJsonURLString.h"
+#import "shopDetailViewController.h"
+#import "MFSideMenu.h"
 
-@interface productViewController ()
+@interface shopViewController ()
 
 @end
 
-@implementation productViewController
+@implementation shopViewController
 @synthesize tableView = _tableView;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetGovermentHQ];
+        
+        NSString *str=@"http://esrijson.appspot.com/xml2json?url=http%3A%2F%2Flovemap.tba.tw%2Fkml&callback=&headers=false&f=json";
+        webGetter=[[WebJsonDataGetter alloc]initWithURLString:str];
+//        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
         [webGetter setDelegate:self];
 
+        // Custom initialization
     }
     return self;
 }
@@ -31,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -66,7 +71,7 @@
     cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
     cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
     cell.imageView.image=[UIImage  imageNamed:@"plate"];
-     cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -115,19 +120,21 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
+    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row] govermentData:1];
+    [self.navigationController pushViewController:detailView animated:TRUE];
 }
 
 #pragma mark - doThingAfterWebJsonIsOKFromDelegate
 
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
+    NSLog(@"%@",webGetter.webData);
     [_tableView reloadData];
 }
 
-
-
 - (IBAction)backbtn:(id)sender {
-        [self.navigationController popViewControllerAnimated: YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 @end

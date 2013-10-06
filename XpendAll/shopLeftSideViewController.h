@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "suspendShopViewController.h"
+#import "shopViewController.h"
 
 @interface shopLeftSideViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>{
-    suspendShopViewController *suspendMainView;
+    shopViewController  *suspendMainView;
 }
 @property  (nonatomic,strong) NSArray *categoriesList;
 @end

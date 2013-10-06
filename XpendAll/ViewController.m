@@ -6,15 +6,14 @@
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
 
-#import "MFSideMenu.h"
 #import "ViewController.h"
 #import "collectionCell.h"
-#import "suspendShopViewController.h"
-#import "shopLeftSideViewController.h"
 #import "productViewController.h"
 #import "suspendViewController.h"
 #import "aboutUsViewController.h"
 #import "GetJsonURLString.h"
+#import "shopViewController.h"
+#import "shopWithKmlViewController.h"
 
 @interface ViewController ()
 
@@ -27,12 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Title";
-     [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"Find Product",@"Help Someone",@"About Us", nil];
-   _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_food",@"btn_help",@"btn_about", nil];
+    _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_food",@"btn_help",@"btn_about", nil];
     // Do any additional setup after loading the view, typically from a nib.
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -69,30 +68,49 @@
 #pragma mark - select collectionView
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *view=nil;
+    UINavigationController *view=nil;
     switch (indexPath.row) {
         case 0:
-            view = (UIViewController*)[[suspendShopViewController alloc]initWithNibName:@"suspendShopViewController" bundle:nil url:GetGovermentHQ];
+            view = (UINavigationController*)[[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:GetGovermentHQ];
             break;
         case 1:
-            view = (UIViewController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
+            view = (UINavigationController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
             break;
         case 2:
-            view = (UIViewController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
+            view = (UINavigationController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
             break;
         case 3:
-            view = (UIViewController*)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];
+            view = (UINavigationController*)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];
             break;
         default:
             break;
     }
     view.title=[_funtionsList objectAtIndex:indexPath.row];
+//    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
     
     if (indexPath.row==0) {
-        shopLeftSideViewController *leftSideView=[[shopLeftSideViewController alloc]initWithNibName:@"shopLeftSideViewController" bundle:nil];
-        MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:view leftMenuViewController:leftSideView rightMenuViewController:nil];
-        self.navigationController.title=@"愛心補給站";
-        [self.navigationController pushViewController:container animated:TRUE];
+        shopWithKmlViewController *kml=[[shopWithKmlViewController alloc]initWithNibName:@"shopWithKmlViewController" bundle:nil];
+        
+        kml.title=@"待用地圖";
+        kml.tabBarItem.image=[UIImage imageNamed:@"gamebaby"]; //tab bar item 的 小圖示(30*30 + 60*60)
+        view.title=@"政府認證";
+        view.tabBarItem.image=[UIImage imageNamed:@"flag@2x.png"];
+        
+        
+        UITabBarController *tabBarController = [[UITabBarController alloc] init];
+        [tabBarController setViewControllers:[NSArray arrayWithObjects:view,kml,nil]];
+        [tabBarController.tabBar setTintColor:[UIColor darkTextColor]];
+        //backgroundImage 是設定tabBar的背景
+        //tabBarController.tabBar.backgroundImage=[UIImage imageNamed:@"icon-googleplus"];
+        
+        //UIBarStyleDefault 是透明
+        //tabBarController.tabBar.barStyle=UIBarStyleDefault;
+        
+        //取tabBar的高
+        //tabBarController.tabBar.frame.size.height
+        
+        
+        [self.navigationController pushViewController:tabBarController animated:TRUE];
     }else{
         [self.navigationController pushViewController:view animated:TRUE];
     }
@@ -117,6 +135,5 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;
 }
-
 
 @end

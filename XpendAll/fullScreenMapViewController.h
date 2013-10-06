@@ -13,8 +13,12 @@
 @interface fullScreenMapViewController : UIViewController
 - (IBAction)dismissFullScreenMap:(id)sender;
 
+@property (nonatomic) BOOL *govermentData;
 @property (strong, nonatomic) NSDictionary *shopDetail;
-@property (strong, nonatomic) IBOutlet MKMapView *fullScreenMapView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail ;
+@property (strong, nonatomic) IBOutlet MKMapView *fullScreenMapView;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+@property (weak, nonatomic) IBOutlet UILabel *shoptitle;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail govermentData:(BOOL*)govermentData;
 @end

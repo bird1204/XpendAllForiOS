@@ -8,6 +8,8 @@
 
 #import "shopLeftSideViewController.h"
 #import "GetJsonURLString.h"
+#import "MFSideMenu.h"
+#import "ViewController.h"
 
 @interface shopLeftSideViewController ()
 
@@ -27,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.categoriesList=[[NSArray alloc]initWithObjects:@"",@"",@"愛心補給站",@"老人共餐",@"溫馨送餐", nil];
+    self.categoriesList=[[NSArray alloc]initWithObjects:@"愛心補給站",@"老人共餐",@"溫馨送餐", nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -65,6 +67,7 @@
     
     // Configure the cell...
     cell.textLabel.text=[self.categoriesList objectAtIndex:indexPath.row];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -113,10 +116,27 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *urlList=[[NSArray alloc]initWithObjects:@"",@"",GetGovermentHQ,GetGovermentTogether,GetGovermentDelivery, nil];
-    suspendMainView=[[suspendShopViewController alloc]initWithNibName:@"suspendShopViewController" bundle:nil url:[urlList  objectAtIndex:indexPath.row]];
+    NSArray *urlList=[[NSArray alloc]initWithObjects:GetGovermentHQ,GetGovermentTogether,GetGovermentDelivery, nil];
+//    suspendMainView=[[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:[urlList  objectAtIndex:indexPath.row]];
+//    suspendMainView.title=[self.categoriesList objectAtIndex:indexPath.row];
+//    
+//    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+//    
+//    NSArray *controllers = [NSArray arrayWithObject:suspendMainView];
+//    navigationController.viewControllers = controllers;
+//    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    
+    suspendMainView = [[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:[urlList  objectAtIndex:indexPath.row]];
     suspendMainView.title=[self.categoriesList objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:suspendMainView animated:YES];
+    
+    UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *mainViewController =
+    (UINavigationController*)[main instantiateViewControllerWithIdentifier: @"ViewController"];
+    
+    UINavigationController *navigationController = (UINavigationController*)self.menuContainerViewController.centerViewController;
+    NSArray *controllers = [NSArray arrayWithObjects:mainViewController,suspendMainView, nil];
+    navigationController.viewControllers = controllers;
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 }
  
 
