@@ -145,15 +145,19 @@
                                          MMtextColor: [UIColor blackColor],
                                          MMtoolbarColor: [UIColor whiteColor],
                                          MMbuttonColor: [UIColor blueColor],
-                                         MMfont: [UIFont systemFontOfSize:18],
+                                         MMfont: [UIFont systemFontOfSize:24],
                                          MMvalueY: @3,
                                          MMselectedObject:selectedObject,
                                          MMtextAlignment:@1}
                             completion:^(NSString *selectedString) {
-                                [_textCategory setTitle:selectedString forState:UIControlStateNormal];
-                                [self reloadShopLists:selectedObject filterType:filterType];
+                                if ([filterType isEqualToString:@"district"]) {
+                                    [_textDistrict setTitle:selectedString forState:UIControlStateNormal];
+                                }
+                                if ([filterType isEqualToString:@"category"]) {
+                                    [_textCategory setTitle:selectedString forState:UIControlStateNormal];
+                                }
+                                [self reloadShopLists:selectedString filterType:filterType];
                             }];
-
 }
 
 -(void)reloadShopLists:(NSString*)selectString filterType:(NSString*)filterType{
