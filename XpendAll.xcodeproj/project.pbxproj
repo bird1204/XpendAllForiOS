@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4805D41118025A4000F8E4C2 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 4805D41018025A4000F8E4C2 /* select.png */; };
-		482D419C180252480071D68C /* KML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482D419B180252480071D68C /* KML.framework */; };
 		482F91721801B10F002E123F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F91701801B10F002E123F /* icon.png */; };
 		482F917A1801C5B6002E123F /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F91791801C5B6002E123F /* flag@2x.png */; };
 		482F917C1801C6C8002E123F /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F917B1801C6C8002E123F /* earth.png */; };
@@ -50,6 +49,8 @@
 		49347A1E1800256B00722A8B /* shopWithKmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */; };
 		49347A2018002CBC00722A8B /* icon-googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1F18002CBC00722A8B /* icon-googleplus.png */; };
 		49347A2318004B5B00722A8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49347A2218004B5A00722A8B /* CoreLocation.framework */; };
+		4942839D1802F9D300261080 /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 4942839B1802F9D300261080 /* other.png */; };
+		4942839E1802F9D300261080 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = 4942839C1802F9D300261080 /* address.png */; };
 		497462FB1801DD1500708DDF /* MMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 497462FA1801DD1500708DDF /* MMPickerView.m */; };
 		497DA95D17FA8D1F0029F0AC /* WebJsonDataGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA95B17FA8D1F0029F0AC /* WebJsonDataGetter.m */; };
 		497DA99817FA92750029F0AC /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA96317FA92750029F0AC /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -163,6 +164,8 @@
 		49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopWithKmlViewController.xib; sourceTree = "<group>"; };
 		49347A1F18002CBC00722A8B /* icon-googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-googleplus.png"; sourceTree = "<group>"; };
 		49347A2218004B5A00722A8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4942839B1802F9D300261080 /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
+		4942839C1802F9D300261080 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
 		497462F91801DD1500708DDF /* MMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPickerView.h; sourceTree = "<group>"; };
 		497462FA1801DD1500708DDF /* MMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPickerView.m; sourceTree = "<group>"; };
 		497DA95B17FA8D1F0029F0AC /* WebJsonDataGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebJsonDataGetter.m; sourceTree = "<group>"; };
@@ -265,7 +268,6 @@
 				497DA9B917FA945B0029F0AC /* libz.dylib in Frameworks */,
 				497DA9B717FA943B0029F0AC /* libxml2.dylib in Frameworks */,
 				49138B2817F9C43000446C97 /* CoreGraphics.framework in Frameworks */,
-				482D419C180252480071D68C /* KML.framework in Frameworks */,
 				49138B2A17F9C43000446C97 /* UIKit.framework in Frameworks */,
 				49138B2617F9C43000446C97 /* Foundation.framework in Frameworks */,
 			);
@@ -375,6 +377,8 @@
 		49138B6517F9D4EF00446C97 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4942839B1802F9D300261080 /* other.png */,
+				4942839C1802F9D300261080 /* address.png */,
 				4805D41018025A4000F8E4C2 /* select.png */,
 				482F917B1801C6C8002E123F /* earth.png */,
 				482F91791801C5B6002E123F /* flag@2x.png */,
@@ -768,8 +772,10 @@
 			files = (
 				497DA9D617FAB09C0029F0AC /* shopDetailViewController.xib in Resources */,
 				48E9ADA617FB530F00C3B11F /* main.jpg in Resources */,
+				4942839E1802F9D300261080 /* address.png in Resources */,
 				49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */,
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
+				4942839D1802F9D300261080 /* other.png in Resources */,
 				48E9ADA017FB4A1F00C3B11F /* otherpage.jpg in Resources */,
 				49138B3017F9C43000446C97 /* InfoPlist.strings in Resources */,
 				4805D41118025A4000F8E4C2 /* select.png in Resources */,

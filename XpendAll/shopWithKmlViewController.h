@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <KML/KML.h>
 #import "WebJsonDataGetter.h"
-#import "MMPickerView.h"
 
 
 @interface shopWithKmlViewController : UIViewController<WebJsonDataGetFinishDelegater,UITableViewDataSource,UITableViewDelegate>{

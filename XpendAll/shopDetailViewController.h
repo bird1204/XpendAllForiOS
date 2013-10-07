@@ -22,8 +22,9 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *shopName;
 @property (strong, nonatomic) IBOutlet UILabel *shopTel;
+@property (strong,nonatomic )IBOutlet UITextView *shopDesc;
 
-
+- (IBAction)showDescription:(id)sender;
 - (IBAction)btnback:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *shopAddress;
 
