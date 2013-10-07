@@ -98,8 +98,9 @@
         
         
         UITabBarController *tabBarController = [[UITabBarController alloc] init];
-        [tabBarController setViewControllers:[NSArray arrayWithObjects:view,kml,nil]];
+        [tabBarController setViewControllers:[NSArray arrayWithObjects:kml,view,nil]];
         [tabBarController.tabBar setTintColor:[UIColor darkTextColor]];
+
         //backgroundImage 是設定tabBar的背景
         //tabBarController.tabBar.backgroundImage=[UIImage imageNamed:@"icon-googleplus"];
         

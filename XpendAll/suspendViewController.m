@@ -49,7 +49,6 @@
 //    _address.returnKeyType=UIReturnKeyDone;
 //    _remark.returnKeyType=UIReturnKeyDone;
 
-    _category.inputView.backgroundColor=[UIColor blueColor];
     _category.inputView=_pickerView;
     _quantity.inputView=_pickerView;
     

@@ -17,6 +17,11 @@
 @implementation shopWithKmlViewController
 @synthesize tableView = _tableView;
 @synthesize shopLists = _shopLists;
+@synthesize textCategory =_textCategory;
+@synthesize textDistrict=_textDistrict;
+@synthesize districts=_districts;
+@synthesize categories=_categories;
+@synthesize shopOriginalLists=_shopOriginalLists;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,14 +38,28 @@
     [super viewDidLoad];
     webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
     [webGetter setDelegate:self];
-    
-    // Do any additional setup after loading the view from its nib.
+
+    [_textDistrict setTitle:@"台北市" forState:UIControlStateNormal];
+    _categories=[[NSMutableArray alloc]initWithObjects:@"還",@"沒",@"好", nil];
+    _districts=[[NSMutableArray alloc]initWithObjects:
+                @"台北市",@"新北市",@"台中市",@"台南市",@"高雄市",@"基隆市",
+                @"新竹市",@"嘉義市",@"桃園縣",@"新竹縣",@"苗栗縣",@"彰化縣",
+                @"南投縣",@"雲林縣",@"嘉義縣",@"屏東縣",@"宜蘭縣",@"花蓮縣",
+                @"台東縣",@"澎湖縣",@"金門縣",@"連江縣",nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)selectDistrict:(id)sender {
+    [self showPicker:_districts selectedObject:[_textDistrict currentTitle] filterType:@"district"];
+}
+
+- (IBAction)selectCategory:(id)sender {
+    [self showPicker:_categories selectedObject:[_textCategory currentTitle] filterType:@"category"];
 }
 
 - (IBAction)backbtn:(id)sender {
@@ -94,18 +113,64 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES ];
-        tableView.backgroundColor = [UIColor clearColor];
-    NSLog(@"%@",[_shopLists objectAtIndex:indexPath.row]);
+    tableView.backgroundColor = [UIColor clearColor];
+
     shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_shopLists objectAtIndex:indexPath.row] govermentData:nil];
     [self.navigationController pushViewController:detailView animated:TRUE];
-
     
 }
 
 #pragma mark - webGetter delegate
 -(void)doThingAfterWebJsonIsOKFromDelegate{
-    _shopLists=webGetter.webData;
+    _shopOriginalLists=(NSMutableArray*)webGetter.webData;
+    _shopLists=[[NSMutableArray alloc]init];
+    
+    for (NSDictionary *list in webGetter.webData) {
+        id districtValue = [list objectForKey:@"district"];
+        if (districtValue != [NSNull null]){
+            NSString *district = (NSString *)districtValue;
+            if ([district isEqualToString:@"台北市"] || [district isEqualToString:@"臺北市"]) {
+                [_shopLists addObject:list];
+            }
+        }
+    }
+    [_tableView reloadData];
+}
+
+#pragma mark - private method
+-(void)showPicker:(NSArray*)withStrings selectedObject:(NSString*)selectedObject filterType:(NSString*)filterType{
+    [MMPickerView showPickerViewInView:self.view
+                           withStrings:withStrings
+                           withOptions:@{MMbackgroundColor: [UIColor whiteColor],
+                                         MMtextColor: [UIColor blackColor],
+                                         MMtoolbarColor: [UIColor whiteColor],
+                                         MMbuttonColor: [UIColor blueColor],
+                                         MMfont: [UIFont systemFontOfSize:24],
+                                         MMvalueY: @3,
+                                         MMselectedObject:selectedObject,
+                                         MMtextAlignment:@1}
+                            completion:^(NSString *selectedString) {
+                                if ([filterType isEqualToString:@"district"]) {
+                                    [_textDistrict setTitle:selectedString forState:UIControlStateNormal];
+                                }
+                                if ([filterType isEqualToString:@"category"]) {
+                                    [_textCategory setTitle:selectedString forState:UIControlStateNormal];
+                                }
+                                [self reloadShopLists:selectedString filterType:filterType];
+                            }];
+}
+
+-(void)reloadShopLists:(NSString*)selectString filterType:(NSString*)filterType{
+    [_shopLists removeAllObjects];
+    for (NSDictionary *list in _shopOriginalLists) {
+        id districtValue = [list objectForKey:filterType];
+        if (districtValue != [NSNull null]){
+            NSString *category = (NSString *)districtValue;
+            if ([category isEqualToString:selectString]) {
+                [_shopLists addObject:list];
+            }
+        }
+    }
     [_tableView reloadData];
 }
 

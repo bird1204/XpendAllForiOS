@@ -31,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%d",self.govermentData);
     if (self.govermentData) {
         [self setMapViewFromGovermentData];
     }else{
@@ -97,7 +96,7 @@
     if (coord.latitude!=0.0 || coord.longitude!=0.0) {
         Annotation *anno=[[Annotation alloc] initWithCoordinate:coord];
         [anno setTitle:[self.shopDetail objectForKey:@"title"]];
-        [anno setSubtitle:[self.shopDetail objectForKey:@"region"]];
+        [anno setSubtitle:[self.shopDetail objectForKey:@"address"]];
         
         [self.mapView addAnnotation:anno];
     }
