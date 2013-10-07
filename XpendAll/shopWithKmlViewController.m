@@ -56,6 +56,8 @@
 
 - (IBAction)selectDistrict:(id)sender {
     [self showPicker:_districts selectedObject:[_textDistrict currentTitle] filterType:@"district"];
+    
+   
 }
 
 - (IBAction)selectCategory:(id)sender {
@@ -141,10 +143,10 @@
 -(void)showPicker:(NSArray*)withStrings selectedObject:(NSString*)selectedObject filterType:(NSString*)filterType{
     [MMPickerView showPickerViewInView:self.view
                            withStrings:withStrings
-                           withOptions:@{MMbackgroundColor: [UIColor whiteColor],
+                           withOptions:@{MMbackgroundColor: [UIColor lightTextColor],
                                          MMtextColor: [UIColor blackColor],
-                                         MMtoolbarColor: [UIColor whiteColor],
-                                         MMbuttonColor: [UIColor blueColor],
+                                         MMtoolbarColor: [UIColor lightGrayColor],
+                                         MMbuttonColor: [UIColor blackColor],
                                          MMfont: [UIFont systemFontOfSize:24],
                                          MMvalueY: @3,
                                          MMselectedObject:selectedObject,
@@ -158,6 +160,7 @@
                                 }
                                 [self reloadShopLists:selectedString filterType:filterType];
                             }];
+    
 }
 
 -(void)reloadShopLists:(NSString*)selectString filterType:(NSString*)filterType{
