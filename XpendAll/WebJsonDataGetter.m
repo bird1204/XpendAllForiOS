@@ -33,6 +33,8 @@
 
 -(void)requestFinished:(ASIHTTPRequest *)request{
     self.webData=[NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:nil];
+    NSLog(@"%@",request.responseData);
+    NSLog(@"%@",self.webData);
     [self.delegate  doThingAfterWebJsonIsOKFromDelegate];
     [SVProgressHUD dismiss];
 

@@ -22,9 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        NSString *str=@"http://esrijson.appspot.com/xml2json?url=http%3A%2F%2Flovemap.tba.tw%2Fkml&callback=&headers=false&f=json";
-        webGetter=[[WebJsonDataGetter alloc]initWithURLString:str];
-//        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
+        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
         [webGetter setDelegate:self];
 
         // Custom initialization
