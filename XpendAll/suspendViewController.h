@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MKReverseGeocoder.h>
 
-@interface suspendViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate,CLLocationManagerDelegate>{
+@interface suspendViewController : UIViewController<CLLocationManagerDelegate>{
     CLLocationManager *currentLocation;
     IBOutlet UITextField *quantity;
     IBOutlet UITextField *category;

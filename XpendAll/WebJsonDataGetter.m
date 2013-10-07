@@ -17,7 +17,7 @@
     return self;
 }
 -(void)requestWithURLString:(NSString *)url{
-    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"載入中" maskType:SVProgressHUDMaskTypeClear];
     webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
     [webRequest setDelegate:self];
     [webRequest startAsynchronous];

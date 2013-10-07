@@ -9,6 +9,8 @@
 #import "shopWithKmlViewController.h"
 #import "GetJsonURLString.h"
 #import "shopDetailViewController.h"
+#import "MMPickerView.h"
+
 
 @interface shopWithKmlViewController ()
 
@@ -160,7 +162,6 @@
                                 }
                                 [self reloadShopLists:selectedString filterType:filterType];
                             }];
-    
 }
 
 -(void)reloadShopLists:(NSString*)selectString filterType:(NSString*)filterType{

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4805D41118025A4000F8E4C2 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 4805D41018025A4000F8E4C2 /* select.png */; };
-		482D419C180252480071D68C /* KML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 482D419B180252480071D68C /* KML.framework */; };
 		482F91721801B10F002E123F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F91701801B10F002E123F /* icon.png */; };
 		482F917A1801C5B6002E123F /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F91791801C5B6002E123F /* flag@2x.png */; };
 		482F917C1801C6C8002E123F /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F917B1801C6C8002E123F /* earth.png */; };
@@ -265,7 +264,6 @@
 				497DA9B917FA945B0029F0AC /* libz.dylib in Frameworks */,
 				497DA9B717FA943B0029F0AC /* libxml2.dylib in Frameworks */,
 				49138B2817F9C43000446C97 /* CoreGraphics.framework in Frameworks */,
-				482D419C180252480071D68C /* KML.framework in Frameworks */,
 				49138B2A17F9C43000446C97 /* UIKit.framework in Frameworks */,
 				49138B2617F9C43000446C97 /* Foundation.framework in Frameworks */,
 			);
