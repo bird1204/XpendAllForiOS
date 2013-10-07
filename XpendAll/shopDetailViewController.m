@@ -16,6 +16,8 @@
 @end
 
 @implementation shopDetailViewController
+@synthesize shopDesc=_shopDesc;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail govermentData:(NSInteger*)govermentData
 {
@@ -58,6 +60,64 @@
     fullScreen.shoptitle.text=self.shopName.text;
     fullScreen.address.text=self.shopAddress.text;
     
+}
+
+- (IBAction)showDescription:(id)sender {
+    UIImageView *top=(UIImageView *)[self.view viewWithTag:1];
+    UIImageView *mid=(UIImageView *)[self.view viewWithTag:2];
+    UIImageView *bottom=(UIImageView *)[self.view viewWithTag:3];
+    UIButton *fullView=(UIButton*)[self.view viewWithTag:4];
+    
+    [top setHidden:TRUE];
+    [mid setHidden:TRUE];
+    [bottom setHidden:TRUE];
+    [fullView setHidden:TRUE];
+    [_shopAddress setHidden:TRUE];
+    [_shopName setHidden:TRUE];
+    [_shopTel setHidden:TRUE];
+    [_mapView setHidden:TRUE];
+    
+    if (_shopDesc == nil) {
+        _shopDesc =[[UITextView alloc]init];
+        _shopDesc.frame=CGRectMake(_mapView.frame.origin.x,_mapView.frame.origin.y,_mapView.frame.size.width,self.view.frame.size.height-_mapView.frame.origin.y);
+        [_shopDesc setFont:[UIFont fontWithName:@"system" size:24]];
+        _shopDesc.editable=NO;
+        _shopDesc.text = [self.shopDetail objectForKey:@"description"];
+        _shopDesc.backgroundColor=[UIColor lightTextColor];
+        [_shopDesc setDataDetectorTypes:UIDataDetectorTypeAll];
+        
+        UIButton *leaveDesc = [UIButton buttonWithType:UIButtonTypeCustom];
+        [leaveDesc addTarget:self
+                      action:@selector(leaveDesc:)
+            forControlEvents:UIControlEventTouchDown];
+        [leaveDesc setTitle:@"" forState:UIControlStateNormal];
+        leaveDesc.frame = _shopDesc.frame;
+        
+        [_shopDesc addSubview:leaveDesc];
+        [self.view addSubview:_shopDesc];
+    }else{
+        [_shopDesc setHidden:FALSE];
+    }
+}
+
+- (IBAction)leaveDesc:(id)sender {
+    NSLog(@"jiji");
+    [_shopDesc setHidden:TRUE];
+    
+    UIImageView *top=(UIImageView *)[self.view viewWithTag:1];
+    UIImageView *mid=(UIImageView *)[self.view viewWithTag:2];
+    UIImageView *bottom=(UIImageView *)[self.view viewWithTag:3];
+    UIButton *fullView=(UIButton*)[self.view viewWithTag:4];
+
+    
+    [top setHidden:FALSE];
+    [mid setHidden:FALSE];
+    [bottom setHidden:FALSE];
+    [fullView setHidden:FALSE];
+    [_shopAddress setHidden:FALSE];
+    [_shopName setHidden:FALSE];
+    [_shopTel setHidden:FALSE];
+    [_mapView setHidden:FALSE];
 }
 
 - (IBAction)btnback:(id)sender {
