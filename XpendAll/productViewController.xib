@@ -24,6 +24,10 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Q5U-zp-qdq"/>
+                        <outlet property="delegate" destination="-1" id="Njw-AY-bGk"/>
+                    </connections>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_food.png" translatesAutoresizingMaskIntoConstraints="NO" id="WRg-4A-rEI">
                     <rect key="frame" x="34" y="13" width="77" height="77"/>

@@ -47,6 +47,7 @@
 
     [_category setText:@"食品"];
     [_quantity setText:@"1"];
+    [_feedback setHidden:YES];
     
     currentLocation = [[CLLocationManager alloc] init];
     currentLocation.delegate = self;
@@ -75,11 +76,16 @@
 }
 
 - (IBAction)reportSuspend:(id)sender {
+    [self.view endEditing:TRUE];
     NSLog(@"title  %@",[_textTitle text]);
     NSLog(@"address  %@",[_address text]);
     NSLog(@"quantity  %@",[_quantity text]);
     NSLog(@"category  %@",[_category text]);
     NSLog(@"remark  %@",[_remark text]);
+    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"確認訊息" message:@"感謝你通報待用產品，\n請按下確定送出！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"確定",nil];
+    [alert show];
+
     
 }
 
@@ -177,6 +183,32 @@
         [manager stopUpdatingHeading];
     } else if ([error code] == kCLErrorHeadingFailure) {
         
+    }
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0: //cancel
+            [_textTitle setText:@""];
+            [_address setText:@""];
+            [_quantity setText:@""];
+            [_category setText:@""];
+            [_remark setText:@""];
+            [_feedback setHidden:NO];
+            [_feedback setText:@"你已取消一筆資料，期待你下次的通報。"];
+            break;
+        case 1: //confirm
+            [_textTitle setText:@""];
+            [_address setText:@""];
+            [_quantity setText:@""];
+            [_category setText:@""];
+            [_remark setText:@""];
+            [_feedback setHidden:NO];
+            [_feedback setText:@"你已新增一筆資料，感謝你為takeIt做出的貢獻！"];
+            break;
+        default:
+            break;
     }
 }
 

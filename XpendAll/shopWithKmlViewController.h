@@ -19,6 +19,10 @@
 @property (strong,nonatomic) NSMutableArray *shopOriginalLists;
 @property (strong,nonatomic) NSMutableArray *categories;
 @property (strong,nonatomic) NSMutableArray *districts;
+//demo
+@property (strong,nonatomic) NSMutableArray *demoShopLists;
+@property (strong,nonatomic) NSMutableArray *demoShopOriginalLists;
+
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *textDistrict;
