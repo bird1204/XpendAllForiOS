@@ -24,6 +24,9 @@
 @synthesize districts=_districts;
 @synthesize categories=_categories;
 @synthesize shopOriginalLists=_shopOriginalLists;
+//demo
+@synthesize demoShopLists=_demoShopLists;
+@synthesize demoShopOriginalLists=_demoShopOriginalLists;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -38,10 +41,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
-    [webGetter setDelegate:self];
+//    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
+//    [webGetter setDelegate:self];
+//    [webGetter setDelegate:self];
+    
+    
+    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
+    NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    _demoShopLists=_demoShopOriginalLists;
 
     [_textDistrict setTitle:@"台北市" forState:UIControlStateNormal];
+    [_textCategory setTitle:@"全部分類" forState:UIControlStateNormal];
     _categories=[[NSMutableArray alloc]initWithObjects:@"還",@"沒",@"好", nil];
     _districts=[[NSMutableArray alloc]initWithObjects:
                 @"台北市",@"新北市",@"台中市",@"台南市",@"高雄市",@"基隆市",
@@ -57,13 +70,19 @@
 }
 
 - (IBAction)selectDistrict:(id)sender {
-    [self showPicker:_districts selectedObject:[_textDistrict currentTitle] filterType:@"district"];
-    
-   
+    if ([[_textCategory currentTitle]isEqualToString:@"全縣市"]) {
+        [self showPicker:_categories selectedObject:@"台北市" filterType:@"district"];
+    }else{
+        [self showPicker:_districts selectedObject:[_textDistrict currentTitle] filterType:@"district"];
+    }
 }
 
 - (IBAction)selectCategory:(id)sender {
-    [self showPicker:_categories selectedObject:[_textCategory currentTitle] filterType:@"category"];
+//    if ([[_textCategory currentTitle]isEqualToString:@"全部分類"]) {
+//        [self showPicker:_categories selectedObject:@"溫馨送餐" filterType:@"category"];
+//    }else{
+//        [self showPicker:_categories selectedObject:[_textCategory currentTitle] filterType:@"category"];
+//    }
 }
 
 - (IBAction)backbtn:(id)sender {
@@ -78,7 +97,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_shopLists count];
+//    return [_shopLists count];
+    return [_demoShopLists count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,13 +110,14 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
-    cell.textLabel.text=[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"title"];
-    cell.detailTextLabel.text=[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"address"];
+
+    cell.textLabel.text=[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"title"];
+    cell.detailTextLabel.text=[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"address"];
     cell.imageView.image=[UIImage  imageNamed:@"plate"];
     cell.backgroundColor = [UIColor clearColor];
+    
+    NSInteger quantity=[[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"quantity"] integerValue];
 
-    NSInteger quantity=[[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"quantity"] integerValue];
     if (quantity > 0) {
         cell.backgroundColor=[UIColor lightTextColor];
     }
@@ -119,7 +140,10 @@
 {
     tableView.backgroundColor = [UIColor clearColor];
 
-    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_shopLists objectAtIndex:indexPath.row] govermentData:nil];
+//    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_shopLists objectAtIndex:indexPath.row] govermentData:nil];
+//    [self.navigationController pushViewController:detailView animated:TRUE];
+    
+    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_demoShopLists objectAtIndex:indexPath.row] govermentData:nil];
     [self.navigationController pushViewController:detailView animated:TRUE];
     
 }
@@ -165,17 +189,43 @@
 }
 
 -(void)reloadShopLists:(NSString*)selectString filterType:(NSString*)filterType{
-    [_shopLists removeAllObjects];
-    for (NSDictionary *list in _shopOriginalLists) {
+
+    NSError *error = NULL;
+    // regex 用 \ 做跳脫，但是在 C 裡斜線本身也要跳脫，所以寫成 \\( 來跳脫左括號
+    NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:@"[(臺|台)(.*)]" options:NSRegularExpressionCaseInsensitive error:&error];
+    NSString *modifiedString = [regex stringByReplacingMatchesInString: selectString options:0 range: NSMakeRange(0, [selectString length]) withTemplate:@"台"];
+    
+    if (modifiedString == nil || [modifiedString isEqualToString:@""]){
+        modifiedString = selectString;
+    }
+
+    NSMutableArray *tempData=[[NSMutableArray alloc]init];
+    for (NSDictionary *list in _demoShopOriginalLists) {
         id districtValue = [list objectForKey:filterType];
         if (districtValue != [NSNull null]){
             NSString *category = (NSString *)districtValue;
-            if ([category isEqualToString:selectString]) {
-                [_shopLists addObject:list];
+            if ([category isEqualToString:modifiedString]) {
+                [tempData addObject:list];
             }
         }
     }
+    if ([tempData count]<1) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"沒有資料" message:@"請重新選擇" delegate:self cancelButtonTitle:@"確定" otherButtonTitles: nil];
+        [alert show];
+        
+    }
+    _demoShopLists=tempData;
     [_tableView reloadData];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"cancel");
+            break;
+        default:
+            break;
+    }
 }
 
 @end

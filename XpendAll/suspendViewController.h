@@ -28,6 +28,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *address;
 @property (retain, nonatomic) IBOutlet UITextField *textTitle;
 @property (retain, nonatomic) IBOutlet UITextField *remark;
+@property (strong, nonatomic) IBOutlet UILabel *feedback;
 
 @property (strong,nonatomic) NSArray *categories;
 @property (strong,nonatomic) NSArray *quantities;
