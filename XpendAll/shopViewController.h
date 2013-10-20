@@ -16,6 +16,16 @@
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url;
 - (IBAction)backbtn:(id)sender;
+- (IBAction)selectDistrict:(id)sender;
+- (IBAction)selectCategory:(id)sender;
 
-@property (nonatomic,strong) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIButton *textDistrict;
+@property (strong, nonatomic) IBOutlet UIButton *textCategory;
+@property (nonatomic ,strong) IBOutlet UITableView *tableView;
+
+@property (nonatomic ,strong) NSMutableArray *govermentData;
+@property (strong,nonatomic) NSMutableArray *govermentOriginData;
+@property (strong,nonatomic) NSMutableArray *categories;
+@property (strong,nonatomic) NSMutableArray *districts;
+
 @end
