@@ -109,7 +109,6 @@
                                 completion:^(NSString *selectedString) {
                                     [_quantity setText:selectedString];
                                 }];
-       
         return NO;
     }
     if (_category==textField) {
@@ -190,26 +189,25 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0: //cancel
-            [_textTitle setText:@""];
-            [_address setText:@""];
-            [_quantity setText:@""];
-            [_category setText:@""];
-            [_remark setText:@""];
-            [_feedback setHidden:NO];
+            [self resetContent];
             [_feedback setText:@"你已取消一筆資料，期待你下次的通報。"];
             break;
         case 1: //confirm
-            [_textTitle setText:@""];
-            [_address setText:@""];
-            [_quantity setText:@""];
-            [_category setText:@""];
-            [_remark setText:@""];
-            [_feedback setHidden:NO];
+            [self resetContent];
             [_feedback setText:@"你已新增一筆資料，感謝你為takeIt做出的貢獻！"];
             break;
         default:
             break;
     }
+}
+
+-(void)resetContent{
+    [_textTitle setText:@""];
+    [_address setText:@""];
+    [_quantity setText:@""];
+    [_category setText:@""];
+    [_remark setText:@""];
+    [_feedback setHidden:NO];
 }
 
 

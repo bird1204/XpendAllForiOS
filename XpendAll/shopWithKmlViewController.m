@@ -51,18 +51,7 @@
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
     _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     
-//    _demoShopLists=[[NSMutableArray alloc]init];
     _demoShopLists=_demoShopOriginalLists;
-    
-//    for (NSDictionary *list in _demoShopOriginalLists) {
-//        id districtValue = [list objectForKey:@"district"];
-//        if (districtValue != [NSNull null]){
-//            NSString *district = (NSString *)districtValue;
-//            if ([district isEqualToString:@"台北市"] || [district isEqualToString:@"臺北市"]) {
-//                [_demoShopLists addObject:list];
-//            }
-//        }
-//    }
 
     [_textDistrict setTitle:@"台北市" forState:UIControlStateNormal];
     [_textCategory setTitle:@"全部分類" forState:UIControlStateNormal];
@@ -121,16 +110,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    
-//    cell.textLabel.text=[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"title"];
-//    cell.detailTextLabel.text=[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"address"];
-//    cell.imageView.image=[UIImage  imageNamed:@"plate"];
-//    cell.backgroundColor = [UIColor clearColor];
-//
-//    NSInteger quantity=[[[_shopLists objectAtIndex:indexPath.row]objectForKey:@"quantity"] integerValue];
-    
-    
-    
+
     cell.textLabel.text=[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"title"];
     cell.detailTextLabel.text=[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"address"];
     cell.imageView.image=[UIImage  imageNamed:@"plate"];
@@ -209,26 +189,16 @@
 }
 
 -(void)reloadShopLists:(NSString*)selectString filterType:(NSString*)filterType{
-//    [_shopLists removeAllObjects];
-//    for (NSDictionary *list in _shopOriginalLists) {
-//        id districtValue = [list objectForKey:filterType];
-//        if (districtValue != [NSNull null]){
-//            NSString *category = (NSString *)districtValue;
-//            if ([category isEqualToString:selectString]) {
-//                [_shopLists addObject:list];
-//            }
-//        }
-//    }
+
     NSError *error = NULL;
     // regex 用 \ 做跳脫，但是在 C 裡斜線本身也要跳脫，所以寫成 \\( 來跳脫左括號
     NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:@"[(臺|台)(.*)]" options:NSRegularExpressionCaseInsensitive error:&error];
-    NSString *modifiedString = [regex stringByReplacingMatchesInString: selectString options:0 range: NSMakeRange(0, [selectString length]) withTemplate:@"臺"];
+    NSString *modifiedString = [regex stringByReplacingMatchesInString: selectString options:0 range: NSMakeRange(0, [selectString length]) withTemplate:@"台"];
     
     if (modifiedString == nil || [modifiedString isEqualToString:@""]){
         modifiedString = selectString;
     }
 
-    
     NSMutableArray *tempData=[[NSMutableArray alloc]init];
     for (NSDictionary *list in _demoShopOriginalLists) {
         id districtValue = [list objectForKey:filterType];
@@ -246,17 +216,12 @@
     }
     _demoShopLists=tempData;
     [_tableView reloadData];
-    
-    
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {
         case 0:
             NSLog(@"cancel");
-            break;
-        case 1:
-            NSLog(@"one");
             break;
         default:
             break;

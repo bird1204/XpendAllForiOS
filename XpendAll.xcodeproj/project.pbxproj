@@ -415,14 +415,14 @@
 			name = suspendShop;
 			sourceTree = "<group>";
 		};
-		49138B6F17F9E17500446C97 /* product */ = {
+		49138B6F17F9E17500446C97 /* product:TO RADAR */ = {
 			isa = PBXGroup;
 			children = (
 				49CF6BE517FBF46000104E94 /* productViewController.h */,
 				49CF6BE617FBF46000104E94 /* productViewController.m */,
 				49CF6BE717FBF46000104E94 /* productViewController.xib */,
 			);
-			name = product;
+			name = "product:TO RADAR";
 			sourceTree = "<group>";
 		};
 		49138B7A17F9E23300446C97 /* suspend */ = {
@@ -652,7 +652,7 @@
 				49138B8017F9E25200446C97 /* aboutUs */,
 				49CF6BDE17FBF08000104E94 /* cell */,
 				497DA9DB17FABF890029F0AC /* fullScreenMap */,
-				49138B6F17F9E17500446C97 /* product */,
+				49138B6F17F9E17500446C97 /* product:TO RADAR */,
 				49CF6BDF17FBF0AA00104E94 /* shop */,
 				497DA9D117FAB0490029F0AC /* shopDetail */,
 				497DA9C917FAA1850029F0AC /* shopLeftSide */,
