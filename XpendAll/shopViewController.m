@@ -23,16 +23,11 @@
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-//        webGetter=[[WebJsonDataGetter alloc]initWithURLString:url];
-//        [webGetter setDelegate:self];
         NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"govermentData.json"];
         NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
         _govermentOriginData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        
         _govermentData=_govermentOriginData;
-        // Custom initialization
     }
     return self;
 }
@@ -79,11 +74,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     self.tableView.backgroundColor = [UIColor clearColor];
-    // Configure the cell...
-//    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
-//    cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
-//    cell.imageView.image=[UIImage  imageNamed:@"plate"];
-//    cell.backgroundColor = [UIColor clearColor];
     
     cell.textLabel.text=[[_govermentData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
     cell.detailTextLabel.text=[[_govermentData objectAtIndex:indexPath.row]objectForKey:@"address"];
@@ -95,8 +85,24 @@
     return cell;
 }
 
-- (IBAction)selectDistrict:(id)sender {
 
+#pragma mark - Table view delegate
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_govermentData objectAtIndex:indexPath.row] govermentData:(int *)1];
+    [self.navigationController pushViewController:detailView animated:TRUE];
+}
+
+#pragma mark - doThingAfterWebJsonIsOKFromDelegate
+
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    [_tableView reloadData];
+}
+
+#pragma mark - IBAction method
+- (IBAction)selectDistrict:(id)sender {
     if ([[_textCategory currentTitle]isEqualToString:@"全縣市"]) {
         [self showPicker:_categories selectedObject:@"台北市" filterType:@"city"];
     }else{
@@ -110,27 +116,6 @@
     }else{
         [self showPicker:_categories selectedObject:[_textCategory currentTitle] filterType:@"org_group_name"];
     }
-}
-
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-//    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[webGetter.webData objectAtIndex:indexPath.row] govermentData:1];
-//    [self.navigationController pushViewController:detailView animated:TRUE];
-    
-    
-    shopDetailViewController *detailView=[[shopDetailViewController alloc]initWithNibName:@"shopDetailViewController" bundle:nil shopDetail:[_govermentData objectAtIndex:indexPath.row] govermentData:1];
-    [self.navigationController pushViewController:detailView animated:TRUE];
-}
-
-#pragma mark - doThingAfterWebJsonIsOKFromDelegate
-
-
--(void)doThingAfterWebJsonIsOKFromDelegate{
-    [_tableView reloadData];
 }
 
 - (IBAction)backbtn:(id)sender {
@@ -197,7 +182,6 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"沒有資料" message:@"請重新選擇" delegate:self cancelButtonTitle:@"確定" otherButtonTitles: nil];
         [alert show];
     }
-    //[_govermentData removeAllObjects];
     _govermentData=tempData;
     [_tableView reloadData];
 }

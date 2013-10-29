@@ -39,8 +39,6 @@
 		49138B5117F9C43000446C97 /* XpendAllTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B5017F9C43000446C97 /* XpendAllTests.m */; };
 		49138B6117F9C64900446C97 /* collectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B6017F9C64900446C97 /* collectionCell.m */; };
 		49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 49138B6317F9D4DE00446C97 /* gamebaby.png */; };
-		49138B6D17F9DA1800446C97 /* suspendShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B6B17F9DA1800446C97 /* suspendShopViewController.m */; };
-		49138B6E17F9DA1800446C97 /* suspendShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */; };
 		49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7617F9E22E00446C97 /* suspendViewController.m */; };
 		49138B7917F9E22E00446C97 /* suspendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7717F9E22E00446C97 /* suspendViewController.xib */; };
 		49138B7E17F9E24C00446C97 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7C17F9E24C00446C97 /* aboutUsViewController.m */; };
@@ -84,8 +82,6 @@
 		497DA9C617FAA10C0029F0AC /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9C117FAA10C0029F0AC /* MFSideMenuContainerViewController.m */; };
 		497DA9C717FAA10C0029F0AC /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9C317FAA10C0029F0AC /* MFSideMenuShadow.m */; };
 		497DA9C817FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9C517FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m */; };
-		497DA9CD17FAA1BD0029F0AC /* shopLeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9CB17FAA1BD0029F0AC /* shopLeftSideViewController.m */; };
-		497DA9CE17FAA1BD0029F0AC /* shopLeftSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9CC17FAA1BD0029F0AC /* shopLeftSideViewController.xib */; };
 		497DA9D017FAB0350029F0AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497DA9CF17FAB0350029F0AC /* MapKit.framework */; };
 		497DA9D617FAB09C0029F0AC /* shopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9D417FAB09C0029F0AC /* shopDetailViewController.xib */; };
 		497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9D817FAB9F80029F0AC /* Annotation.m */; };
@@ -152,9 +148,6 @@
 		49138B5F17F9C64900446C97 /* collectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionCell.h; sourceTree = "<group>"; };
 		49138B6017F9C64900446C97 /* collectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionCell.m; sourceTree = "<group>"; };
 		49138B6317F9D4DE00446C97 /* gamebaby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebaby.png; sourceTree = "<group>"; };
-		49138B6A17F9DA1800446C97 /* suspendShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendShopViewController.h; sourceTree = "<group>"; };
-		49138B6B17F9DA1800446C97 /* suspendShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendShopViewController.m; sourceTree = "<group>"; };
-		49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendShopViewController.xib; sourceTree = "<group>"; };
 		49138B7517F9E22E00446C97 /* suspendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendViewController.h; sourceTree = "<group>"; };
 		49138B7617F9E22E00446C97 /* suspendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendViewController.m; sourceTree = "<group>"; };
 		49138B7717F9E22E00446C97 /* suspendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendViewController.xib; sourceTree = "<group>"; };
@@ -236,9 +229,6 @@
 		497DA9C317FAA10C0029F0AC /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
 		497DA9C417FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
 		497DA9C517FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
-		497DA9CA17FAA1BD0029F0AC /* shopLeftSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopLeftSideViewController.h; sourceTree = "<group>"; };
-		497DA9CB17FAA1BD0029F0AC /* shopLeftSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopLeftSideViewController.m; sourceTree = "<group>"; };
-		497DA9CC17FAA1BD0029F0AC /* shopLeftSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopLeftSideViewController.xib; sourceTree = "<group>"; };
 		497DA9CF17FAB0350029F0AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		497DA9D217FAB09C0029F0AC /* shopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopDetailViewController.h; sourceTree = "<group>"; };
 		497DA9D417FAB09C0029F0AC /* shopDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopDetailViewController.xib; sourceTree = "<group>"; };
@@ -403,16 +393,6 @@
 				49138B6317F9D4DE00446C97 /* gamebaby.png */,
 			);
 			name = image;
-			sourceTree = "<group>";
-		};
-		49138B6917F9D9F800446C97 /* suspendShop */ = {
-			isa = PBXGroup;
-			children = (
-				49138B6A17F9DA1800446C97 /* suspendShopViewController.h */,
-				49138B6B17F9DA1800446C97 /* suspendShopViewController.m */,
-				49138B6C17F9DA1800446C97 /* suspendShopViewController.xib */,
-			);
-			name = suspendShop;
 			sourceTree = "<group>";
 		};
 		49138B6F17F9E17500446C97 /* product:TO RADAR */ = {
@@ -588,16 +568,6 @@
 			path = MFSideMenu;
 			sourceTree = "<group>";
 		};
-		497DA9C917FAA1850029F0AC /* shopLeftSide */ = {
-			isa = PBXGroup;
-			children = (
-				497DA9CA17FAA1BD0029F0AC /* shopLeftSideViewController.h */,
-				497DA9CB17FAA1BD0029F0AC /* shopLeftSideViewController.m */,
-				497DA9CC17FAA1BD0029F0AC /* shopLeftSideViewController.xib */,
-			);
-			name = shopLeftSide;
-			sourceTree = "<group>";
-		};
 		497DA9D117FAB0490029F0AC /* shopDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,10 +625,8 @@
 				49138B6F17F9E17500446C97 /* product:TO RADAR */,
 				49CF6BDF17FBF0AA00104E94 /* shop */,
 				497DA9D117FAB0490029F0AC /* shopDetail */,
-				497DA9C917FAA1850029F0AC /* shopLeftSide */,
 				49347A191800253E00722A8B /* shopWithKml */,
 				49138B7A17F9E23300446C97 /* suspend */,
-				49138B6917F9D9F800446C97 /* suspendShop */,
 				49138B3A17F9C43000446C97 /* ViewController.h */,
 				49138B3B17F9C43000446C97 /* ViewController.m */,
 			);
@@ -798,7 +766,6 @@
 				482F91721801B10F002E123F /* icon.png in Resources */,
 				48AB5E9F17FC949B000F9664 /* maptitle.png in Resources */,
 				49138B3917F9C43000446C97 /* Main.storyboard in Resources */,
-				497DA9CE17FAA1BD0029F0AC /* shopLeftSideViewController.xib in Resources */,
 				49138B7F17F9E24C00446C97 /* aboutUsViewController.xib in Resources */,
 				48E9AD9A17FB39C400C3B11F /* btn_about.png in Resources */,
 				49138B7917F9E22E00446C97 /* suspendViewController.xib in Resources */,
@@ -809,7 +776,6 @@
 				48AB5E9B17FC8B7E000F9664 /* plate.png in Resources */,
 				497DA9AF17FA92760029F0AC /* README.textile in Resources */,
 				49347A1E1800256B00722A8B /* shopWithKmlViewController.xib in Resources */,
-				49138B6E17F9DA1800446C97 /* suspendShopViewController.xib in Resources */,
 				482F917A1801C5B6002E123F /* flag@2x.png in Resources */,
 				497DA9B517FA93A60029F0AC /* README.md in Resources */,
 				49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */,
@@ -844,7 +810,6 @@
 				497DA9C717FAA10C0029F0AC /* MFSideMenuShadow.m in Sources */,
 				497DA99D17FA92750029F0AC /* ASIHTTPRequest.m in Sources */,
 				497DA9AB17FA92750029F0AC /* ASIS3ObjectRequest.m in Sources */,
-				49138B6D17F9DA1800446C97 /* suspendShopViewController.m in Sources */,
 				497DA99E17FA92750029F0AC /* ASIInputStream.m in Sources */,
 				497DA9A217FA92750029F0AC /* ASICloudFilesContainer.m in Sources */,
 				49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */,
@@ -853,7 +818,6 @@
 				497DA9A117FA92750029F0AC /* ASICloudFilesCDNRequest.m in Sources */,
 				497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */,
 				497DA9A317FA92750029F0AC /* ASICloudFilesContainerRequest.m in Sources */,
-				497DA9CD17FAA1BD0029F0AC /* shopLeftSideViewController.m in Sources */,
 				497DA9AD17FA92750029F0AC /* ASIS3ServiceRequest.m in Sources */,
 				497DA9AC17FA92750029F0AC /* ASIS3Request.m in Sources */,
 				497DA9C617FAA10C0029F0AC /* MFSideMenuContainerViewController.m in Sources */,
