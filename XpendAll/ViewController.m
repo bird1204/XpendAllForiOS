@@ -14,6 +14,8 @@
 #import "GetJsonURLString.h"
 #import "shopViewController.h"
 #import "shopWithKmlViewController.h"
+#import "suspendRadarViewController.h"
+
 
 @interface ViewController ()
 
@@ -74,7 +76,8 @@
             view = (UINavigationController*)[[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:GetGovermentHQ];
             break;
         case 1:
-            view = (UINavigationController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
+            view = (UINavigationController*)[[suspendRadarViewController alloc]initWithNibName:@"suspendRadarViewController" bundle:nil];
+//            view = (UINavigationController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
             break;
         case 2:
             view = (UINavigationController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];

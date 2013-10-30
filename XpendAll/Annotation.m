@@ -13,6 +13,7 @@
 @synthesize title;
 @synthesize subtitle;
 @synthesize tag;
+@synthesize type;
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D)c{
     if (self = [super init]) {

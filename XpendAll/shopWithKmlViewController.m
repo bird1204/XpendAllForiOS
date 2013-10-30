@@ -42,7 +42,6 @@
     [super viewDidLoad];
 //    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
 //    [webGetter setDelegate:self];
-//    [webGetter setDelegate:self];
     
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];

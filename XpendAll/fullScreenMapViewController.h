@@ -11,6 +11,7 @@
 
 
 @interface fullScreenMapViewController : UIViewController
+
 - (IBAction)dismissFullScreenMap:(id)sender;
 
 @property (nonatomic) NSInteger *govermentData;
