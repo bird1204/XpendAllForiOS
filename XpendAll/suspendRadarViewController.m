@@ -72,6 +72,13 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    _radarView=nil;
+    _demoShopOriginalLists=nil;
+    _nearShopLists=nil;
+    _govermentOriginData=nil;
+    _distanceLabel=nil;
+    _distanceSlider=nil;
+
     // Dispose of any resources that can be recreated.
 }
 
@@ -135,6 +142,8 @@
 }
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
     NSLog(@"%@",view);
+    //TODO::細節
+    
 //    LocationDetailViewController *detailView=[[LocationDetailViewController alloc] initWithNibName:@"LocationDetailViewController" bundle:nil];
 //    detailView.anno=(Annotation*)view.annotation;
 //    [self.navigationController pushViewController:detailView animated:YES];
