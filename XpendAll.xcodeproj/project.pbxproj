@@ -45,8 +45,11 @@
 		49138B7F17F9E24C00446C97 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7D17F9E24C00446C97 /* aboutUsViewController.xib */; };
 		49347A1D1800256B00722A8B /* shopWithKmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49347A1B1800256B00722A8B /* shopWithKmlViewController.m */; };
 		49347A1E1800256B00722A8B /* shopWithKmlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */; };
-		49347A2018002CBC00722A8B /* icon-googleplus.png in Resources */ = {isa = PBXBuildFile; fileRef = 49347A1F18002CBC00722A8B /* icon-googleplus.png */; };
 		49347A2318004B5B00722A8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49347A2218004B5A00722A8B /* CoreLocation.framework */; };
+		4935BFA718214FE0006FFAED /* suspendRadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4935BFA518214FE0006FFAED /* suspendRadarViewController.m */; };
+		4935BFA818214FE0006FFAED /* suspendRadarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4935BFA618214FE0006FFAED /* suspendRadarViewController.xib */; };
+		4935BFAD18216850006FFAED /* AnnotationImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 4935BFAA18216850006FFAED /* AnnotationImage.png */; };
+		4935BFAE18216850006FFAED /* MyAnnotaionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4935BFAC18216850006FFAED /* MyAnnotaionView.m */; };
 		4942839D1802F9D300261080 /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 4942839B1802F9D300261080 /* other.png */; };
 		4942839E1802F9D300261080 /* address.png in Resources */ = {isa = PBXBuildFile; fileRef = 4942839C1802F9D300261080 /* address.png */; };
 		497462FB1801DD1500708DDF /* MMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 497462FA1801DD1500708DDF /* MMPickerView.m */; };
@@ -157,8 +160,13 @@
 		49347A1A1800256B00722A8B /* shopWithKmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopWithKmlViewController.h; sourceTree = "<group>"; };
 		49347A1B1800256B00722A8B /* shopWithKmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopWithKmlViewController.m; sourceTree = "<group>"; };
 		49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopWithKmlViewController.xib; sourceTree = "<group>"; };
-		49347A1F18002CBC00722A8B /* icon-googleplus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-googleplus.png"; sourceTree = "<group>"; };
 		49347A2218004B5A00722A8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4935BFA418214FE0006FFAED /* suspendRadarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendRadarViewController.h; sourceTree = "<group>"; };
+		4935BFA518214FE0006FFAED /* suspendRadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendRadarViewController.m; sourceTree = "<group>"; };
+		4935BFA618214FE0006FFAED /* suspendRadarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendRadarViewController.xib; sourceTree = "<group>"; };
+		4935BFAA18216850006FFAED /* AnnotationImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AnnotationImage.png; sourceTree = "<group>"; };
+		4935BFAB18216850006FFAED /* MyAnnotaionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotaionView.h; sourceTree = "<group>"; };
+		4935BFAC18216850006FFAED /* MyAnnotaionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotaionView.m; sourceTree = "<group>"; };
 		4942839B1802F9D300261080 /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
 		4942839C1802F9D300261080 /* address.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = address.png; sourceTree = "<group>"; };
 		497462F91801DD1500708DDF /* MMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPickerView.h; sourceTree = "<group>"; };
@@ -372,13 +380,13 @@
 		49138B6517F9D4EF00446C97 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4935BFAA18216850006FFAED /* AnnotationImage.png */,
 				4942839B1802F9D300261080 /* other.png */,
 				4942839C1802F9D300261080 /* address.png */,
 				4805D41018025A4000F8E4C2 /* select.png */,
 				482F917B1801C6C8002E123F /* earth.png */,
 				482F91791801C5B6002E123F /* flag@2x.png */,
 				482F91701801B10F002E123F /* icon.png */,
-				49347A1F18002CBC00722A8B /* icon-googleplus.png */,
 				48AB5EA217FC9E40000F9664 /* otherpage3.jpg */,
 				48AB5EA017FC982D000F9664 /* otherpage2.jpg */,
 				48AB5E9E17FC949B000F9664 /* maptitle.png */,
@@ -433,6 +441,25 @@
 				49347A1C1800256B00722A8B /* shopWithKmlViewController.xib */,
 			);
 			name = shopWithKml;
+			sourceTree = "<group>";
+		};
+		4935BFA318214EEC006FFAED /* suspendRadar */ = {
+			isa = PBXGroup;
+			children = (
+				4935BFA418214FE0006FFAED /* suspendRadarViewController.h */,
+				4935BFA518214FE0006FFAED /* suspendRadarViewController.m */,
+				4935BFA618214FE0006FFAED /* suspendRadarViewController.xib */,
+			);
+			name = suspendRadar;
+			sourceTree = "<group>";
+		};
+		4935BFA9182167F3006FFAED /* customAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				4935BFAB18216850006FFAED /* MyAnnotaionView.h */,
+				4935BFAC18216850006FFAED /* MyAnnotaionView.m */,
+			);
+			name = customAnnotation;
 			sourceTree = "<group>";
 		};
 		497462F81801DD1500708DDF /* MMPickerView */ = {
@@ -619,6 +646,7 @@
 		49CF6BDC17FBF03000104E94 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4935BFA318214EEC006FFAED /* suspendRadar */,
 				49138B8017F9E25200446C97 /* aboutUs */,
 				49CF6BDE17FBF08000104E94 /* cell */,
 				497DA9DB17FABF890029F0AC /* fullScreenMap */,
@@ -651,6 +679,7 @@
 		49CF6BDE17FBF08000104E94 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				4935BFA9182167F3006FFAED /* customAnnotation */,
 				497DA9D717FAB9D70029F0AC /* Annotation */,
 				49138B6217F9D4AC00446C97 /* collectionCell */,
 			);
@@ -758,10 +787,11 @@
 				49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */,
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
 				4942839D1802F9D300261080 /* other.png in Resources */,
+				4935BFA818214FE0006FFAED /* suspendRadarViewController.xib in Resources */,
 				48E9ADA017FB4A1F00C3B11F /* otherpage.jpg in Resources */,
 				49138B3017F9C43000446C97 /* InfoPlist.strings in Resources */,
 				4805D41118025A4000F8E4C2 /* select.png in Resources */,
-				49347A2018002CBC00722A8B /* icon-googleplus.png in Resources */,
+				4935BFAD18216850006FFAED /* AnnotationImage.png in Resources */,
 				497DA9E317FABFFE0029F0AC /* fullScreenMapViewController.xib in Resources */,
 				482F91721801B10F002E123F /* icon.png in Resources */,
 				48AB5E9F17FC949B000F9664 /* maptitle.png in Resources */,
@@ -813,6 +843,7 @@
 				497DA99E17FA92750029F0AC /* ASIInputStream.m in Sources */,
 				497DA9A217FA92750029F0AC /* ASICloudFilesContainer.m in Sources */,
 				49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */,
+				4935BFAE18216850006FFAED /* MyAnnotaionView.m in Sources */,
 				497DA9A617FA92750029F0AC /* ASICloudFilesObjectRequest.m in Sources */,
 				49CF6BE817FBF46000104E94 /* productViewController.m in Sources */,
 				497DA9A117FA92750029F0AC /* ASICloudFilesCDNRequest.m in Sources */,
@@ -845,6 +876,7 @@
 				497DA9A717FA92750029F0AC /* ASICloudFilesRequest.m in Sources */,
 				497462FB1801DD1500708DDF /* MMPickerView.m in Sources */,
 				497DA9A917FA92750029F0AC /* ASIS3BucketObject.m in Sources */,
+				4935BFA718214FE0006FFAED /* suspendRadarViewController.m in Sources */,
 				49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */,
 				498AE71518011EB700D665BC /* SVProgressHUD.m in Sources */,
 			);
