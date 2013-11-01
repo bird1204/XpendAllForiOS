@@ -99,6 +99,7 @@
 		49CF6BE817FBF46000104E94 /* productViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE617FBF46000104E94 /* productViewController.m */; };
 		49CF6BE917FBF46000104E94 /* productViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE717FBF46000104E94 /* productViewController.xib */; };
 		49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */; };
+		49EE14FB1823FF2700163DE1 /* UILabel+AutoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE14F91823FF2700163DE1 /* UILabel+AutoFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,6 +259,8 @@
 		49CF6BE717FBF46000104E94 /* productViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productViewController.xib; sourceTree = "<group>"; };
 		49CF6BEA17FBF56500104E94 /* MKMapView+ZoomMapRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomMapRegion.h"; sourceTree = "<group>"; };
 		49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomMapRegion.m"; sourceTree = "<group>"; };
+		49EE14F91823FF2700163DE1 /* UILabel+AutoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoFrame.m"; sourceTree = "<group>"; };
+		49EE14FA1823FF2700163DE1 /* UILabel+AutoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoFrame.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -664,6 +667,7 @@
 		49CF6BDD17FBF05000104E94 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				49EE14F81823FEEB00163DE1 /* autoFrame */,
 				497462F81801DD1500708DDF /* MMPickerView */,
 				498AE6FC18011EB700D665BC /* SVProgressHUD */,
 				49CF6BED17FBF57100104E94 /* zoomToFitMapAnnotations */,
@@ -703,6 +707,15 @@
 				49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */,
 			);
 			name = zoomToFitMapAnnotations;
+			sourceTree = "<group>";
+		};
+		49EE14F81823FEEB00163DE1 /* autoFrame */ = {
+			isa = PBXGroup;
+			children = (
+				49EE14F91823FF2700163DE1 /* UILabel+AutoFrame.m */,
+				49EE14FA1823FF2700163DE1 /* UILabel+AutoFrame.h */,
+			);
+			name = autoFrame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -868,6 +881,7 @@
 				497DA9AA17FA92750029F0AC /* ASIS3BucketRequest.m in Sources */,
 				497DA9C817FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				497DA99B17FA92750029F0AC /* ASIDownloadCache.m in Sources */,
+				49EE14FB1823FF2700163DE1 /* UILabel+AutoFrame.m in Sources */,
 				497DA9B417FA93A60029F0AC /* Reachability.m in Sources */,
 				497DA99F17FA92750029F0AC /* ASINetworkQueue.m in Sources */,
 				49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */,
