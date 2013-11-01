@@ -9,20 +9,24 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+
 @interface suspendRadarViewController : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate>{
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
     IBOutlet UILabel *distanceLabel;
+    MKRoute *routeDetails;
 }
 - (IBAction)distanceChanged:(id)sender;
 - (IBAction)distanceTouchUp:(id)sender;
 
 
+@property (strong,nonatomic) NSString *allSteps;
 @property (strong,nonatomic) NSMutableArray *demoShopOriginalLists;
 @property (strong,nonatomic) NSMutableArray *govermentOriginData;
 @property (strong,nonatomic) NSMutableDictionary *nearShopLists;
 @property (nonatomic) float distance;
 
+@property (strong, nonatomic) IBOutlet UITextView *destinationSteps;
 @property (strong, nonatomic) IBOutlet UISlider *distanceSlider;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet MKMapView *radarView;

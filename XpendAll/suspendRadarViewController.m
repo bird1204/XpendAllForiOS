@@ -10,6 +10,7 @@
 #import "Annotation.h"
 #import "MyAnnotaionView.h"
 #import "MKMapView+ZoomMapRegion.h"
+#import "UILabel+AutoFrame.h"
 
 
 
@@ -25,7 +26,7 @@
 @synthesize distanceLabel=_distanceLabel;
 @synthesize distanceSlider=_distanceSlider;
 @synthesize distance=_distance;
-
+@synthesize destinationSteps=_destinationSteps;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -62,8 +63,7 @@
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     locationManager.distanceFilter = kCLDistanceFilterNone;
-    [locationManager startUpdatingLocation];
-    
+    [locationManager startUpdatingLocation];    
     
 
     // Do any additional setup after loading the view from its nib.
@@ -99,8 +99,13 @@
 #pragma mark - loacation delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    currentLocation=(CLLocation*)[locations lastObject];
-    [self setMapView:nil GovermentData:FALSE onlySelfLocation:TRUE];
+    if (currentLocation) {
+        currentLocation=(CLLocation*)[locations lastObject];
+        [self setMapView:nil GovermentData:FALSE onlySelfLocation:TRUE];
+    }else{
+        NSLog(@"%@",currentLocation);
+        currentLocation=(CLLocation*)[locations lastObject];
+    }
 
     for (NSDictionary *suspendLocation in _demoShopOriginalLists) {
         CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:0] doubleValue] longitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:1] doubleValue]];
@@ -141,15 +146,52 @@
     return pin ;
 }
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-    NSLog(@"%@",view);
-    //TODO::細節
+    Annotation *anno=(Annotation*)view.annotation;
     
-//    LocationDetailViewController *detailView=[[LocationDetailViewController alloc] initWithNibName:@"LocationDetailViewController" bundle:nil];
-//    detailView.anno=(Annotation*)view.annotation;
-//    [self.navigationController pushViewController:detailView animated:YES];
-    //[self presentViewController:detailView animated:YES completion:nil];
+    CLGeocoder *geoCoder=[[CLGeocoder alloc]init];
+    [geoCoder geocodeAddressString:anno.subtitle completionHandler:^(NSArray *placemarks,NSError *error){
+        if (error) {
+            NSLog(@"error == %@",error.localizedDescription);
+        } else {
+            CLPlacemark *CLPlaceMark=[[CLPlacemark alloc]initWithPlacemark:[placemarks objectAtIndex:0]];
+            MKPlacemark *placemark=[[MKPlacemark alloc]initWithPlacemark:CLPlaceMark];
+            
+            MKDirectionsRequest *directionsRequest=[[MKDirectionsRequest alloc]init];
+            [directionsRequest setDestination:[MKMapItem mapItemForCurrentLocation]];
+            [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemark]];
+            directionsRequest.transportType = MKDirectionsTransportTypeWalking;
+            MKDirections *direction=[[MKDirections alloc]initWithRequest:directionsRequest];
+            [direction calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+                if (error) {
+                    NSLog(@"Error %@", error.description);
+                } else {
+                    routeDetails = response.routes.lastObject;
+                    [_destinationSteps removeFromSuperview];
+                    [_radarView removeOverlays:_radarView.overlays];
+                    [_radarView addOverlay:routeDetails.polyline];
+                    
+                    _destinationSteps =[[UITextView alloc]init];
+                    _destinationSteps.frame=CGRectMake(0, self.view.frame.size.height-100, _radarView.frame.size.width, 20);
+                    _destinationSteps.textAlignment=NSTextAlignmentCenter;
+                    [_destinationSteps setFont:[UIFont fontWithName:@"system" size:12]];
+                    _destinationSteps.editable=NO;
+                    _destinationSteps.dataDetectorTypes=UIDataDetectorTypeAll;
+                    _destinationSteps.text = [NSString stringWithFormat:@"%@",anno.subtitle];
+                    _destinationSteps.backgroundColor=[UIColor lightTextColor];
+                    [_radarView addSubview:_destinationSteps];
+                    [_destinationSteps setHidden:FALSE];
+                }
+            }];
+        }
+    }];
 }
 
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKPolylineRenderer  * routeLineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:routeDetails.polyline];
+    routeLineRenderer.strokeColor = [UIColor redColor];
+    routeLineRenderer.lineWidth = 5;
+    return routeLineRenderer;
+}
 #pragma mark - private method
 
 -(void)setMapView:(NSDictionary*)shopDetail GovermentData:(BOOL)isGovermentDataOrNot onlySelfLocation:(BOOL)onlySelfOrNot{
