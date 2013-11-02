@@ -11,11 +11,26 @@
 
 
 @implementation AppDelegate
+@synthesize shopOriginalLists=_shopOriginalLists;
+@synthesize govermentOriginLists=_govermentOriginLists;
+@synthesize currentLocation=_currentLocation;
+float _defaultDistance=1000.0f;
+float _prevShopDistance=0.0f;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    isNotifationPushed=false;
+    
+    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
+    NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    _shopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"govermentData.json"];
+    str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    _govermentOriginLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
 
+    
     UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *mainViewController =
             (ViewController*)[main instantiateViewControllerWithIdentifier: @"ViewController"];
@@ -83,25 +98,48 @@
 {
     
     UIApplication* app = [UIApplication sharedApplication];
-    CLLocation *location = [locations lastObject];
-    NSDate *alertTime = [[NSDate date]
-                         dateByAddingTimeInterval:5];
-    UILocalNotification* notifyAlarm = [[UILocalNotification alloc]init];
-    if (notifyAlarm)
+    //coord.latitude=25.018729;
+    //coord.longitude=121.535096;
+    currentLocation =[locations lastObject];
+    _currentLocation=currentLocation;
+    
+    float distance = [self nearShopDistance];
+    if (distance <= _defaultDistance)
     {
-        notifyAlarm.fireDate = alertTime;
+        UILocalNotification* notifyAlarm = [[UILocalNotification alloc]init];
         notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
         notifyAlarm.repeatInterval = 0;
-        notifyAlarm.alertBody = @"location state";
-        //[app scheduleLocalNotification:notifyAlarm];
+        notifyAlarm.alertAction = @"Take It";
+        notifyAlarm.alertBody = [NSString stringWithFormat:@"附近有店家，距離：%d公尺",(int)floor(distance)];
+        
         [app presentLocalNotificationNow:notifyAlarm];
-        if (!isNotifationPushed) {
+        if (_prevShopDistance != distance) {
+            _prevShopDistance=distance;
             app.applicationIconBadgeNumber=app.applicationIconBadgeNumber+1;
-            isNotifationPushed=true;
         }
         
     }
 
+}
+
+-(float)nearShopDistance{
+    for (NSDictionary *suspendLocation in _shopOriginalLists) {
+        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:0] doubleValue] longitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:1] doubleValue]];
+        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
+        if ((CGFloat)meters <= _defaultDistance) {
+            return (CGFloat)meters;
+        }
+    }
+    
+    for (NSDictionary *suspendLocation in _govermentOriginLists) {
+        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[suspendLocation objectForKey:@"lat"]doubleValue] longitude:[[suspendLocation objectForKey:@"lon"]doubleValue]];
+        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
+        if ((CGFloat)meters <=_defaultDistance) {
+            return (CGFloat)meters;
+        }
+    }
+    
+    return _defaultDistance + 100.0f;
 }
 
 @end
