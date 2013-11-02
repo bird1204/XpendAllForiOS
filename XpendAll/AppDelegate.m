@@ -15,10 +15,10 @@
 @synthesize govermentOriginLists=_govermentOriginLists;
 @synthesize currentLocation=_currentLocation;
 float _defaultDistance=1000.0f;
+float _prevShopDistance=0.0f;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    isNotifationPushed=false;
     
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
@@ -98,8 +98,11 @@ float _defaultDistance=1000.0f;
 {
     
     UIApplication* app = [UIApplication sharedApplication];
+    //coord.latitude=25.018729;
+    //coord.longitude=121.535096;
     currentLocation =[locations lastObject];
     _currentLocation=currentLocation;
+    
     float distance = [self nearShopDistance];
     if (distance <= _defaultDistance)
     {
@@ -110,9 +113,9 @@ float _defaultDistance=1000.0f;
         notifyAlarm.alertBody = [NSString stringWithFormat:@"附近有店家，距離：%d公尺",(int)floor(distance)];
         
         [app presentLocalNotificationNow:notifyAlarm];
-        if (!isNotifationPushed) {
+        if (_prevShopDistance != distance) {
+            _prevShopDistance=distance;
             app.applicationIconBadgeNumber=app.applicationIconBadgeNumber+1;
-            isNotifationPushed=true;
         }
         
     }

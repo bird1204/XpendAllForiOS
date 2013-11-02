@@ -42,7 +42,6 @@
 {
     [super viewDidLoad];
     
-    
     [_radarView.layer setCornerRadius:10.0];
     
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
@@ -190,8 +189,6 @@
     CLLocationCoordinate2D coord;
     if (onlySelfOrNot) {
         coord=currentLocation.coordinate;
-        //coord.latitude=25.018729;
-        //coord.longitude=121.535096;
         if (coord.latitude!=0.0 || coord.longitude!=0.0) {
             Annotation *anno=[[Annotation alloc] initWithCoordinate:coord];
             [anno setTitle:@"我在這裡"];

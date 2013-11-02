@@ -12,8 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>{
     UIBackgroundTaskIdentifier backgroundTask;
     CLLocationManager* locationManager;
-    CLLocation *currentLocation;
-    BOOL isNotifationPushed;
+    CLLocation *currentLocation;    
 }
 
 @property (strong,nonatomic) NSMutableArray *shopOriginalLists;
