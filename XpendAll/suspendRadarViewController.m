@@ -64,7 +64,7 @@
     _distance=_distanceSlider.value;
 
     
-    AppDelegate *appDelgate=[[UIApplication sharedApplication]delegate];
+    AppDelegate *appDelgate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
     [self markNearShopByCurrentLocation:appDelgate.currentLocation distance:_distanceSlider.value];
     
@@ -93,7 +93,7 @@
     [_radarView removeAnnotations:_radarView.annotations];
     _distance=_distanceSlider.value;
     
-    AppDelegate *appDelgate=[[UIApplication sharedApplication]delegate];
+    AppDelegate *appDelgate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
     [self markNearShopByCurrentLocation:appDelgate.currentLocation distance:_distanceSlider.value];
 }

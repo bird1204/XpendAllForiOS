@@ -646,7 +646,7 @@
 				49138B8017F9E25200446C97 /* aboutUs */,
 				49CF6BDE17FBF08000104E94 /* cell */,
 				497DA9DB17FABF890029F0AC /* fullScreenMap */,
-				49CF6BDF17FBF0AA00104E94 /* shop */,
+				49CF6BDF17FBF0AA00104E94 /* shopWithGoverment */,
 				497DA9D117FAB0490029F0AC /* shopDetail */,
 				49347A191800253E00722A8B /* shopWithKml */,
 				49138B7A17F9E23300446C97 /* suspend */,
@@ -682,14 +682,14 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
-		49CF6BDF17FBF0AA00104E94 /* shop */ = {
+		49CF6BDF17FBF0AA00104E94 /* shopWithGoverment */ = {
 			isa = PBXGroup;
 			children = (
 				49CF6BE017FBF0C000104E94 /* shopViewController.h */,
 				49CF6BE117FBF0C000104E94 /* shopViewController.m */,
 				49CF6BE217FBF0C000104E94 /* shopViewController.xib */,
 			);
-			name = shop;
+			name = shopWithGoverment;
 			sourceTree = "<group>";
 		};
 		49CF6BED17FBF57100104E94 /* zoomToFitMapAnnotations */ = {
