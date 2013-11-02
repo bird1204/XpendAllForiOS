@@ -18,6 +18,7 @@
 }
 - (IBAction)distanceChanged:(id)sender;
 - (IBAction)distanceTouchUp:(id)sender;
+- (IBAction)backbtn:(id)sender;
 
 
 @property (strong,nonatomic) NSString *allSteps;

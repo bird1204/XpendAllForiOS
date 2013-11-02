@@ -18,12 +18,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="otherpage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jLN-b0-lEd">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="otherpage2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jLN-b0-lEd">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="agX-BH-7uf">
-                    <rect key="frame" x="12" y="97" width="293" height="229"/>
+                    <rect key="frame" x="13" y="97" width="293" height="229"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </mapView>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-gN-ZGG">
@@ -117,6 +117,6 @@
         <image name="btn_map.png" width="287" height="287"/>
         <image name="name.png" width="603" height="90"/>
         <image name="other.png" width="603" height="90"/>
-        <image name="otherpage.jpg" width="640" height="1136"/>
+        <image name="otherpage2.jpg" width="640" height="1136"/>
     </resources>
 </document>

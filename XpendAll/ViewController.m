@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "collectionCell.h"
-#import "productViewController.h"
 #import "suspendViewController.h"
 #import "aboutUsViewController.h"
 #import "GetJsonURLString.h"
@@ -30,7 +29,8 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"suspend radar",@"Help Someone",@"About Us", nil];
-    _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_food",@"btn_help",@"btn_about", nil];
+    _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_radar",@"btn_help",@"btn_about", nil];
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -77,7 +77,6 @@
             break;
         case 1:
             view = (UINavigationController*)[[suspendRadarViewController alloc]initWithNibName:@"suspendRadarViewController" bundle:nil];
-//            view = (UINavigationController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
             break;
         case 2:
             view = (UINavigationController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];

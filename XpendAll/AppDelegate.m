@@ -14,18 +14,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    isNotifationPushed=false;
+
     UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *mainViewController =
             (ViewController*)[main instantiateViewControllerWithIdentifier: @"ViewController"];
     
     UINavigationController *mainView = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     
-
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:mainView];
     [self.window makeKeyAndVisible];
-
+    
+    [self startStandardUpdates];
     // Override point for customization after application launch.
     return YES;
 }
@@ -38,6 +40,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -49,12 +52,56 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    UIApplication* app = [UIApplication sharedApplication];
+    app.applicationIconBadgeNumber=0;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)startStandardUpdates
+{
+    if (nil == locationManager)
+        locationManager = [[CLLocationManager alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    [locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"update location err-\n%@", error);
+}
+
+// Delegate method from the CLLocationManagerDelegate protocol.
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
+    UIApplication* app = [UIApplication sharedApplication];
+    CLLocation *location = [locations lastObject];
+    NSDate *alertTime = [[NSDate date]
+                         dateByAddingTimeInterval:5];
+    UILocalNotification* notifyAlarm = [[UILocalNotification alloc]init];
+    if (notifyAlarm)
+    {
+        notifyAlarm.fireDate = alertTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.repeatInterval = 0;
+        notifyAlarm.alertBody = @"location state";
+        //[app scheduleLocalNotification:notifyAlarm];
+        [app presentLocalNotificationNow:notifyAlarm];
+        if (!isNotifationPushed) {
+            app.applicationIconBadgeNumber=app.applicationIconBadgeNumber+1;
+            isNotifationPushed=true;
+        }
+        
+    }
+
 }
 
 @end

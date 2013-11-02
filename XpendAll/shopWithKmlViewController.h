@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <KML/KML.h>
 #import "WebJsonDataGetter.h"
 
 

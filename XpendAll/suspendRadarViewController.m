@@ -11,7 +11,7 @@
 #import "MyAnnotaionView.h"
 #import "MKMapView+ZoomMapRegion.h"
 #import "UILabel+AutoFrame.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface suspendRadarViewController ()
@@ -39,7 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [_radarView.layer setCornerRadius:10.0];
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -88,24 +88,22 @@
 }
 
 - (IBAction)distanceTouchUp:(id)sender {
-    if (_distanceSlider.value < _distance ) {
-        [_radarView removeAnnotations:_radarView.annotations];
-    }
+    [_radarView removeAnnotations:_radarView.annotations];
     _distance=_distanceSlider.value;
     [locationManager startUpdatingLocation];
+}
+
+- (IBAction)backbtn:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 #pragma mark -
 #pragma mark - loacation delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    if (currentLocation) {
-        currentLocation=(CLLocation*)[locations lastObject];
-        [self setMapView:nil GovermentData:FALSE onlySelfLocation:TRUE];
-    }else{
-        NSLog(@"%@",currentLocation);
-        currentLocation=(CLLocation*)[locations lastObject];
-    }
+
+    currentLocation=(CLLocation*)[locations lastObject];
+    [self setMapView:nil GovermentData:FALSE onlySelfLocation:TRUE];
 
     for (NSDictionary *suspendLocation in _demoShopOriginalLists) {
         CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:0] doubleValue] longitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:1] doubleValue]];
@@ -171,7 +169,7 @@
                     [_radarView addOverlay:routeDetails.polyline];
                     
                     _destinationSteps =[[UITextView alloc]init];
-                    _destinationSteps.frame=CGRectMake(0, self.view.frame.size.height-100, _radarView.frame.size.width, 20);
+                    _destinationSteps.frame=CGRectMake(0, self.view.frame.size.height-200, _radarView.frame.size.width, 20);
                     _destinationSteps.textAlignment=NSTextAlignmentCenter;
                     [_destinationSteps setFont:[UIFont fontWithName:@"system" size:12]];
                     _destinationSteps.editable=NO;

@@ -11,6 +11,7 @@
 #import "shopDetailViewController.h"
 #import "Annotation.h"
 #import "fullScreenMapViewController.h"
+#import <QuartzCore/QuartzCore.h>
 @interface shopDetailViewController ()
 
 @end
@@ -41,7 +42,7 @@
         [self setMapViewFromKMLData];
     }
     
-    
+    [_mapView.layer setCornerRadius:10.0];
 }
 
 - (void)didReceiveMemoryWarning
