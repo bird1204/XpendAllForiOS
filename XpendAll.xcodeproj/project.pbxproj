@@ -765,6 +765,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = BirdChiu;
 				TargetAttributes = {
+					49138B2117F9C43000446C97 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					49138B4217F9C43000446C97 = {
 						TestTargetID = 49138B2117F9C43000446C97;
 					};
