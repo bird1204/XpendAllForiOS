@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"suspend radar",@"Help Someone",@"About Us", nil];
+    _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"Suspend Radar",@"Help Someone",@"About Us", nil];
     _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_radar",@"btn_help",@"btn_about", nil];
 
     // Do any additional setup after loading the view, typically from a nib.

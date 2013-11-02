@@ -126,7 +126,7 @@
 
     if (quantity > 0) {
         
-        cell.imageView.image=[UIImage  imageNamed:@"plate_highlight"];
+        cell.imageView.image=[UIImage  imageNamed:@"hightlight"];
     }
     
     return cell;
