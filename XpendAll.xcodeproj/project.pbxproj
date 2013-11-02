@@ -42,7 +42,6 @@
 		49138B4F17F9C43000446C97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49138B4D17F9C43000446C97 /* InfoPlist.strings */; };
 		49138B5117F9C43000446C97 /* XpendAllTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B5017F9C43000446C97 /* XpendAllTests.m */; };
 		49138B6117F9C64900446C97 /* collectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B6017F9C64900446C97 /* collectionCell.m */; };
-		49138B6417F9D4DE00446C97 /* gamebaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 49138B6317F9D4DE00446C97 /* gamebaby.png */; };
 		49138B7817F9E22E00446C97 /* suspendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7617F9E22E00446C97 /* suspendViewController.m */; };
 		49138B7917F9E22E00446C97 /* suspendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49138B7717F9E22E00446C97 /* suspendViewController.xib */; };
 		49138B7E17F9E24C00446C97 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49138B7C17F9E24C00446C97 /* aboutUsViewController.m */; };
@@ -100,8 +99,6 @@
 		49A439D918045461002993BD /* kmlData.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A439D718045461002993BD /* kmlData.json */; };
 		49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE117FBF0C000104E94 /* shopViewController.m */; };
 		49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE217FBF0C000104E94 /* shopViewController.xib */; };
-		49CF6BE817FBF46000104E94 /* productViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE617FBF46000104E94 /* productViewController.m */; };
-		49CF6BE917FBF46000104E94 /* productViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE717FBF46000104E94 /* productViewController.xib */; };
 		49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */; };
 		49EE14FB1823FF2700163DE1 /* UILabel+AutoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE14F91823FF2700163DE1 /* UILabel+AutoFrame.m */; };
 /* End PBXBuildFile section */
@@ -158,7 +155,6 @@
 		49138B5017F9C43000446C97 /* XpendAllTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XpendAllTests.m; sourceTree = "<group>"; };
 		49138B5F17F9C64900446C97 /* collectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionCell.h; sourceTree = "<group>"; };
 		49138B6017F9C64900446C97 /* collectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionCell.m; sourceTree = "<group>"; };
-		49138B6317F9D4DE00446C97 /* gamebaby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebaby.png; sourceTree = "<group>"; };
 		49138B7517F9E22E00446C97 /* suspendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = suspendViewController.h; sourceTree = "<group>"; };
 		49138B7617F9E22E00446C97 /* suspendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = suspendViewController.m; sourceTree = "<group>"; };
 		49138B7717F9E22E00446C97 /* suspendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = suspendViewController.xib; sourceTree = "<group>"; };
@@ -261,9 +257,6 @@
 		49CF6BE017FBF0C000104E94 /* shopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopViewController.h; sourceTree = "<group>"; };
 		49CF6BE117FBF0C000104E94 /* shopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopViewController.m; sourceTree = "<group>"; };
 		49CF6BE217FBF0C000104E94 /* shopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopViewController.xib; sourceTree = "<group>"; };
-		49CF6BE517FBF46000104E94 /* productViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productViewController.h; sourceTree = "<group>"; };
-		49CF6BE617FBF46000104E94 /* productViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productViewController.m; sourceTree = "<group>"; };
-		49CF6BE717FBF46000104E94 /* productViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = productViewController.xib; sourceTree = "<group>"; };
 		49CF6BEA17FBF56500104E94 /* MKMapView+ZoomMapRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomMapRegion.h"; sourceTree = "<group>"; };
 		49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomMapRegion.m"; sourceTree = "<group>"; };
 		49EE14F91823FF2700163DE1 /* UILabel+AutoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoFrame.m"; sourceTree = "<group>"; };
@@ -414,16 +407,6 @@
 				48E9AD9617FB39C400C3B11F /* btn_about.png */,
 			);
 			name = image;
-			sourceTree = "<group>";
-		};
-		49138B6F17F9E17500446C97 /* product:TO RADAR */ = {
-			isa = PBXGroup;
-			children = (
-				49CF6BE517FBF46000104E94 /* productViewController.h */,
-				49CF6BE617FBF46000104E94 /* productViewController.m */,
-				49CF6BE717FBF46000104E94 /* productViewController.xib */,
-			);
-			name = "product:TO RADAR";
 			sourceTree = "<group>";
 		};
 		49138B7A17F9E23300446C97 /* suspend */ = {
@@ -663,7 +646,6 @@
 				49138B8017F9E25200446C97 /* aboutUs */,
 				49CF6BDE17FBF08000104E94 /* cell */,
 				497DA9DB17FABF890029F0AC /* fullScreenMap */,
-				49138B6F17F9E17500446C97 /* product:TO RADAR */,
 				49CF6BDF17FBF0AA00104E94 /* shop */,
 				497DA9D117FAB0490029F0AC /* shopDetail */,
 				49347A191800253E00722A8B /* shopWithKml */,
@@ -819,7 +801,6 @@
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
 				4942839D1802F9D300261080 /* other.png in Resources */,
 				4935BFA818214FE0006FFAED /* suspendRadarViewController.xib in Resources */,
-				48E9ADA017FB4A1F00C3B11F /* otherpage.jpg in Resources */,
 				49138B3017F9C43000446C97 /* InfoPlist.strings in Resources */,
 				484DA9AE1824C06000997368 /* otherpage.jpg in Resources */,
 				4805D41118025A4000F8E4C2 /* select.png in Resources */,
@@ -848,7 +829,6 @@
 				49A439D41804507E002993BD /* govermentData.json in Resources */,
 				48E9AD9817FB39C400C3B11F /* btn_help.png in Resources */,
 				49A439D918045461002993BD /* kmlData.json in Resources */,
-				49CF6BE917FBF46000104E94 /* productViewController.xib in Resources */,
 				48E9ADA417FB4C2300C3B11F /* name.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -878,7 +858,6 @@
 				49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */,
 				4935BFAE18216850006FFAED /* MyAnnotaionView.m in Sources */,
 				497DA9A617FA92750029F0AC /* ASICloudFilesObjectRequest.m in Sources */,
-				49CF6BE817FBF46000104E94 /* productViewController.m in Sources */,
 				497DA9A117FA92750029F0AC /* ASICloudFilesCDNRequest.m in Sources */,
 				497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */,
 				497DA9A317FA92750029F0AC /* ASICloudFilesContainerRequest.m in Sources */,
