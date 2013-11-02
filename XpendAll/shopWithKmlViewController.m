@@ -42,7 +42,7 @@
     [super viewDidLoad];
 //    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
 //    [webGetter setDelegate:self];
-    
+
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -121,11 +121,12 @@
     cell.detailTextLabel.text=[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"address"];
     cell.imageView.image=[UIImage  imageNamed:@"plate"];
     cell.backgroundColor = [UIColor clearColor];
-    
+
     NSInteger quantity=[[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"quantity"] integerValue];
 
     if (quantity > 0) {
-        cell.backgroundColor=[UIColor lightTextColor];
+        
+        cell.imageView.image=[UIImage  imageNamed:@"plate_highlight"];
     }
     
     return cell;

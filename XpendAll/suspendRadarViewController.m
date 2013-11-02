@@ -11,7 +11,7 @@
 #import "MyAnnotaionView.h"
 #import "MKMapView+ZoomMapRegion.h"
 #import "UILabel+AutoFrame.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface suspendRadarViewController ()
@@ -39,7 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [_radarView.layer setCornerRadius:10.0];
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -93,6 +93,10 @@
     }
     _distance=_distanceSlider.value;
     [locationManager startUpdatingLocation];
+}
+
+- (IBAction)backbtn:(id)sender {
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 #pragma mark -
