@@ -12,6 +12,8 @@
 #import "MKMapView+ZoomMapRegion.h"
 #import "UILabel+AutoFrame.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
+
 
 
 @interface suspendRadarViewController ()
@@ -39,7 +41,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     [_radarView.layer setCornerRadius:10.0];
+    
     NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -58,14 +63,12 @@
     [_distanceLabel setText:[NSString stringWithFormat:@"%d 公尺",(int)floor(_distanceSlider.value)]];
     
     _distance=_distanceSlider.value;
-    
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    [locationManager startUpdatingLocation];    
-    
 
+    
+    AppDelegate *appDelgate=[[UIApplication sharedApplication]delegate];
+    NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
+    [self markNearShopByCurrentLocation:appDelgate.currentLocation distance:_distanceSlider.value];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -90,48 +93,14 @@
 - (IBAction)distanceTouchUp:(id)sender {
     [_radarView removeAnnotations:_radarView.annotations];
     _distance=_distanceSlider.value;
-    [locationManager startUpdatingLocation];
+    
+    AppDelegate *appDelgate=[[UIApplication sharedApplication]delegate];
+    NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
+    [self markNearShopByCurrentLocation:appDelgate.currentLocation distance:_distanceSlider.value];
 }
 
 - (IBAction)backbtn:(id)sender {
     [self.navigationController popViewControllerAnimated: YES];
-}
-
-#pragma mark -
-#pragma mark - loacation delegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-
-    currentLocation=(CLLocation*)[locations lastObject];
-    [self setMapView:nil GovermentData:FALSE onlySelfLocation:TRUE];
-
-    for (NSDictionary *suspendLocation in _demoShopOriginalLists) {
-        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:0] doubleValue] longitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:1] doubleValue]];
-        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
-        if ((CGFloat)meters < _distanceSlider.value) {
-            [self setMapView:suspendLocation GovermentData:FALSE onlySelfLocation:FALSE];
-        }
-    }
-    
-    for (NSDictionary *suspendLocation in _govermentOriginData) {
-        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[suspendLocation objectForKey:@"lat"]doubleValue] longitude:[[suspendLocation objectForKey:@"lon"]doubleValue]];
-        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
-        if ((CGFloat)meters < _distanceSlider.value) {
-            [self setMapView:suspendLocation GovermentData:TRUE onlySelfLocation:FALSE];
-        }
-    }
-
-    [_radarView zoomToFitMapAnnotations];
-    [locationManager stopUpdatingLocation];
-}
-
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    if ( [error code] == kCLErrorDenied ) {
-        [manager stopUpdatingHeading];
-    } else if ([error code] == kCLErrorHeadingFailure) {
-        
-    }
 }
 
 #pragma mark - MKMap View Delegate
@@ -190,9 +159,32 @@
     routeLineRenderer.lineWidth = 5;
     return routeLineRenderer;
 }
+
 #pragma mark - private method
 
--(void)setMapView:(NSDictionary*)shopDetail GovermentData:(BOOL)isGovermentDataOrNot onlySelfLocation:(BOOL)onlySelfOrNot{
+-(void)markNearShopByCurrentLocation:(CLLocation *)currentLocation distance:(CGFloat)distance{
+    [self setMapView:nil GovermentData:FALSE onlySelfLocation:TRUE currentLocation:currentLocation];
+
+    for (NSDictionary *suspendLocation in _demoShopOriginalLists) {
+        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:0] doubleValue] longitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:1] doubleValue]];
+        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
+        if ((CGFloat)meters < distance) {
+            [self setMapView:suspendLocation GovermentData:FALSE onlySelfLocation:FALSE currentLocation:nil];
+        }
+    }
+    
+    for (NSDictionary *suspendLocation in _govermentOriginData) {
+        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[suspendLocation objectForKey:@"lat"]doubleValue] longitude:[[suspendLocation objectForKey:@"lon"]doubleValue]];
+        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
+        if ((CGFloat)meters < distance) {
+            [self setMapView:suspendLocation GovermentData:TRUE onlySelfLocation:FALSE currentLocation:nil];
+        }
+    }
+    
+    [_radarView zoomToFitMapAnnotations];
+}
+
+-(void)setMapView:(NSDictionary*)shopDetail GovermentData:(BOOL)isGovermentDataOrNot onlySelfLocation:(BOOL)onlySelfOrNot currentLocation:(CLLocation*)currentLocation{
     //init map view
     
     CLLocationCoordinate2D coord;

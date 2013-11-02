@@ -10,9 +10,7 @@
 #import <MapKit/MapKit.h>
 
 
-@interface suspendRadarViewController : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate>{
-    CLLocationManager *locationManager;
-    CLLocation *currentLocation;
+@interface suspendRadarViewController : UIViewController<MKMapViewDelegate>{
     IBOutlet UILabel *distanceLabel;
     MKRoute *routeDetails;
 }
