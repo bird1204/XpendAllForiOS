@@ -13,6 +13,8 @@
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subtitle;
+@property (nonatomic,strong)NSNumber *type;
+
 @property (assign) NSInteger tag;
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D)c;

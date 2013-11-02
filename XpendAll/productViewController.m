@@ -21,8 +21,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetGovermentHQ];
-        [webGetter setDelegate:self];
+//        webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
+//        [webGetter setDelegate:self];
 
     }
     return self;
@@ -32,6 +32,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
+    NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    _productOriginDatas = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    _productDatas=[[NSMutableArray alloc]init];
+    for (NSDictionary *list in _productOriginDatas) {
+        id quantityValue = [list objectForKey:@"quantity"];
+        if (quantityValue != [NSNull null]){
+            NSString *quantity = (NSMutableString *)quantityValue;
+            if ([quantity integerValue] > 0) {
+                [_productDatas addObject:list];
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +66,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [webGetter.webData count];
+//    return [webGetter.webData count];
+    return [_productDatas count];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,12 +78,17 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    self.tableView.backgroundColor = [UIColor clearColor];
     // Configure the cell...
-    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
-    cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
+    //    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"org_name"];
+    //    cell.detailTextLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"address"];
+    //    cell.imageView.image=[UIImage  imageNamed:@"plate"];
+    //     cell.backgroundColor = [UIColor clearColor];
+    
+    cell.textLabel.text=[[_productDatas objectAtIndex:indexPath.row]objectForKey:@"title"];
+    cell.detailTextLabel.text=[[_productDatas objectAtIndex:indexPath.row]objectForKey:@"address"];
     cell.imageView.image=[UIImage  imageNamed:@"plate"];
-     cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];    
+    
     return cell;
 }
 

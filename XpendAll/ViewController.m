@@ -14,6 +14,8 @@
 #import "GetJsonURLString.h"
 #import "shopViewController.h"
 #import "shopWithKmlViewController.h"
+#import "suspendRadarViewController.h"
+
 
 @interface ViewController ()
 
@@ -27,8 +29,8 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"Find Product",@"Help Someone",@"About Us", nil];
-    _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_food",@"btn_help",@"btn_about", nil];
+    _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"Suspend Radar",@"Help Someone",@"About Us", nil];
+    _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_radar",@"btn_help",@"btn_about", nil];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -74,7 +76,8 @@
             view = (UINavigationController*)[[shopViewController alloc]initWithNibName:@"shopViewController" bundle:nil url:GetGovermentHQ];
             break;
         case 1:
-            view = (UINavigationController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
+            view = (UINavigationController*)[[suspendRadarViewController alloc]initWithNibName:@"suspendRadarViewController" bundle:nil];
+//            view = (UINavigationController*)[[productViewController alloc]initWithNibName:@"productViewController" bundle:nil];
             break;
         case 2:
             view = (UINavigationController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
@@ -86,8 +89,6 @@
             break;
     }
     view.title=[_funtionsList objectAtIndex:indexPath.row];
-//    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
-    
     if (indexPath.row==0) {
         shopWithKmlViewController *kml=[[shopWithKmlViewController alloc]initWithNibName:@"shopWithKmlViewController" bundle:nil];
         
@@ -98,18 +99,9 @@
         
         
         UITabBarController *tabBarController = [[UITabBarController alloc] init];
+        [tabBarController setTitle:@"suspend shop"];
         [tabBarController setViewControllers:[NSArray arrayWithObjects:kml,view,nil]];
         [tabBarController.tabBar setTintColor:[UIColor darkTextColor]];
-
-        //backgroundImage 是設定tabBar的背景
-        //tabBarController.tabBar.backgroundImage=[UIImage imageNamed:@"icon-googleplus"];
-        
-        //UIBarStyleDefault 是透明
-        //tabBarController.tabBar.barStyle=UIBarStyleDefault;
-        
-        //取tabBar的高
-        //tabBarController.tabBar.frame.size.height
-        
         
         [self.navigationController pushViewController:tabBarController animated:TRUE];
     }else{

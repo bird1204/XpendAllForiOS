@@ -7,6 +7,8 @@
 //
 
 #import "suspendViewController.h"
+#import "MMPickerView.h"
+
 
 @interface suspendViewController ()
 
@@ -35,22 +37,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(_remark.frame.origin.x+_remark.frame.size.height+10, 0, self.view.frame.size.width, self.view.frame.size.height-_remark.frame.origin.x-_remark.frame.size.height)];
-    [_pickerView setDelegate:self];
-    [_pickerView setDataSource:self];
-    [_pickerView setBackgroundColor:[UIColor clearColor]];
-    [_pickerView setShowsSelectionIndicator:YES];
-    
-//    _title.keyboardType=UIKeyboardTypeAlphabet;
-//    _address.keyboardType=UIKeyboardTypeAlphabet;
-//    _remark.keyboardType=UIKeyboardTypeAlphabet;
-//    
-//    _title.returnKeyType=UIReturnKeyDone;
-//    _address.returnKeyType=UIReturnKeyDone;
-//    _remark.returnKeyType=UIReturnKeyDone;
-
-    _category.inputView=_pickerView;
-    _quantity.inputView=_pickerView;
     
     _categories=[[NSArray alloc]initWithObjects:@"食品",@"飲品",@"物資",@"特殊狀況", nil];
     _quantities=[[NSArray alloc]initWithObjects:
@@ -58,13 +44,11 @@
                      @"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",
                      @"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30", nil];
     
-    
-    //listen tap event
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognized:)];
-    tap.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:tap];
 
-        
+    [_category setText:@"食品"];
+    [_quantity setText:@"1"];
+    [_feedback setHidden:YES];
+    
     currentLocation = [[CLLocationManager alloc] init];
     currentLocation.delegate = self;
     currentLocation.desiredAccuracy = kCLLocationAccuracyKilometer;
@@ -92,65 +76,58 @@
 }
 
 - (IBAction)reportSuspend:(id)sender {
+    [self.view endEditing:TRUE];
     NSLog(@"title  %@",[_textTitle text]);
     NSLog(@"address  %@",[_address text]);
     NSLog(@"quantity  %@",[_quantity text]);
     NSLog(@"category  %@",[_category text]);
     NSLog(@"remark  %@",[_remark text]);
     
-}
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"確認訊息" message:@"感謝你通報待用產品，\n請按下確定送出！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"確定",nil];
+    [alert show];
 
-
-
-#pragma mark -
-#pragma mark - pickerView datesource
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    NSInteger count=0;
-    if (_workingField==_category) {
-        count = [_categories count];
-    }
-    if (_workingField==_quantity) {
-        count = [_quantities count];
-    }
-    return count;
-}
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
-    return 1;
-}
-
--(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    NSString *titleString=@"";
-    if (_workingField==_category) {
-        titleString= [_categories objectAtIndex:row];
-    }
-    if (_workingField==_quantity) {
-        titleString=  [_quantities objectAtIndex:row];
-    }
     
-    return titleString;
-}
-
-
-#pragma mark -
-#pragma mark - pickerView delegate
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    
-    if (_workingField==_category) {
-        [_category setText:[_categories objectAtIndex:row]];
-    }
-    if (_workingField==_quantity) {
-        [_quantity setText:[_quantities objectAtIndex:row]];
-    }
 }
 
 
 #pragma mark -
 #pragma mark - textField delegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    _workingField=textField;
-    [_pickerView reloadAllComponents];
+//    _workingField=textField;
+    if (_quantity==textField) {
+        [self.view endEditing:TRUE];
+        [MMPickerView showPickerViewInView:self.view
+                               withStrings:_quantities
+                               withOptions:@{MMbackgroundColor: [UIColor lightTextColor],
+                                             MMtextColor: [UIColor blackColor],
+                                             MMtoolbarColor: [UIColor lightGrayColor],
+                                             MMbuttonColor: [UIColor blackColor],
+                                             MMfont: [UIFont systemFontOfSize:24],
+                                             MMvalueY: @3,
+                                             MMselectedObject:[_quantity text],
+                                             MMtextAlignment:@1}
+                                completion:^(NSString *selectedString) {
+                                    [_quantity setText:selectedString];
+                                }];
+        return NO;
+    }
+    if (_category==textField) {
+        [self.view endEditing:TRUE];
+        [MMPickerView showPickerViewInView:self.view
+                               withStrings:_categories
+                               withOptions:@{MMbackgroundColor: [UIColor lightTextColor],
+                                             MMtextColor: [UIColor blackColor],
+                                             MMtoolbarColor: [UIColor lightGrayColor],
+                                             MMbuttonColor: [UIColor blackColor],
+                                             MMfont: [UIFont systemFontOfSize:24],
+                                             MMvalueY: @3,
+                                             MMselectedObject:[_category text],
+                                             MMtextAlignment:@1}
+                                completion:^(NSString *selectedString) {
+                                    [_category setText:selectedString];
+                                }];
+        return NO;
+    }
     return YES;
 }
 
@@ -158,14 +135,6 @@
     [self.view endEditing:TRUE];
     return YES;
 }
-
-
-#pragma mark -
-#pragma mark - gestureRecognizer delegate
-- (void)tapRecognized:(UIGestureRecognizer *)gestureRecognizer {
-    [self.view endEditing:TRUE];
-}
-
 
 #pragma mark -
 #pragma mark - loacation delegate
@@ -191,7 +160,13 @@
 //        NSLog(@"%@",[place subThoroughfare]);       //96號
 //        NSLog(@"%@",[place region]);                //
         
-        NSString *addressDetail=[NSString stringWithFormat:@"%@%@%@",[place subLocality],[place thoroughfare],[place subThoroughfare]];
+        NSString *sublocality=@"";
+        if ([place subLocality]) {
+            sublocality=[place subLocality];
+        }else{
+            sublocality=[place administrativeArea];
+        }
+        NSString *addressDetail=[NSString stringWithFormat:@"%@%@%@",sublocality,[place thoroughfare],[place subThoroughfare]];
         [_address setText:addressDetail];
         if (error) {
             NSLog(@"%@",error);
@@ -208,6 +183,31 @@
     } else if ([error code] == kCLErrorHeadingFailure) {
         
     }
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    switch (buttonIndex) {
+        case 0: //cancel
+            [self resetContent];
+            [_feedback setText:@"你已取消一筆資料，期待你下次的通報。"];
+            break;
+        case 1: //confirm
+            [self resetContent];
+            [_feedback setText:@"你已新增一筆資料，感謝你為takeIt做出的貢獻！"];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)resetContent{
+    [_textTitle setText:@""];
+    [_address setText:@""];
+    [_quantity setText:@""];
+    [_category setText:@""];
+    [_remark setText:@""];
+    [_feedback setHidden:NO];
 }
 
 

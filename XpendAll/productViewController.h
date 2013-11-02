@@ -13,5 +13,8 @@
 }
 @property (nonatomic,strong) IBOutlet UITableView *tableView;
 - (IBAction)backbtn:(id)sender;
+@property (nonatomic ,strong) NSMutableArray *productDatas;
+@property (strong,nonatomic) NSMutableArray *productOriginDatas;
+
 
 @end

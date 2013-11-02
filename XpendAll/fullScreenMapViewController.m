@@ -14,7 +14,7 @@
 
 @implementation fullScreenMapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail govermentData:(BOOL*)govermentData
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil shopDetail:(NSDictionary*)shopDetail govermentData:(NSInteger*)govermentData
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -35,19 +35,19 @@
         [self setMapViewFromKMLData];
     }
     
-    CLLocationCoordinate2D coord;
-    coord.latitude=[[self.shopDetail objectForKey:@"lat"]doubleValue];
-    coord.longitude=[[self.shopDetail objectForKey:@"lon"]doubleValue];
-
-    
-    if (coord.latitude!=0.0 || coord.longitude!=0.0) {
-        Annotation *anno=[[Annotation alloc] initWithCoordinate:coord];
-        [anno setTitle:[self.shopDetail objectForKey:@"address"]];
-        [anno setSubtitle:[self.shopDetail objectForKey:@"SubTitle"]];
-        
-        [self.fullScreenMapView addAnnotation:anno];
-    }
-    [self.fullScreenMapView zoomToFitMapAnnotations];
+//    CLLocationCoordinate2D coord;
+//    coord.latitude=[[self.shopDetail objectForKey:@"lat"]doubleValue];
+//    coord.longitude=[[self.shopDetail objectForKey:@"lon"]doubleValue];
+//
+//    
+//    if (coord.latitude!=0.0 || coord.longitude!=0.0) {
+//        Annotation *anno=[[Annotation alloc] initWithCoordinate:coord];
+//        [anno setTitle:[self.shopDetail objectForKey:@"address"]];
+//        [anno setSubtitle:[self.shopDetail objectForKey:@"SubTitle"]];
+//        
+//        [self.fullScreenMapView addAnnotation:anno];
+//    }
+//    [self.fullScreenMapView zoomToFitMapAnnotations];
 
     // Do any additional setup after loading the view from its nib.
 }
