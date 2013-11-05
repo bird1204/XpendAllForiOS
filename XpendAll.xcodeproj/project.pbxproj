@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4805D41118025A4000F8E4C2 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 4805D41018025A4000F8E4C2 /* select.png */; };
 		482F91721801B10F002E123F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F91701801B10F002E123F /* icon.png */; };
-		482F917A1801C5B6002E123F /* flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F91791801C5B6002E123F /* flag@2x.png */; };
 		482F917C1801C6C8002E123F /* earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 482F917B1801C6C8002E123F /* earth.png */; };
 		484DA9AC1824BFEF00997368 /* btn_radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 484DA9AB1824BFEF00997368 /* btn_radar.png */; };
 		484DA9AE1824C06000997368 /* otherpage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 484DA9AD1824C06000997368 /* otherpage.jpg */; };
@@ -96,6 +95,8 @@
 		499156B718252795005C9581 /* hightlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 499156B618252795005C9581 /* hightlight.png */; };
 		49A439D41804507E002993BD /* govermentData.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A439D31804507E002993BD /* govermentData.json */; };
 		49A439D918045461002993BD /* kmlData.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A439D718045461002993BD /* kmlData.json */; };
+		49AB16C918295674001B234F /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB16C718295673001B234F /* flag.png */; };
+		49AB16CA18295674001B234F /* gov_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB16C818295673001B234F /* gov_map.png */; };
 		49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE117FBF0C000104E94 /* shopViewController.m */; };
 		49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE217FBF0C000104E94 /* shopViewController.xib */; };
 		49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */; };
@@ -115,7 +116,6 @@
 /* Begin PBXFileReference section */
 		4805D41018025A4000F8E4C2 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select.png; sourceTree = "<group>"; };
 		482F91701801B10F002E123F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		482F91791801C5B6002E123F /* flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flag@2x.png"; sourceTree = "<group>"; };
 		482F917B1801C6C8002E123F /* earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earth.png; sourceTree = "<group>"; };
 		484DA9AB1824BFEF00997368 /* btn_radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_radar.png; sourceTree = "<group>"; };
 		484DA9AD1824C06000997368 /* otherpage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = otherpage.jpg; sourceTree = "<group>"; };
@@ -252,6 +252,8 @@
 		499156B618252795005C9581 /* hightlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hightlight.png; sourceTree = "<group>"; };
 		49A439D31804507E002993BD /* govermentData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = govermentData.json; sourceTree = "<group>"; };
 		49A439D718045461002993BD /* kmlData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kmlData.json; sourceTree = "<group>"; };
+		49AB16C718295673001B234F /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		49AB16C818295673001B234F /* gov_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gov_map.png; sourceTree = "<group>"; };
 		49CF6BE017FBF0C000104E94 /* shopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopViewController.h; sourceTree = "<group>"; };
 		49CF6BE117FBF0C000104E94 /* shopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopViewController.m; sourceTree = "<group>"; };
 		49CF6BE217FBF0C000104E94 /* shopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopViewController.xib; sourceTree = "<group>"; };
@@ -382,6 +384,8 @@
 		49138B6517F9D4EF00446C97 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				49AB16C718295673001B234F /* flag.png */,
+				49AB16C818295673001B234F /* gov_map.png */,
 				499156B618252795005C9581 /* hightlight.png */,
 				484DA9B11824C63800997368 /* otherpage2.jpg */,
 				484DA9B21824C63800997368 /* otherpage3.jpg */,
@@ -393,7 +397,6 @@
 				4942839C1802F9D300261080 /* address.png */,
 				4805D41018025A4000F8E4C2 /* select.png */,
 				482F917B1801C6C8002E123F /* earth.png */,
-				482F91791801C5B6002E123F /* flag@2x.png */,
 				482F91701801B10F002E123F /* icon.png */,
 				48AB5E9E17FC949B000F9664 /* maptitle.png */,
 				48AB5E9A17FC8B7E000F9664 /* plate.png */,
@@ -795,6 +798,7 @@
 				48E9ADA617FB530F00C3B11F /* main.jpg in Resources */,
 				4942839E1802F9D300261080 /* address.png in Resources */,
 				49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */,
+				49AB16CA18295674001B234F /* gov_map.png in Resources */,
 				49138B3E17F9C43000446C97 /* Images.xcassets in Resources */,
 				4942839D1802F9D300261080 /* other.png in Resources */,
 				4935BFA818214FE0006FFAED /* suspendRadarViewController.xib in Resources */,
@@ -805,6 +809,7 @@
 				499156B718252795005C9581 /* hightlight.png in Resources */,
 				497DA9E317FABFFE0029F0AC /* fullScreenMapViewController.xib in Resources */,
 				482F91721801B10F002E123F /* icon.png in Resources */,
+				49AB16C918295674001B234F /* flag.png in Resources */,
 				48AB5E9F17FC949B000F9664 /* maptitle.png in Resources */,
 				49138B3917F9C43000446C97 /* Main.storyboard in Resources */,
 				49138B7F17F9E24C00446C97 /* aboutUsViewController.xib in Resources */,
@@ -818,7 +823,6 @@
 				48AB5E9B17FC8B7E000F9664 /* plate.png in Resources */,
 				497DA9AF17FA92760029F0AC /* README.textile in Resources */,
 				49347A1E1800256B00722A8B /* shopWithKmlViewController.xib in Resources */,
-				482F917A1801C5B6002E123F /* flag@2x.png in Resources */,
 				497DA9B517FA93A60029F0AC /* README.md in Resources */,
 				48E9AD9717FB39C400C3B11F /* btn_map.png in Resources */,
 				498AE71418011EB700D665BC /* SVProgressHUD.bundle in Resources */,

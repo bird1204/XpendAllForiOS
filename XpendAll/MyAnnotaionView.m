@@ -32,7 +32,7 @@
                 imga=[UIImage imageNamed:@"plate.png"];
                 break;
             default:
-                imga=[UIImage imageNamed:@"flag@2x.png"];
+                imga=[UIImage imageNamed:@"gov_map.png"];
                 break;
         }
         

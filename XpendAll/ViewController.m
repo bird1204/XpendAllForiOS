@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    _funtionsList=[[NSArray alloc]initWithObjects:@"Find Shop",@"Suspend Radar",@"Help Someone",@"About Us", nil];
+    _funtionsList=[[NSArray alloc]initWithObjects:@"待用商家",@"待用雷達",@"事件通報",@"關於我們", nil];
     _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_radar",@"btn_help",@"btn_about", nil];
 
     // Do any additional setup after loading the view, typically from a nib.
@@ -94,7 +94,7 @@
         kml.title=@"待用地圖";
         kml.tabBarItem.image=[UIImage imageNamed:@"earth"]; //tab bar item 的 小圖示(30*30 + 60*60)
         view.title=@"政府認證";
-        view.tabBarItem.image=[UIImage imageNamed:@"flag@2x.png"];
+        view.tabBarItem.image=[UIImage imageNamed:@"gov_map.png"];
         
         
         UITabBarController *tabBarController = [[UITabBarController alloc] init];
