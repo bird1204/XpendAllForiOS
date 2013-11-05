@@ -65,7 +65,8 @@
 
     
     AppDelegate *appDelgate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
-    NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
+    //NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
+    
     [self markNearShopByCurrentLocation:appDelgate.currentLocation distance:_distanceSlider.value];
     
     // Do any additional setup after loading the view from its nib.
@@ -122,14 +123,22 @@
             CLPlacemark *CLPlaceMark=[[CLPlacemark alloc]initWithPlacemark:[placemarks objectAtIndex:0]];
             MKPlacemark *placemark=[[MKPlacemark alloc]initWithPlacemark:CLPlaceMark];
             
+            //台科大
+            CLLocation *currentLocation=[[CLLocation alloc]initWithLatitude:25.018729 longitude:121.535096];
+            MKPlacemark *currentPlacemark=[[MKPlacemark alloc]initWithCoordinate:currentLocation.coordinate addressDictionary:nil];
+            MKMapItem *currentSource=[[MKMapItem alloc]initWithPlacemark:currentPlacemark];
+
+            
             MKDirectionsRequest *directionsRequest=[[MKDirectionsRequest alloc]init];
-            [directionsRequest setDestination:[MKMapItem mapItemForCurrentLocation]];
-            [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemark]];
+            [directionsRequest setSource:currentSource];
+            [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemark]];
             directionsRequest.transportType = MKDirectionsTransportTypeWalking;
             MKDirections *direction=[[MKDirections alloc]initWithRequest:directionsRequest];
             [direction calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
                 if (error) {
                     NSLog(@"Error %@", error.description);
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"無法定位" message:@"你使用的設備，無法定位\n請到設定>隱私，開啟定位服務" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"確定",nil];
+                    [alert show];
                 } else {
                     routeDetails = response.routes.lastObject;
                     [_destinationSteps removeFromSuperview];

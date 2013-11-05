@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>{
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
     UIBackgroundTaskIdentifier backgroundTask;
     CLLocationManager* locationManager;
     CLLocation *currentLocation;    

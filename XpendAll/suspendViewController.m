@@ -8,6 +8,7 @@
 
 #import "suspendViewController.h"
 #import "MMPickerView.h"
+#import "AppDelegate.h"
 
 
 @interface suspendViewController ()
@@ -49,11 +50,43 @@
     [_quantity setText:@"1"];
     [_feedback setHidden:YES];
     
-    currentLocation = [[CLLocationManager alloc] init];
-    currentLocation.delegate = self;
-    currentLocation.desiredAccuracy = kCLLocationAccuracyKilometer;
-    currentLocation.distanceFilter = kCLDistanceFilterNone;
-    [currentLocation startUpdatingLocation];
+    AppDelegate *appDelgate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    CLGeocoder *geoCoder=[[CLGeocoder alloc]init];
+    [geoCoder reverseGeocodeLocation:appDelgate.currentLocation completionHandler:^(NSArray *placemarks,NSError *error){
+        
+        CLPlacemark *place=[[CLPlacemark alloc]initWithPlacemark:[placemarks objectAtIndex:0]];
+                NSLog(@"%@",[place locality]);              //桃園縣
+                NSLog(@"%@",[place name]);                  //國豐六街 96號
+                NSLog(@"%@",[place addressDictionary]);
+                NSLog(@"%@",[place ISOcountryCode]);        //TW
+                NSLog(@"%@",[place country]);               //台灣
+                NSLog(@"%@",[place postalCode]);            //330
+                NSLog(@"%@",[place administrativeArea]);    //台灣
+                NSLog(@"%@",[place subAdministrativeArea]); //桃園縣
+                NSLog(@"%@",[place locality]);              //桃園縣
+                NSLog(@"%@",[place subLocality]);           //桃園市
+                NSLog(@"%@",[place thoroughfare]);          //國豐六街
+                NSLog(@"%@",[place subThoroughfare]);       //96號
+                NSLog(@"%@",[place region]);                //
+        NSString *sublocality=@"";
+        if ([place subLocality]) {
+            sublocality=[place subLocality];
+        }else{
+            sublocality=[place administrativeArea];
+        }
+        NSString *addressDetail=[NSString stringWithFormat:@"%@%@",sublocality,[place thoroughfare]];
+        [_address setText:addressDetail];
+        if (error) {
+            NSLog(@"%@",error);
+        }
+    }];
+
+    
+//    currentLocation = [[CLLocationManager alloc] init];
+//    currentLocation.delegate = self;
+//    currentLocation.desiredAccuracy = kCLLocationAccuracyKilometer;
+//    currentLocation.distanceFilter = kCLDistanceFilterNone;
+//    [currentLocation startUpdatingLocation];
 
 }
 
@@ -138,7 +171,7 @@
 
 #pragma mark -
 #pragma mark - loacation delegate
-
+/*
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocation *loc=(CLLocation*)[locations lastObject];
 
@@ -184,7 +217,7 @@
         
     }
 }
-
+*/
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {

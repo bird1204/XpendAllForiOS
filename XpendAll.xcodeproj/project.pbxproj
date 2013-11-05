@@ -131,7 +131,7 @@
 		48E9ADA117FB4AA200C3B11F /* shopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopDetailViewController.m; sourceTree = "<group>"; };
 		48E9ADA317FB4C2300C3B11F /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = "<group>"; };
 		48E9ADA517FB530F00C3B11F /* main.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main.jpg; sourceTree = "<group>"; };
-		49138B2217F9C43000446C97 /* XpendAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XpendAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49138B2217F9C43000446C97 /* Takeit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Takeit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49138B2517F9C43000446C97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49138B2717F9C43000446C97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		49138B2917F9C43000446C97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -303,7 +303,7 @@
 		49138B2317F9C43000446C97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49138B2217F9C43000446C97 /* XpendAll.app */,
+				49138B2217F9C43000446C97 /* Takeit.app */,
 				49138B4317F9C43000446C97 /* XpendAllTests.xctest */,
 			);
 			name = Products;
@@ -724,7 +724,7 @@
 			);
 			name = XpendAll;
 			productName = XpendAll;
-			productReference = 49138B2217F9C43000446C97 /* XpendAll.app */;
+			productReference = 49138B2217F9C43000446C97 /* Takeit.app */;
 			productType = "com.apple.product-type.application";
 		};
 		49138B4217F9C43000446C97 /* XpendAllTests */ = {
@@ -1032,7 +1032,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XpendAll/XpendAll-Prefix.pch";
 				INFOPLIST_FILE = "XpendAll/XpendAll-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Takeit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1050,7 +1050,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XpendAll/XpendAll-Prefix.pch";
 				INFOPLIST_FILE = "XpendAll/XpendAll-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Takeit;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
