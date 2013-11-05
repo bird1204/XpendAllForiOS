@@ -97,6 +97,7 @@
 		49A439D918045461002993BD /* kmlData.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A439D718045461002993BD /* kmlData.json */; };
 		49AB16C918295674001B234F /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB16C718295673001B234F /* flag.png */; };
 		49AB16CA18295674001B234F /* gov_map.png in Resources */ = {isa = PBXBuildFile; fileRef = 49AB16C818295673001B234F /* gov_map.png */; };
+		49AB16CC18295B17001B234F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49AB16CB18295B17001B234F /* SystemConfiguration.framework */; };
 		49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE117FBF0C000104E94 /* shopViewController.m */; };
 		49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE217FBF0C000104E94 /* shopViewController.xib */; };
 		49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */; };
@@ -254,6 +255,7 @@
 		49A439D718045461002993BD /* kmlData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kmlData.json; sourceTree = "<group>"; };
 		49AB16C718295673001B234F /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
 		49AB16C818295673001B234F /* gov_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gov_map.png; sourceTree = "<group>"; };
+		49AB16CB18295B17001B234F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		49CF6BE017FBF0C000104E94 /* shopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopViewController.h; sourceTree = "<group>"; };
 		49CF6BE117FBF0C000104E94 /* shopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopViewController.m; sourceTree = "<group>"; };
 		49CF6BE217FBF0C000104E94 /* shopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopViewController.xib; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49AB16CC18295B17001B234F /* SystemConfiguration.framework in Frameworks */,
 				484DA9B61824CC7000997368 /* QuartzCore.framework in Frameworks */,
 				49347A2318004B5B00722A8B /* CoreLocation.framework in Frameworks */,
 				497DA9D017FAB0350029F0AC /* MapKit.framework in Frameworks */,
@@ -314,6 +317,7 @@
 		49138B2417F9C43000446C97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49AB16CB18295B17001B234F /* SystemConfiguration.framework */,
 				484DA9B51824CC7000997368 /* QuartzCore.framework */,
 				49347A2218004B5A00722A8B /* CoreLocation.framework */,
 				497DA9CF17FAB0350029F0AC /* MapKit.framework */,

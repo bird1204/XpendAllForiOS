@@ -14,6 +14,7 @@
 #import "shopViewController.h"
 #import "shopWithKmlViewController.h"
 #import "suspendRadarViewController.h"
+#import "Reachability.h"
 
 
 @interface ViewController ()
@@ -30,10 +31,24 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     _funtionsList=[[NSArray alloc]initWithObjects:@"待用商家",@"待用雷達",@"事件通報",@"關於我們", nil];
     _imgList=[[NSArray alloc]initWithObjects:@"btn_map",@"btn_radar",@"btn_help",@"btn_about", nil];
-
+    
+    Reachability *r = [Reachability reachabilityWithHostname:@"www.apple.com"];
+    switch ([r currentReachabilityStatus]) {
+        case NotReachable:
+            [self no3GAndWiFiAlert];
+            break;
+        case ReachableViaWWAN:
+            break;
+        case ReachableViaWiFi:
+            break;
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+-(void)no3GAndWiFiAlert{
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"沒有網路" message:@"你的設備沒有網路\nTake it將無法提供最完整的功能。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"確定",nil];
+    [alert show];
+}
 
 - (void)didReceiveMemoryWarning
 {
