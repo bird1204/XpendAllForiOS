@@ -109,7 +109,7 @@
         kml.title=@"待用地圖";
         kml.tabBarItem.image=[UIImage imageNamed:@"earth"]; //tab bar item 的 小圖示(30*30 + 60*60)
         view.title=@"政府認證";
-        view.tabBarItem.image=[UIImage imageNamed:@"gov_map.png"];
+        view.tabBarItem.image=[UIImage imageNamed:@"gov.png"];
         
         
         UITabBarController *tabBarController = [[UITabBarController alloc] init];

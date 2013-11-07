@@ -81,17 +81,16 @@ float _prevShopDistance=0.0f;
             UILocalNotification* notifyAlarm_1 = [[UILocalNotification alloc] init];
 
             NSArray *coords_1=[[NSArray alloc]initWithObjects:@"25.012539",@"121.535414",nil];
-            NSDictionary *userInfo=[[NSDictionary alloc]initWithObjectsAndKeys:@"愛呷麵",@"title",@"100台北市中正區汀州路三段269號",@"address",coords_1,@"coords", nil];
+            NSDictionary *userInfo=[[NSDictionary alloc]initWithObjectsAndKeys:@"愛呷麵",@"title",@"100台北市中正區汀州路三段269號",@"address",coords_1,@"coords",@"(02)2366-1992",@"phoneNumber",@"\n\t\t\t\t\t\u25ce\u53f0\u5317\u5e02\u4e2d\u6b63\u5340 \u611b\u5477\u9762 \u611b\u5fc3\u5f85\u7528\u9eb5\n100\u53f0\u5317\u5e02\u4e2d\u6b63\u5340\u6c40\u5dde\u8def\u4e09\u6bb5269\u865f\n\u96fb\u8a71(02)2366-1992\n\u71df\u696d\u6642\u959311:30 - 22:30\n\u7db2\u7ad9http:\/\/goo.gl\/bX7Hsj\n\n\u611b\u5477\u9762\u63d0\u4f9b\u514d\u8cbb\u611b\u5fc3\u5f85\u7528\u9eb5\u7d66\u9700\u8981\u5e6b\u5fd9\u7684\u670b\u53cb\u4f86\u5e97\u53d6\u7528\uff0c\u8acb\u544a\u77e5\u60a8\u5468\u906d\u9700\u8981\u7684\u670b\u53cb\uff0c\u9019\u88e1\u6709\u71b1\u9a30\u9a30\u7684\u611b\u5fc3\u5f85\u7528\u9910\uff1b\u656c\u9080\u5927\u5bb6\u4e00\u8d77\u52a0\u5165\u611b\u5fc3\u5f85\u7528\u7684\u884c\u5217\uff0c\u70ba\u793e\u6703\u63d0\u4f9b\u4e00\u5206\u6eab\u6696\u3002\uff08\u7531\u5373\u65e5\u8d77\u81f32013\/12\/25\uff0c\u53ea\u8981\u60a8 \u6bcf\u652f\u6301\u4e8c\u7897\u611b\u5fc3\u5f85\u7528\u9eb5\uff0c\u611b\u5477\u9762\u5c31\u6703\u52a0\u78bc\u7528\u60a8\u7684\u540d\u7fa9\u6350\u8d08\u4e00\u7897\uff09\n\n\u6b61\u8fce\u60a8\u52a0\u5165\u611b\u5fc3\u5e97\u5bb6\u3001\u7fa9\u5de5\u7684\u884c\u5217\uff0c\n\u4e00\u8d77\u70ba\u793e\u6703\u76e1\u5fae\u8584\u4e4b\u529b\u3002\u611f\u8b1d\u5927\u5bb6\u7684\u611b\u5fc3\n\u8acb\u806f\u7d61\u611b\u5fc3\u5f85\u7528 \u516c\u76ca\u5e73\u53f0\nhttps:\/\/www.facebook.com\/Suspended.Love\n\u96fb\u90f5 suspendedfoods@gmail.com\t\t\t\t",@"description",nil];
             notifyAlarm_1.timeZone = [NSTimeZone defaultTimeZone];
             notifyAlarm_1.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
             notifyAlarm_1.alertAction = @"Take It";
             notifyAlarm_1.alertBody = [NSString stringWithFormat:@"%@的愛心在你身邊，距離：%d公尺",[userInfo objectForKey:@"title"],700];
             notifyAlarm_1.userInfo=userInfo;
             
-            
             NSArray *coords_2=[[NSArray alloc]initWithObjects:@"25.024511",@"121.529091",nil];
             UILocalNotification* notifyAlarm_2 = [[UILocalNotification alloc] init];
-            NSDictionary *userInfo_2=[[NSDictionary alloc]initWithObjectsAndKeys:@"阿諾可麗餅",@"title",@"106台北市大安區師大路39巷20號",@"address",coords_2,@"coords", nil];
+            NSDictionary *userInfo_2=[[NSDictionary alloc]initWithObjectsAndKeys:@"阿諾可麗餅",@"title",@"106台北市大安區師大路39巷20號",@"address",coords_2,@"coords",@"(02)2396-5151",@"phoneNumber",@"\n\t\t\t\t\t\u25ce\u53f0\u5317\u5e02\u5927\u5b89\u5340 \u963f\u8afe\u53ef\u9e97\u9905 \u611b\u5fc3\u9ede\u5fc3\n106\u53f0\u5317\u5e02\u5927\u5b89\u5340\u5e2b\u5927\u8def39\u5df720\u865f\t\n\u96fb\u8a71(02)2396-5151\u9127\u5c0f\u59d0\t\n\u71df\u696d\u6642\u959312:00 ~ 01:00\t\n\u7db2\u7ad9http:\/\/www.facebook.com\/arnorcrepestaiwan\n\n\u963f\u8afe\u53ef\u9e97\u9905\u63d0\u4f9b\u611b\u5fc3\u9ede\u5fc3\u7d66\u9700\u8981\u7684\u670b\u53cb\u3002\n\u611f\u8b1d\u5f85\u7528\u9910\u9ede,\u53f0\u7063 \u8cc7\u6599\u63d0\u4f9b\n\n\u6b61\u8fce\u60a8\u52a0\u5165\u611b\u5fc3\u5e97\u5bb6\u3001\u7fa9\u5de5\u7684\u884c\u5217\uff0c\n\u4e00\u8d77\u70ba\u793e\u6703\u76e1\u5fae\u8584\u4e4b\u529b\u3002\n\u611f\u8b1d\u5927\u5bb6\u7684\u611b\u5fc3\uff1b\u8acb\u806f\u7d61\u611b\u5fc3\u5f85\u7528 \u516c\u76ca\u5e73\u53f0\nwww.facebook.com\/Suspended.Love\n\u96fb\u90f5 suspendedfoods@gmail.com\t\t\t\t",@"description",nil];
             notifyAlarm_2.timeZone = [NSTimeZone defaultTimeZone];
             notifyAlarm_2.fireDate = [NSDate dateWithTimeIntervalSinceNow:3];
             notifyAlarm_2.alertAction = @"Take It";
@@ -100,13 +99,12 @@ float _prevShopDistance=0.0f;
             
             NSArray *coords_3=[[NSArray alloc]initWithObjects:@"25.025069",@"121.523418",nil];
             UILocalNotification* notifyAlarm_3 = [[UILocalNotification alloc] init];
-            NSDictionary *userInfo_3=[[NSDictionary alloc]initWithObjectsAndKeys:@"JSP呷尚寶早餐店",@"title",@"100台北市中正區南昌路2段205號",@"address",coords_3,@"coords", nil];
+            NSDictionary *userInfo_3=[[NSDictionary alloc]initWithObjectsAndKeys:@"JSP呷尚寶早餐店",@"title",@"100台北市中正區南昌路2段205號",@"address",coords_3,@"coords",@"(02)2366-1992",@"phoneNumber",@"\n\t\t\t\t\t\u25ce\u53f0\u5317\u5e02\u4e2d\u6b63\u5340 JSP\u5477\u5c1a\u5bf6\u65e9\u9910\u5e97(\u5357\u660c\u5e97\uff09\u611b\u5fc3\u65e9\u9910\n100\u53f0\u7063\u53f0\u5317\u5e02\u4e2d\u6b63\u5340\u5357\u660c\u8def\u4e8c\u6bb5205\u865f\n\u96fb\u8a71(02) 2368-1033\n\u71df\u696d\u6642\u9593\uff1a\u9031\u4e00\uff5e\u4e94: 5:30 - 13:00\n\u9031\u516d\uff5e\u9031\u65e5: 6:00 - 13:00\n\u7db2\u7ad9http:\/\/goo.gl\/AApueN\n\n\u611b\u5fc3\u5f85\u7528\u5167\u5bb9\u6b61\u8fce\u89aa\u81ea\u73fe\u5834\u6d3d\u8a62\u6797\u5c0f\u59d0\n\u611f\u8b1d \u5f85\u7528\u9910\u9ede,\u53f0\u7063 \u8cc7\u6599\u63d0\u4f9b\n\n\u6b61\u8fce\u60a8\u52a0\u5165\u611b\u5fc3\u5e97\u5bb6\u3001\u7fa9\u5de5\u7684\u884c\u5217\uff0c\n\u4e00\u8d77\u70ba\u793e\u6703\u76e1\u5fae\u8584\u4e4b\u529b\u3002\n\u611f\u8b1d\u5927\u5bb6\u7684\u611b\u5fc3\uff1b\u8acb\u806f\u7d61\u611b\u5fc3\u5f85\u7528 \u516c\u76ca\u5e73\u53f0\nhttps:\/\/www.facebook.com\/Suspended.Love\n\u96fb\u90f5 suspendedfoods@gmail.com\t\t\t\t",@"description",nil];
             notifyAlarm_3.timeZone = [NSTimeZone defaultTimeZone];
             notifyAlarm_3.fireDate = [NSDate dateWithTimeIntervalSinceNow:6];
             notifyAlarm_3.alertAction = @"Take It";
             notifyAlarm_3.alertBody = [NSString stringWithFormat:@"%@的愛心在你身邊，距離：%d公尺",[userInfo_3 objectForKey:@"title"],1200];
             notifyAlarm_3.userInfo=userInfo_3;
-        
             
             [[UIApplication sharedApplication] scheduleLocalNotification:notifyAlarm_1];
             app.applicationIconBadgeNumber=app.applicationIconBadgeNumber+1;

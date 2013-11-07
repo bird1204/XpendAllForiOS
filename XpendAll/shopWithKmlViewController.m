@@ -49,6 +49,7 @@
     _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     
     _demoShopLists=_demoShopOriginalLists;
+    NSLog(@"%d",[_demoShopOriginalLists count]);
 
     [_textDistrict setTitle:@"台北市" forState:UIControlStateNormal];
     [_textCategory setTitle:@"全部分類" forState:UIControlStateNormal];

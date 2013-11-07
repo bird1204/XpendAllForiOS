@@ -13,6 +13,8 @@
 #import "UILabel+AutoFrame.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AppDelegate.h"
+#import "SVProgressHUD.h"
+
 
 
 
@@ -133,8 +135,11 @@
             [directionsRequest setSource:currentSource];
             [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemark]];
             directionsRequest.transportType = MKDirectionsTransportTypeWalking;
+            [SVProgressHUD showWithStatus:@"載入中" maskType:SVProgressHUDMaskTypeClear];
+
             MKDirections *direction=[[MKDirections alloc]initWithRequest:directionsRequest];
             [direction calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+                [SVProgressHUD dismiss];
                 if (error) {
                     NSLog(@"Error %@", error.description);
                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"無法定位" message:@"你使用的設備，無法定位\n請到設定>隱私，開啟定位服務" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"確定",nil];
@@ -157,6 +162,7 @@
                     [_destinationSteps setHidden:FALSE];
                 }
             }];
+
         }
     }];
 }
@@ -221,12 +227,15 @@
             coord.latitude=[[[shopDetail objectForKey:@"coords"] objectAtIndex:0] doubleValue];
             coord.longitude=[[[shopDetail objectForKey:@"coords"] objectAtIndex:1] doubleValue];
             if (coord.latitude!=0.0 || coord.longitude!=0.0) {
-                Annotation *anno=[[Annotation alloc] initWithCoordinate:coord];
-                [anno setTitle:[shopDetail objectForKey:@"title"]];
-                [anno setSubtitle:[shopDetail objectForKey:@"address"]];
-                [anno setType:[NSNumber numberWithInt:1]];
+                if (![[shopDetail objectForKey:@"title"]isEqualToString:@"無資料"]) {
+                    Annotation *anno=[[Annotation alloc] initWithCoordinate:coord];
+                    [anno setTitle:[shopDetail objectForKey:@"title"]];
+                    [anno setSubtitle:[shopDetail objectForKey:@"address"]];
+                    [anno setType:[NSNumber numberWithInt:1]];
+                    
+                    [_radarView addAnnotation:anno];
+                }
                 
-                [_radarView addAnnotation:anno];
             }
         }
     }

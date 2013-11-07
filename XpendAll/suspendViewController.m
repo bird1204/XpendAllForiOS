@@ -55,19 +55,7 @@
     [geoCoder reverseGeocodeLocation:appDelgate.currentLocation completionHandler:^(NSArray *placemarks,NSError *error){
         
         CLPlacemark *place=[[CLPlacemark alloc]initWithPlacemark:[placemarks objectAtIndex:0]];
-//                NSLog(@"%@",[place locality]);              //桃園縣
-//                NSLog(@"%@",[place name]);                  //國豐六街 96號
-//                NSLog(@"%@",[place addressDictionary]);
-//                NSLog(@"%@",[place ISOcountryCode]);        //TW
-//                NSLog(@"%@",[place country]);               //台灣
-//                NSLog(@"%@",[place postalCode]);            //330
-//                NSLog(@"%@",[place administrativeArea]);    //台灣
-//                NSLog(@"%@",[place subAdministrativeArea]); //桃園縣
-//                NSLog(@"%@",[place locality]);              //桃園縣
-//                NSLog(@"%@",[place subLocality]);           //桃園市
-//                NSLog(@"%@",[place thoroughfare]);          //國豐六街
-//                NSLog(@"%@",[place subThoroughfare]);       //96號
-//                NSLog(@"%@",[place region]);                //
+
         NSString *sublocality=@"";
         if ([place subLocality]) {
             sublocality=[place subLocality];

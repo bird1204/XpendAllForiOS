@@ -10,7 +10,6 @@
                 <outlet property="category" destination="G0A-jH-dCJ" id="N11-dv-S1k"/>
                 <outlet property="feedback" destination="QSZ-z9-pdQ" id="CG0-CZ-6xL"/>
                 <outlet property="quantity" destination="Rb5-6x-Er1" id="jqS-9Q-eBr"/>
-                <outlet property="remark" destination="Dcu-DF-R8u" id="HJR-DC-Wln"/>
                 <outlet property="textTitle" destination="dW9-Pe-Cdy" id="j7W-Wl-AmF"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -128,24 +127,6 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="loD-6s-KBN"/>
-                    </connections>
-                </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="備註" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zc-v9-ocA">
-                    <rect key="frame" x="39" y="280" width="34" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" alpha="0.45000000000000001" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dcu-DF-R8u">
-                    <rect key="frame" x="81" y="276" width="203" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="aon-iK-Mjb"/>
                     </connections>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你已新增一筆資料，感謝你為takeIt做出的貢獻！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSZ-z9-pdQ">
