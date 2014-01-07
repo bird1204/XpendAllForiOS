@@ -82,9 +82,6 @@
 		497DA9B517FA93A60029F0AC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9B317FA93A60029F0AC /* README.md */; };
 		497DA9B717FA943B0029F0AC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 497DA9B617FA943B0029F0AC /* libxml2.dylib */; };
 		497DA9B917FA945B0029F0AC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 497DA9B817FA945B0029F0AC /* libz.dylib */; };
-		497DA9C617FAA10C0029F0AC /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9C117FAA10C0029F0AC /* MFSideMenuContainerViewController.m */; };
-		497DA9C717FAA10C0029F0AC /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9C317FAA10C0029F0AC /* MFSideMenuShadow.m */; };
-		497DA9C817FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9C517FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m */; };
 		497DA9D017FAB0350029F0AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497DA9CF17FAB0350029F0AC /* MapKit.framework */; };
 		497DA9D617FAB09C0029F0AC /* shopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 497DA9D417FAB09C0029F0AC /* shopDetailViewController.xib */; };
 		497DA9DA17FAB9F80029F0AC /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 497DA9D817FAB9F80029F0AC /* Annotation.m */; };
@@ -232,13 +229,6 @@
 		497DA9B317FA93A60029F0AC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		497DA9B617FA943B0029F0AC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		497DA9B817FA945B0029F0AC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		497DA9BF17FAA10C0029F0AC /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
-		497DA9C017FAA10C0029F0AC /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
-		497DA9C117FAA10C0029F0AC /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
-		497DA9C217FAA10C0029F0AC /* MFSideMenuShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuShadow.h; sourceTree = "<group>"; };
-		497DA9C317FAA10C0029F0AC /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
-		497DA9C417FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
-		497DA9C517FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
 		497DA9CF17FAB0350029F0AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		497DA9D217FAB09C0029F0AC /* shopDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopDetailViewController.h; sourceTree = "<group>"; };
 		497DA9D417FAB09C0029F0AC /* shopDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopDetailViewController.xib; sourceTree = "<group>"; };
@@ -581,20 +571,6 @@
 			path = ../Reachability;
 			sourceTree = "<group>";
 		};
-		497DA9BE17FAA10C0029F0AC /* MFSideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				497DA9BF17FAA10C0029F0AC /* MFSideMenu.h */,
-				497DA9C017FAA10C0029F0AC /* MFSideMenuContainerViewController.h */,
-				497DA9C117FAA10C0029F0AC /* MFSideMenuContainerViewController.m */,
-				497DA9C217FAA10C0029F0AC /* MFSideMenuShadow.h */,
-				497DA9C317FAA10C0029F0AC /* MFSideMenuShadow.m */,
-				497DA9C417FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.h */,
-				497DA9C517FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m */,
-			);
-			path = MFSideMenu;
-			sourceTree = "<group>";
-		};
 		497DA9D117FAB0490029F0AC /* shopDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,7 +643,6 @@
 				497462F81801DD1500708DDF /* MMPickerView */,
 				498AE6FC18011EB700D665BC /* SVProgressHUD */,
 				49CF6BED17FBF57100104E94 /* zoomToFitMapAnnotations */,
-				497DA9BE17FAA10C0029F0AC /* MFSideMenu */,
 				497DA9B017FA93A60029F0AC /* Reachability */,
 				497DA96017FA92750029F0AC /* ASIHTTPRequest */,
 				497DA95F17FA8E5A0029F0AC /* GetJsonURLString.h */,
@@ -854,7 +829,6 @@
 			files = (
 				49138B3C17F9C43000446C97 /* ViewController.m in Sources */,
 				497DA95D17FA8D1F0029F0AC /* WebJsonDataGetter.m in Sources */,
-				497DA9C717FAA10C0029F0AC /* MFSideMenuShadow.m in Sources */,
 				497DA99D17FA92750029F0AC /* ASIHTTPRequest.m in Sources */,
 				497DA9AB17FA92750029F0AC /* ASIS3ObjectRequest.m in Sources */,
 				497DA99E17FA92750029F0AC /* ASIInputStream.m in Sources */,
@@ -867,7 +841,6 @@
 				497DA9A317FA92750029F0AC /* ASICloudFilesContainerRequest.m in Sources */,
 				497DA9AD17FA92750029F0AC /* ASIS3ServiceRequest.m in Sources */,
 				497DA9AC17FA92750029F0AC /* ASIS3Request.m in Sources */,
-				497DA9C617FAA10C0029F0AC /* MFSideMenuContainerViewController.m in Sources */,
 				49138B3617F9C43000446C97 /* AppDelegate.m in Sources */,
 				49347A1D1800256B00722A8B /* shopWithKmlViewController.m in Sources */,
 				497DA9A817FA92750029F0AC /* ASIS3Bucket.m in Sources */,
@@ -882,7 +855,6 @@
 				48E9ADA217FB4AA200C3B11F /* shopDetailViewController.m in Sources */,
 				49138B6117F9C64900446C97 /* collectionCell.m in Sources */,
 				497DA9AA17FA92750029F0AC /* ASIS3BucketRequest.m in Sources */,
-				497DA9C817FAA10C0029F0AC /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				497DA99B17FA92750029F0AC /* ASIDownloadCache.m in Sources */,
 				49EE14FB1823FF2700163DE1 /* UILabel+AutoFrame.m in Sources */,
 				497DA9B417FA93A60029F0AC /* Reachability.m in Sources */,
