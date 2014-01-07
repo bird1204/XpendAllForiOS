@@ -43,6 +43,7 @@ float _prevShopDistance=0.0f;
     [self.window makeKeyAndVisible];
     
     [self startStandardUpdates];
+    [self WriteToStringFile:(NSMutableString*)@"jiejieji2"];
     // Override point for customization after application launch.
     return YES;
 }
@@ -96,50 +97,37 @@ float _prevShopDistance=0.0f;
 // Delegate method from the CLLocationManagerDelegate protocol.
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    
-    UIApplication* app = [UIApplication sharedApplication];
-    //coord.latitude=25.018729;
-    //coord.longitude=121.535096;
     currentLocation =[locations lastObject];
     _currentLocation=currentLocation;
-    
-    float distance = [self nearShopDistance];
-    if (distance <= _defaultDistance)
-    {
-        UILocalNotification* notifyAlarm = [[UILocalNotification alloc]init];
-        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
-        notifyAlarm.repeatInterval = 0;
-        notifyAlarm.alertAction = @"Take It";
-        notifyAlarm.alertBody = [NSString stringWithFormat:@"附近有店家，距離：%d公尺",(int)floor(distance)];
-        
-        [app presentLocalNotificationNow:notifyAlarm];
-        if (_prevShopDistance != distance) {
-            _prevShopDistance=distance;
-            app.applicationIconBadgeNumber=app.applicationIconBadgeNumber+1;
-        }
-        
-    }
 
 }
 
--(float)nearShopDistance{
-    for (NSDictionary *suspendLocation in _shopOriginalLists) {
-        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:0] doubleValue] longitude:[[[suspendLocation objectForKey:@"coords"] objectAtIndex:1] doubleValue]];
-        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
-        if ((CGFloat)meters <= _defaultDistance) {
-            return (CGFloat)meters;
-        }
-    }
+-(void)WriteToStringFile:(NSMutableString *)textToWrite{
     
-    for (NSDictionary *suspendLocation in _govermentOriginLists) {
-        CLLocation *nearShopLocation=[[CLLocation alloc]initWithLatitude:[[suspendLocation objectForKey:@"lat"]doubleValue] longitude:[[suspendLocation objectForKey:@"lon"]doubleValue]];
-        CLLocationDistance meters =[currentLocation distanceFromLocation:nearShopLocation];
-        if ((CGFloat)meters <=_defaultDistance) {
-            return (CGFloat)meters;
-        }
-    }
+    NSString* filepath = [[NSString alloc] init];
+    NSError *err;
     
-    return _defaultDistance + 100.0f;
+    filepath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"govermentData.json"];
+    BOOL ok = [textToWrite writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:&err];
+    
+    if (!ok) {
+        NSLog(@"Error writing file at %@\n%@",filepath, [err localizedFailureReason]);
+    }else{
+        NSString *str = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"1111 %@",str);
+        
+        NSOutputStream *os = [[NSOutputStream alloc] initToFileAtPath:filepath append:NO];
+        [os open];
+        [NSJSONSerialization writeJSONObject:_govermentOriginLists toStream:os options:0 error:nil];
+        [os close];
+        
+        filepath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"govermentData.json"];
+        str = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
+        NSLog(@"222 %@",str);
+        
+        //_govermentOriginLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    }
 }
 
 @end
