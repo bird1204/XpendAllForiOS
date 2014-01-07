@@ -64,7 +64,7 @@
     _distance=_distanceSlider.value;
 
     
-    AppDelegate *appDelgate=[[UIApplication sharedApplication]delegate];
+    AppDelegate *appDelgate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
     [self markNearShopByCurrentLocation:appDelgate.currentLocation distance:_distanceSlider.value];
     
@@ -93,7 +93,7 @@
     [_radarView removeAnnotations:_radarView.annotations];
     _distance=_distanceSlider.value;
     
-    AppDelegate *appDelgate=[[UIApplication sharedApplication]delegate];
+    AppDelegate *appDelgate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     NSLog(@"%f,%f",appDelgate.currentLocation.coordinate.latitude,appDelgate.currentLocation.coordinate.longitude);
     [self markNearShopByCurrentLocation:appDelgate.currentLocation distance:_distanceSlider.value];
 }
@@ -137,7 +137,7 @@
                     [_radarView addOverlay:routeDetails.polyline];
                     
                     _destinationSteps =[[UITextView alloc]init];
-                    _destinationSteps.frame=CGRectMake(0, self.view.frame.size.height-200, _radarView.frame.size.width, 20);
+                    _destinationSteps.frame=CGRectMake(0, self.view.frame.size.height-200, _radarView.frame.size.width, 30);
                     _destinationSteps.textAlignment=NSTextAlignmentCenter;
                     [_destinationSteps setFont:[UIFont fontWithName:@"system" size:12]];
                     _destinationSteps.editable=NO;
