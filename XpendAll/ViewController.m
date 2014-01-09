@@ -5,7 +5,7 @@
 //  Created by BirdChiu on 13/9/30.
 //  Copyright (c) 2013年 BirdChiu. All rights reserved.
 //
-
+#import "GetJsonURLString.h"
 #import "ViewController.h"
 #import "collectionCell.h"
 #import "suspendViewController.h"
@@ -79,7 +79,8 @@
             view = (UINavigationController*)[[suspendRadarViewController alloc]initWithNibName:@"suspendRadarViewController" bundle:nil];
             break;
         case 2:
-            view = (UINavigationController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
+            [self notYetAlert];
+            //view = (UINavigationController*)[[suspendViewController alloc]initWithNibName:@"suspendViewController" bundle:nil];
             break;
         case 3:
             view = (UINavigationController*)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];
@@ -108,6 +109,11 @@
     }
    
     
+}
+
+-(void)notYetAlert{
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"功能未完成" message:@"因為主機被停掉了" delegate:self cancelButtonTitle:@"確定" otherButtonTitles: nil];
+    [alert show];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{

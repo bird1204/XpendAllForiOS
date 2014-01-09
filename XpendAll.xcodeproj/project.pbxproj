@@ -95,7 +95,7 @@
 		498AE71518011EB700D665BC /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 498AE6FF18011EB700D665BC /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		499156B718252795005C9581 /* hightlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 499156B618252795005C9581 /* hightlight.png */; };
 		49A439D41804507E002993BD /* govermentData.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A439D31804507E002993BD /* govermentData.json */; };
-		49A439D918045461002993BD /* kmlData.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A439D718045461002993BD /* kmlData.json */; };
+		49A439D918045461002993BD /* kmlData in Resources */ = {isa = PBXBuildFile; fileRef = 49A439D718045461002993BD /* kmlData */; };
 		49CF6BE317FBF0C000104E94 /* shopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BE117FBF0C000104E94 /* shopViewController.m */; };
 		49CF6BE417FBF0C000104E94 /* shopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6BE217FBF0C000104E94 /* shopViewController.xib */; };
 		49CF6BEC17FBF56500104E94 /* MKMapView+ZoomMapRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6BEB17FBF56500104E94 /* MKMapView+ZoomMapRegion.m */; };
@@ -131,7 +131,7 @@
 		48E9ADA117FB4AA200C3B11F /* shopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopDetailViewController.m; sourceTree = "<group>"; };
 		48E9ADA317FB4C2300C3B11F /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = "<group>"; };
 		48E9ADA517FB530F00C3B11F /* main.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = main.jpg; sourceTree = "<group>"; };
-		49138B2217F9C43000446C97 /* XpendAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XpendAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49138B2217F9C43000446C97 /* TakeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TakeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49138B2517F9C43000446C97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49138B2717F9C43000446C97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		49138B2917F9C43000446C97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -251,7 +251,7 @@
 		498AE6FF18011EB700D665BC /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		499156B618252795005C9581 /* hightlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hightlight.png; sourceTree = "<group>"; };
 		49A439D31804507E002993BD /* govermentData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = govermentData.json; sourceTree = "<group>"; };
-		49A439D718045461002993BD /* kmlData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = kmlData.json; sourceTree = "<group>"; };
+		49A439D718045461002993BD /* kmlData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kmlData; sourceTree = "<group>"; };
 		49CF6BE017FBF0C000104E94 /* shopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopViewController.h; sourceTree = "<group>"; };
 		49CF6BE117FBF0C000104E94 /* shopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopViewController.m; sourceTree = "<group>"; };
 		49CF6BE217FBF0C000104E94 /* shopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = shopViewController.xib; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 		49138B2317F9C43000446C97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49138B2217F9C43000446C97 /* XpendAll.app */,
+				49138B2217F9C43000446C97 /* TakeIt.app */,
 				49138B4317F9C43000446C97 /* XpendAllTests.xctest */,
 			);
 			name = Products;
@@ -630,7 +630,7 @@
 		49A439D5180452D0002993BD /* demoData */ = {
 			isa = PBXGroup;
 			children = (
-				49A439D718045461002993BD /* kmlData.json */,
+				49A439D718045461002993BD /* kmlData */,
 				49A439D31804507E002993BD /* govermentData.json */,
 			);
 			name = demoData;
@@ -724,7 +724,7 @@
 			);
 			name = XpendAll;
 			productName = XpendAll;
-			productReference = 49138B2217F9C43000446C97 /* XpendAll.app */;
+			productReference = 49138B2217F9C43000446C97 /* TakeIt.app */;
 			productType = "com.apple.product-type.application";
 		};
 		49138B4217F9C43000446C97 /* XpendAllTests */ = {
@@ -824,7 +824,7 @@
 				498AE71418011EB700D665BC /* SVProgressHUD.bundle in Resources */,
 				49A439D41804507E002993BD /* govermentData.json in Resources */,
 				48E9AD9817FB39C400C3B11F /* btn_help.png in Resources */,
-				49A439D918045461002993BD /* kmlData.json in Resources */,
+				49A439D918045461002993BD /* kmlData in Resources */,
 				48E9ADA417FB4C2300C3B11F /* name.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1032,7 +1032,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XpendAll/XpendAll-Prefix.pch";
 				INFOPLIST_FILE = "XpendAll/XpendAll-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TakeIt;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1050,7 +1050,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XpendAll/XpendAll-Prefix.pch";
 				INFOPLIST_FILE = "XpendAll/XpendAll-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = TakeIt;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

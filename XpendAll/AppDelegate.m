@@ -8,28 +8,19 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "GetJsonURLString.h"
 
 
 @implementation AppDelegate
 @synthesize shopOriginalLists=_shopOriginalLists;
 @synthesize govermentOriginLists=_govermentOriginLists;
 @synthesize currentLocation=_currentLocation;
-float _defaultDistance=1000.0f;
-float _prevShopDistance=0.0f;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
-    NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    _shopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    
-    path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"govermentData.json"];
-    str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    _govermentOriginLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-
+    NSURL *url = [NSURL URLWithString:GetKMLDataURL];
+    [self updateTakeItDB:url file:@"kmlData"];
     
     UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *mainViewController =
@@ -37,13 +28,11 @@ float _prevShopDistance=0.0f;
     
     UINavigationController *mainView = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:mainView];
     [self.window makeKeyAndVisible];
     
     [self startStandardUpdates];
-    [self WriteToStringFile:(NSMutableString*)@"jiejieji2"];
     // Override point for customization after application launch.
     return YES;
 }
@@ -102,32 +91,30 @@ float _prevShopDistance=0.0f;
 
 }
 
--(void)WriteToStringFile:(NSMutableString *)textToWrite{
-    
-    NSString* filepath = [[NSString alloc] init];
-    NSError *err;
-    
-    filepath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"govermentData.json"];
-    BOOL ok = [textToWrite writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:&err];
-    
-    if (!ok) {
-        NSLog(@"Error writing file at %@\n%@",filepath, [err localizedFailureReason]);
-    }else{
-        NSString *str = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
-        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-        NSLog(@"1111 %@",str);
-        
-        NSOutputStream *os = [[NSOutputStream alloc] initToFileAtPath:filepath append:NO];
-        [os open];
-        [NSJSONSerialization writeJSONObject:_govermentOriginLists toStream:os options:0 error:nil];
-        [os close];
-        
-        filepath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"govermentData.json"];
-        str = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:nil];
-        NSLog(@"222 %@",str);
-        
-        //_govermentOriginLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    }
+-(void)updateTakeItDB:(NSURL*)url file:(NSString*)fileName{
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30.0f];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response,
+                                                                                        NSData *data,
+                                                                                        NSError *error) {
+        if ([data length] >0 && error == nil){
+            NSError *error = nil;
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *path =[documentsDirectory stringByAppendingPathComponent:fileName];
+            NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            BOOL succeeded = [jsonString writeToFile:path atomically:NO encoding:NSUTF8StringEncoding
+                                             error:&error];
+            if (succeeded) {
+                NSLog(@"Successfully");
+            }else{
+                NSLog(@"Failed to store the file. Error = %@", error);
+            }
+        }
+        else if ([data length] == 0 && error == nil){ NSLog(@"Nothing was downloaded.");}
+        else if (error != nil){ NSLog(@"Error happened = %@", error); }
+    }];
 }
 
 @end

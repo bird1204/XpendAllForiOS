@@ -43,11 +43,10 @@
 //    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
 //    [webGetter setDelegate:self];
 
-    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
+    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    
+    _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];    
     _demoShopLists=_demoShopOriginalLists;
 
     [_textDistrict setTitle:@"台北市" forState:UIControlStateNormal];

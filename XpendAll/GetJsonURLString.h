@@ -14,6 +14,6 @@
 #define GetGovermentTogether @"http://data.taipei.gov.tw/opendata/apply/query/MjVBNUQ5MjUtNTEyMC00N0JDLUFBRDAtREFGODg4NzI0QTFG?$format=json&$filter="
 #define GetGovermentDelivery @"http://data.taipei.gov.tw/opendata/apply/query/RkY4NEJENTctOERFNi00NzI1LUI5QkItQUUwMTFBQjI3OTI5?$format=json&$filter="
 
-#define GetKMLData @"http://54.244.225.229/kml2json/kml2json.php"
+#define GetKMLDataURL @"http://stmail.tajen.edu.tw/~596091533/kml2json.php"
 
 #endif

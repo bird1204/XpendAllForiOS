@@ -44,7 +44,7 @@
     
     [_radarView.layer setCornerRadius:10.0];
     
-    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData.json"];
+    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData"];
     NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
     _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
