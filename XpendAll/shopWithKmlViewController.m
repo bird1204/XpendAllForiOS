@@ -22,7 +22,6 @@
 @synthesize textDistrict=_textDistrict;
 @synthesize districts=_districts;
 @synthesize categories=_categories;
-@synthesize inventorySwitch=_inventorySwitch;
 //demo
 @synthesize demoShopLists=_demoShopLists;
 @synthesize demoShopOriginalLists=_demoShopOriginalLists;
@@ -57,25 +56,12 @@
                 @"新竹市",@"嘉義市",@"桃園縣",@"新竹縣",@"苗栗縣",@"彰化縣",
                 @"南投縣",@"雲林縣",@"嘉義縣",@"屏東縣",@"宜蘭縣",@"花蓮縣",
                 @"台東縣",@"澎湖縣",@"金門縣",@"連江縣",nil];
-    [_inventorySwitch setOn:FALSE];
-
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)inventoryFilter:(id)sender {
-    //_inventorySwitch.onImage
-    //_inventorySwitch.offImage
-    if (_inventorySwitch.on) {
-        [self reloadShopLists:nil filterType:nil];
-    }else{
-        NSString *selectedObj=([[_textDistrict currentTitle]isEqualToString:@"全縣市"])? [_textDistrict currentTitle] : @"台北市" ;
-        [self reloadShopLists:selectedObj filterType:@"district"];
-    }
 }
 
 - (IBAction)selectDistrict:(id)sender {
@@ -121,12 +107,10 @@
     cell.imageView.image=[UIImage  imageNamed:@"plate"];
     cell.backgroundColor = [UIColor clearColor];
 
-    NSInteger quantity=[[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"quantity"] integerValue];
-
-    if (quantity > 0) {
-        
-        cell.imageView.image=[UIImage  imageNamed:@"hightlight"];
-    }
+//    NSInteger quantity=[[[_demoShopLists objectAtIndex:indexPath.row]objectForKey:@"quantity"] integerValue];
+//    if (quantity > 0) {
+//        cell.imageView.image=[UIImage  imageNamed:@"hightlight"];
+//    }
     
     return cell;
 }

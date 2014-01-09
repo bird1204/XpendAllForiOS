@@ -23,10 +23,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *textDistrict;
 @property (strong, nonatomic) IBOutlet UIButton *textCategory;
-@property (strong, nonatomic) IBOutlet UISwitch *inventorySwitch;
 
 
-- (IBAction)inventoryFilter:(id)sender;
 - (IBAction)selectDistrict:(id)sender;
 - (IBAction)selectCategory:(id)sender;
 - (IBAction)backbtn:(id)sender;

@@ -112,7 +112,7 @@
 }
 
 -(void)notYetAlert{
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"功能未完成" message:@"因為主機被停掉了" delegate:self cancelButtonTitle:@"確定" otherButtonTitles: nil];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"功能未完成" message:@"將在下一版完成" delegate:self cancelButtonTitle:@"確定" otherButtonTitles: nil];
     [alert show];
 }
 
