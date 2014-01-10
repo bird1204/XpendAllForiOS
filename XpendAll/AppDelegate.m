@@ -91,6 +91,29 @@
 
 }
 
+-(void)usingBundleData:(NSString*)fileName{
+    NSError *error = nil;
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filepath =[documentsDirectory stringByAppendingPathComponent:fileName];
+    NSString *JSONString = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
+    
+    if ([JSONString length] < 1) {
+        NSString *bundleFilePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:fileName];
+        NSString *bundleJSONString = [[NSString alloc] initWithContentsOfFile:bundleFilePath encoding:NSUTF8StringEncoding error:&error];
+        
+        BOOL succeeded = [bundleJSONString writeToFile:filepath atomically:NO encoding:NSUTF8StringEncoding
+                                                 error:&error];
+        
+        if (succeeded) {
+            NSLog(@"usingBundleData");
+        }else{
+            NSLog(@"Failed to store the file. Error = %@", error);
+        }
+    }
+}
+
 -(void)updateTakeItDB:(NSURL*)url file:(NSString*)fileName{
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:30.0f];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -106,14 +129,20 @@
             NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             BOOL succeeded = [jsonString writeToFile:path atomically:NO encoding:NSUTF8StringEncoding
                                              error:&error];
-            if (succeeded) {
-                NSLog(@"Successfully");
+            BOOL isvaild=[NSJSONSerialization isValidJSONObject:jsonString];
+            if (succeeded && isvaild) {
+                NSLog(@"updated successfully");
             }else{
                 NSLog(@"Failed to store the file. Error = %@", error);
+                [self usingBundleData:fileName];
             }
+        }else if ([data length] == 0 && error == nil){
+            NSLog(@"Nothing was downloaded.");
+            [self usingBundleData:fileName];
+        }else if (error != nil){
+            NSLog(@"Error happened = %@", error);
+            [self usingBundleData:fileName];
         }
-        else if ([data length] == 0 && error == nil){ NSLog(@"Nothing was downloaded.");}
-        else if (error != nil){ NSLog(@"Error happened = %@", error); }
     }];
 }
 

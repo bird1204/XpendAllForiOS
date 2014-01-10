@@ -42,11 +42,24 @@
 //    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetKMLData];
 //    [webGetter setDelegate:self];
 
-    NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData"];
-    NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
-    _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];    
-    _demoShopLists=_demoShopOriginalLists;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path =[documentsDirectory stringByAppendingPathComponent:@"kmlData"];
+    
+    //NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //判斷plist檔案存在才讀取
+    if ([fileManager fileExistsAtPath: path]) {
+        NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        _demoShopOriginalLists = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        _demoShopLists=_demoShopOriginalLists;
+    } else{
+        NSLog(@"no file");
+    }
+   
 
     [_textDistrict setTitle:@"台北市" forState:UIControlStateNormal];
     [_textCategory setTitle:@"全部分類" forState:UIControlStateNormal];
