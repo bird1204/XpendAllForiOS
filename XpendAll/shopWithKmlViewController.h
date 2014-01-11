@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebJsonDataGetter.h"
 
 
-@interface shopWithKmlViewController : UIViewController<WebJsonDataGetFinishDelegater,UITableViewDataSource,UITableViewDelegate>{
-    WebJsonDataGetter *webGetter;
+@interface shopWithKmlViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
 }
 
 @property (strong,nonatomic) NSMutableArray *categories;

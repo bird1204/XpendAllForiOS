@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebJsonDataGetter.h"
 
 
-@interface shopViewController : UIViewController<WebJsonDataGetFinishDelegater,UITableViewDataSource,UITableViewDelegate>{
-    WebJsonDataGetter *webGetter;
+@interface shopViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString*)url;
