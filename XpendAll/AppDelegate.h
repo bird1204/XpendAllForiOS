@@ -10,7 +10,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>{
-    UIBackgroundTaskIdentifier backgroundTask;
     CLLocationManager* locationManager;
     CLLocation *currentLocation;    
 }

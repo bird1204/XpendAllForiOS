@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "GetJsonURLString.h"
-
+#import "SVProgressHUD.h"
 
 @implementation AppDelegate
 @synthesize shopOriginalLists=_shopOriginalLists;
@@ -18,9 +18,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path =[documentsDirectory stringByAppendingPathComponent:@"updateInfo"];
     
-    NSURL *url = [NSURL URLWithString:GetKMLDataURL];
-    [self updateTakeItDB:url file:@"kmlData"];
+    
+    if ([fileManager fileExistsAtPath: path]) {
+        NSLog(@"here");
+        NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZ"];
+        NSDate *lastUpdateDate = [df dateFromString: str];
+        
+        NSLog(@"%f",[[NSDate date] timeIntervalSinceDate:lastUpdateDate]);
+        // If less than 7-day, do something  60.0f*60.0f*24.0f*7.0f
+        if ([[NSDate date] timeIntervalSinceDate:lastUpdateDate] > 60.0f*60.0f*24.0f*7.0f){
+            [SVProgressHUD showWithStatus:@"正在更新資料" maskType:SVProgressHUDMaskTypeClear];
+
+            NSURL *url = [NSURL URLWithString:GetKMLDataURL];
+            [self updateTakeItDB:url file:@"kmlData"];
+        }
+    }else{
+        [SVProgressHUD showWithStatus:@"正在更新資料" maskType:SVProgressHUDMaskTypeClear];
+
+        NSURL *url = [NSURL URLWithString:GetKMLDataURL];
+        [self updateTakeItDB:url file:@"kmlData"];
+        NSLog(@"no file");
+
+    }
+
+    
     
     UIStoryboard *main=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *mainViewController =
@@ -98,7 +127,6 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filepath =[documentsDirectory stringByAppendingPathComponent:fileName];
     NSString *JSONString = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
-    
     if ([JSONString length] < 1) {
         NSString *bundleFilePath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:fileName];
         NSString *bundleJSONString = [[NSString alloc] initWithContentsOfFile:bundleFilePath encoding:NSUTF8StringEncoding error:&error];
@@ -107,11 +135,35 @@
                                                  error:&error];
         
         if (succeeded) {
+            [self logUpdateInfo];
+            [SVProgressHUD dismiss];
+
             NSLog(@"usingBundleData");
         }else{
             NSLog(@"Failed to store the file. Error = %@", error);
         }
     }
+}
+
+-(void)logUpdateInfo{
+    NSError *error = nil;
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path =[documentsDirectory stringByAppendingPathComponent:@"updateInfo"];
+    
+    NSString *date=[NSString stringWithFormat:@"%@",[NSDate date]];
+    BOOL succeeded = [date writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:&error];
+    
+    if (succeeded) {
+        [SVProgressHUD dismiss];
+
+        NSLog(@"logging successfully");
+        
+    }else{
+        NSLog(@"Failed to store the log. Error = %@", error);
+    }
+
 }
 
 -(void)updateTakeItDB:(NSURL*)url file:(NSString*)fileName{
@@ -127,13 +179,16 @@
             NSString *documentsDirectory = [paths objectAtIndex:0];
             NSString *path =[documentsDirectory stringByAppendingPathComponent:fileName];
             NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
             BOOL succeeded = [jsonString writeToFile:path atomically:NO encoding:NSUTF8StringEncoding
                                              error:&error];
-            BOOL isvaild=[NSJSONSerialization isValidJSONObject:jsonString];
+            BOOL isvaild=[NSJSONSerialization isValidJSONObject:json];
+
             if (succeeded && isvaild) {
                 NSLog(@"updated successfully");
+                [self logUpdateInfo];
             }else{
-                NSLog(@"Failed to store the file. Error = %@", error);
+                NSLog(@"Failed to store the JSON. isVaild %d , Error = %@",isvaild, error);
                 [self usingBundleData:fileName];
             }
         }else if ([data length] == 0 && error == nil){

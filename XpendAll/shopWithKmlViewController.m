@@ -50,7 +50,7 @@
     //NSString *path = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"kmlData"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    //判斷plist檔案存在才讀取
+    //判斷檔案存在才讀取
     if ([fileManager fileExistsAtPath: path]) {
         NSString *str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
